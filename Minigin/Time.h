@@ -1,6 +1,11 @@
 #pragma once
 #include "Minigin.h"
 
+/* Time Class
+* Provides easy access to different game times.
+* Implemented as static class opposed to delta parameter in update function to prohibit
+* passing it as a parameter and triggering a level 4 warning when set parameter is not used.
+*/
 class Time final
 {
 public:
