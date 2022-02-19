@@ -14,6 +14,7 @@
 #include "TextComponent.h"
 #include "RenderComponent.h"
 #include "TransformComponent.h"
+#include "FPSComponent.h"
 
 using namespace std;
 
@@ -91,7 +92,8 @@ void dae::Minigin::LoadGame() const
 
 	fpsCounter->AddComponent<RenderComponent>();
 	fpsCounter->AddComponent<TransformComponent>();
-	
+	fpsCounter->AddComponent<FPSComponent>();
+
 	scene.Add(fpsCounter);
 }
 

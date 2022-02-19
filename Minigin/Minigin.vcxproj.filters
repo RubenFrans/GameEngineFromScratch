@@ -25,6 +25,12 @@
     <Filter Include="Source Files\Components\TransformComponent">
       <UniqueIdentifier>{585877b2-c053-40db-8338-b2cf5610c906}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Components\FPSComponent">
+      <UniqueIdentifier>{384a9e4d-b0e7-4188-967c-a4177a7bebc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Time">
+      <UniqueIdentifier>{58c47d45-9e68-42aa-a3af-866465589cea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniginPCH.h">
@@ -69,9 +75,6 @@
     <ClInclude Include="Minigin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Time.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BaseComponent.h">
       <Filter>Source Files\Components</Filter>
     </ClInclude>
@@ -82,7 +85,13 @@
       <Filter>Source Files\Components\RenderComponent</Filter>
     </ClInclude>
     <ClInclude Include="TransformComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\Components\TransformComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="FPSComponent.h">
+      <Filter>Source Files\Components\FPSComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Source Files\Time</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -125,9 +134,6 @@
     <ClCompile Include="Minigin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Time.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BaseComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
@@ -138,7 +144,13 @@
       <Filter>Source Files\Components\RenderComponent</Filter>
     </ClCompile>
     <ClCompile Include="TransformComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Components\TransformComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="FPSComponent.cpp">
+      <Filter>Source Files\Components\FPSComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Source Files\Time</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
