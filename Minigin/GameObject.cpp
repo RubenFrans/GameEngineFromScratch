@@ -28,11 +28,8 @@ void dae::GameObject::FixedUpdate(){
 
 void dae::GameObject::Render() const
 {
-	//const auto& pos = m_Transform.GetPosition();
-	//Renderer::GetInstance().RenderTexture(*m_pTexture, pos.x, pos.y);
-
 	RenderComponent* rc = GetComponent<RenderComponent>();
-	
+
 	if (!rc)
 		return;
 

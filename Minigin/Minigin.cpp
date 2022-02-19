@@ -13,6 +13,7 @@
 
 #include "TextComponent.h"
 #include "RenderComponent.h"
+#include "TransformComponent.h"
 
 using namespace std;
 
@@ -62,27 +63,44 @@ void dae::Minigin::LoadGame() const
 	auto& scene = SceneManager::GetInstance().CreateScene("Demo");
 	auto font = ResourceManager::GetInstance().LoadFont("Lingua.otf", 36);
 
-	auto fpsCounter = std::make_shared<GameObject>();
+	auto go = std::make_shared<GameObject>();
+	go->AddComponent<RenderComponent>()->SetTexture("background.jpg");
+	go->AddComponent<TransformComponent>();
+	//go->SetTexture("background.jpg");
+	scene.Add(go);
 
-	fpsCounter->AddComponent<RenderComponent>()->SetTexture("backGround.jpg");
+	go = std::make_shared<GameObject>();
+	//go->SetTexture("logo.png");
+	//go->SetPosition(216, 180);
+	go->AddComponent<RenderComponent>()->SetTexture("logo.png");
+	go->AddComponent<TransformComponent>()->SetTransform(216.f, 180.f);
+	scene.Add(go);
+
+	//auto to = std::make_shared<TextObject>("Programming 4 Assignment", font);
+	//to->AddComponent<RenderComponent>();
+	//to->SetPosition(80, 20);
+	//scene.Add(to);
+
+	// Title
+	auto title = std::make_shared<GameObject>();
+	title->AddComponent<TextComponent>()
+		->SetFont(font)
+		->SetText("Programming 4 Assignment");
+	title->AddComponent<RenderComponent>();
+	title->AddComponent<TransformComponent>()->SetTransform(80.f, 20.f);
+
+	scene.Add(title);
+
+	// Fps counter
+	auto fpsCounter = std::make_shared<GameObject>();
 	fpsCounter->AddComponent<TextComponent>()
 		->SetText("It'ss working!!!")
 		->SetFont(font);
 
+	fpsCounter->AddComponent<RenderComponent>();
+	fpsCounter->AddComponent<TransformComponent>();
+	
 	scene.Add(fpsCounter);
-
-	auto go = std::make_shared<GameObject>();
-	go->SetTexture("background.jpg");
-	scene.Add(go);
-
-	go = std::make_shared<GameObject>();
-	go->SetTexture("logo.png");
-	go->SetPosition(216, 180);
-	scene.Add(go);
-
-	auto to = std::make_shared<TextObject>("Programming 4 Assignment", font);
-	to->SetPosition(80, 20);
-	scene.Add(to);
 }
 
 void dae::Minigin::Cleanup()

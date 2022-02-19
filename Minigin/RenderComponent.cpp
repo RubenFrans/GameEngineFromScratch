@@ -2,6 +2,8 @@
 #include "RenderComponent.h"
 #include "Renderer.h"
 #include "ResourceManager.h"
+#include "TransformComponent.h"
+#include "GameObject.h"
 
 RenderComponent::RenderComponent(dae::GameObject* pOwner)
 	: BaseComponent{ pOwner }
@@ -18,10 +20,14 @@ void RenderComponent::FixedUpdate()
 
 void RenderComponent::Render() const
 {
-	//const auto& pos = m_Transform.GetPosition();
-	const float x{50.0f};
-	const float y{50.0f};
-	dae::Renderer::GetInstance().RenderTexture(*m_pTexture, x, y);
+
+	TransformComponent* tc = GetGameObject()->GetComponent<TransformComponent>();
+
+	if (!tc)
+		return;
+
+	dae::Renderer::GetInstance().RenderTexture(*m_pTexture,
+		tc->GetTransform().GetPosition().x, tc->GetTransform().GetPosition().y);
 }
 
 void RenderComponent::SetTexture(const std::string& filename)
