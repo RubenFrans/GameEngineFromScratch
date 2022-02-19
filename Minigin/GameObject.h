@@ -46,7 +46,7 @@ namespace dae
 	template<typename T>
 	inline T* GameObject::AddComponent()
 	{
-		T* component = new T{};
+		T* component = new T{this};
 		m_Components.push_back(component);
 
 		return component;

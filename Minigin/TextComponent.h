@@ -1,22 +1,22 @@
 #pragma once
 #include "BaseComponent.h"
-
-class Font;
+#include "Font.h"
 
 class TextComponent :
     public BaseComponent
 {
 public:
-	TextComponent() = default;
+	TextComponent(dae::GameObject* pOwner);
 	virtual ~TextComponent() = default;
 	virtual void Update() override;
 	virtual void FixedUpdate() override;
 
-	void SetText(const std::string& text);
+	TextComponent* SetText(const std::string& text);
+	TextComponent* SetFont(std::shared_ptr<dae::Font> font);
 
 private:
 	bool m_NeedsUpdate;
 	std::string m_Text;
-	std::shared_ptr<Font> m_Font;
+	std::shared_ptr<dae::Font> m_Font;
 };
 

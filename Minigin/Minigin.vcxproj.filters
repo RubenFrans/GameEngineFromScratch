@@ -19,6 +19,9 @@
     <Filter Include="Source Files\Components\TextComponent">
       <UniqueIdentifier>{99b4c6dc-49c7-4339-b4de-3a2c98a2b56d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Components\RenderComponent">
+      <UniqueIdentifier>{43a23b07-d167-4fe0-bba4-5a2fb4386a0d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniginPCH.h">
@@ -72,6 +75,9 @@
     <ClInclude Include="TextComponent.h">
       <Filter>Source Files\Components\TextComponent</Filter>
     </ClInclude>
+    <ClInclude Include="RenderComponent.h">
+      <Filter>Source Files\Components\RenderComponent</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
@@ -121,6 +127,9 @@
     </ClCompile>
     <ClCompile Include="TextComponent.cpp">
       <Filter>Source Files\Components\TextComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderComponent.cpp">
+      <Filter>Source Files\Components\RenderComponent</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

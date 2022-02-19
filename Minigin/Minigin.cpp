@@ -12,6 +12,7 @@
 #include "Time.h"
 
 #include "TextComponent.h"
+#include "RenderComponent.h"
 
 using namespace std;
 
@@ -59,11 +60,16 @@ void dae::Minigin::Initialize()
 void dae::Minigin::LoadGame() const
 {
 	auto& scene = SceneManager::GetInstance().CreateScene("Demo");
+	auto font = ResourceManager::GetInstance().LoadFont("Lingua.otf", 36);
 
 	auto fpsCounter = std::make_shared<GameObject>();
 
-	fpsCounter->AddComponent<TextComponent>();
-	fpsCounter->GetComponent<TextComponent>()->SetText("TEST");
+	fpsCounter->AddComponent<RenderComponent>()->SetTexture("backGround.jpg");
+	fpsCounter->AddComponent<TextComponent>()
+		->SetText("It'ss working!!!")
+		->SetFont(font);
+
+	scene.Add(fpsCounter);
 
 	auto go = std::make_shared<GameObject>();
 	go->SetTexture("background.jpg");
@@ -74,7 +80,6 @@ void dae::Minigin::LoadGame() const
 	go->SetPosition(216, 180);
 	scene.Add(go);
 
-	auto font = ResourceManager::GetInstance().LoadFont("Lingua.otf", 36);
 	auto to = std::make_shared<TextObject>("Programming 4 Assignment", font);
 	to->SetPosition(80, 20);
 	scene.Add(to);
