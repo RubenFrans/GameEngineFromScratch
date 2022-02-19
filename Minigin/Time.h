@@ -9,8 +9,7 @@
 class Time final
 {
 public:
-
-	friend void dae::Minigin::Run();
+	friend void dae::Minigin::Run(); 
 
 	static float GetDeltaTime();
 	static float GetTotalTime();
