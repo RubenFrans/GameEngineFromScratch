@@ -15,6 +15,7 @@
 #include "RenderComponent.h"
 #include "TransformComponent.h"
 #include "FPSComponent.h"
+#include "RGBColor.h"
 
 using namespace std;
 
@@ -88,7 +89,8 @@ void dae::Minigin::LoadGame() const
 	auto fpsCounter = std::make_shared<GameObject>();
 	fpsCounter->AddComponent<TextComponent>()
 		->SetText("It'ss working!!!")
-		->SetFont(font);
+		->SetFont(font)
+		->SetColor(RGBColor{150, 150, 0});
 
 	fpsCounter->AddComponent<RenderComponent>();
 	fpsCounter->AddComponent<TransformComponent>();

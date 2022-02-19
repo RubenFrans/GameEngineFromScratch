@@ -93,6 +93,9 @@
     <ClInclude Include="Time.h">
       <Filter>Source Files\Time</Filter>
     </ClInclude>
+    <ClInclude Include="RGBColor.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">

@@ -8,7 +8,7 @@
 #include "RenderComponent.h"
 
 TextComponent::TextComponent(dae::GameObject* pOwner)
-	: BaseComponent{ pOwner }
+	: BaseComponent{ pOwner }, m_NeedsUpdate{ false }, m_Color{ 255, 255, 255 }
 {
 }
 
@@ -16,7 +16,7 @@ void TextComponent::Update()
 {
 	if (m_NeedsUpdate)
 	{
-		const SDL_Color color = { 255,255,255 }; // only white text is supported now
+		const SDL_Color color = { m_Color.r , m_Color.g, m_Color.b }; // only white text is supported now
 		const auto surf = TTF_RenderText_Blended(m_Font->GetFont(), m_Text.c_str(), color);
 		if (surf == nullptr)
 		{
@@ -53,4 +53,14 @@ TextComponent* TextComponent::SetFont(std::shared_ptr<dae::Font> font)
 {
 	m_Font = font;
 	return this;
+}
+
+void TextComponent::SetColor(const RGBColor& color)
+{
+	m_Color = color;
+}
+
+void TextComponent::SetColor(Uint8 r, Uint8 g, Uint8 b)
+{
+	m_Color = RGBColor(r, g, b);
 }
