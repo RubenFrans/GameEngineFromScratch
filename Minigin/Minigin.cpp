@@ -11,6 +11,8 @@
 #include <chrono>
 #include "Time.h"
 
+#include "TextComponent.h"
+
 using namespace std;
 
 void PrintSDLVersion()
@@ -57,6 +59,11 @@ void dae::Minigin::Initialize()
 void dae::Minigin::LoadGame() const
 {
 	auto& scene = SceneManager::GetInstance().CreateScene("Demo");
+
+	auto fpsCounter = std::make_shared<GameObject>();
+
+	fpsCounter->AddComponent<TextComponent>();
+	fpsCounter->GetComponent<TextComponent>()->SetText("TEST");
 
 	auto go = std::make_shared<GameObject>();
 	go->SetTexture("background.jpg");
