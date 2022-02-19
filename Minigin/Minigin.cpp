@@ -66,20 +66,12 @@ void dae::Minigin::LoadGame() const
 	auto go = std::make_shared<GameObject>();
 	go->AddComponent<RenderComponent>()->SetTexture("background.jpg");
 	go->AddComponent<TransformComponent>();
-	//go->SetTexture("background.jpg");
 	scene.Add(go);
 
 	go = std::make_shared<GameObject>();
-	//go->SetTexture("logo.png");
-	//go->SetPosition(216, 180);
 	go->AddComponent<RenderComponent>()->SetTexture("logo.png");
 	go->AddComponent<TransformComponent>()->SetTransform(216.f, 180.f);
 	scene.Add(go);
-
-	//auto to = std::make_shared<TextObject>("Programming 4 Assignment", font);
-	//to->AddComponent<RenderComponent>();
-	//to->SetPosition(80, 20);
-	//scene.Add(to);
 
 	// Title
 	auto title = std::make_shared<GameObject>();

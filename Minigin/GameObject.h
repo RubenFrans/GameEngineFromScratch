@@ -9,8 +9,7 @@ namespace dae
 {
 	class Texture2D;
 
-	// should be marked as final GameObjects will be constructed by adding different GameObjects
-	class GameObject : public SceneObject
+	class GameObject final : public SceneObject
 	{
 	public:
 
@@ -29,15 +28,7 @@ namespace dae
 		template <typename T> T* GetComponent() const;
 		template <typename T> void RemoveComponent();
 
-		void SetTexture(const std::string& filename);
-		void SetPosition(float x, float y);
-
-
-
 	private:
-		Transform m_Transform; // should be transform component
-		// todo: mmm, every gameobject has a texture? Is that correct?
-		std::shared_ptr<Texture2D> m_pTexture{}; // shoud be in a render component
 
 		std::vector<BaseComponent*> m_Components;
 
@@ -54,8 +45,6 @@ namespace dae
 	template<typename T>
 	inline T* GameObject::GetComponent() const
 	{
-
-		// maybe replace by algorithm
 		T* result{nullptr};
 		for (BaseComponent* comp : m_Components) {
 			if (typeid(*comp) == typeid(T)) {
@@ -68,5 +57,6 @@ namespace dae
 	template<typename T>
 	inline void GameObject::RemoveComponent()
 	{
+		// TODO implement RemoveComponent
 	}
 }

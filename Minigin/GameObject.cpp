@@ -36,13 +36,3 @@ void dae::GameObject::Render() const
 	rc->Render();
 }
 
-void dae::GameObject::SetTexture(const std::string& filename)
-{
-	m_pTexture = ResourceManager::GetInstance().LoadTexture(filename);
-}
-
-void dae::GameObject::SetPosition(float x, float y)
-{
-	m_Transform.SetPosition(x, y, 0.0f);
-}
-
