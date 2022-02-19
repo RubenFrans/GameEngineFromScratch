@@ -1,4 +1,5 @@
 #pragma once
+
 struct SDL_Window;
 namespace dae
 {
@@ -10,8 +11,6 @@ namespace dae
 		void Cleanup();
 		void Run();
 	private:
-		static const int MsPerFrame = 16; //16 for 60 fps, 33 for 30 fps
-		static const int MsPerFixedFrame = 50; // Fixed update will run at 20FPS
 		SDL_Window* m_Window{};
 	};
 }

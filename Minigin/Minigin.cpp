@@ -9,6 +9,7 @@
 #include "GameObject.h"
 #include "Scene.h"
 #include <chrono>
+#include "Time.h"
 
 using namespace std;
 
@@ -82,8 +83,9 @@ void dae::Minigin::Cleanup()
 
 void dae::Minigin::Run()
 {
-	Initialize();
 
+	
+	Initialize();
 	// tell the resource manager where he can find the game data
 	ResourceManager::GetInstance().Init("../Data/");
 
@@ -104,19 +106,22 @@ void dae::Minigin::Run()
 			float deltaTime = std::chrono::duration<float>(currentTime - lastTime).count();
 			lastTime = currentTime;
 			lag += deltaTime;
+			Time::SetDeltaTime(deltaTime);
+			Time::SetTotalTime(Time::GetTotalTime() + deltaTime);
+
 			doContinue = input.ProcessInput();
 
-			while (lag >= MsPerFixedFrame) {
+			while (lag >= Time::GetMsPerFixedFrame()) {
 				// For fixedUpdate
 				// FixedUpdate(MsPerFixedFrame)
-				lag -= MsPerFixedFrame;
+				lag -= Time::GetMsPerFixedFrame();
 			}
 
-			sceneManager.Update(deltaTime);
+			sceneManager.Update();
 			renderer.Render();
 
 			// What if sleep time goes lowe than 0?
-			const auto sleepTime = currentTime + std::chrono::milliseconds(MsPerFrame)
+			const auto sleepTime = currentTime + std::chrono::milliseconds(Time::GetMsPerFrame())
 					- std::chrono::high_resolution_clock::now();
 
 			std::cout << sleepTime << std::endl;
