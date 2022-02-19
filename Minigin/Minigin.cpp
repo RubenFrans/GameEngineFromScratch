@@ -113,7 +113,7 @@ void dae::Minigin::Run()
 
 			while (lag >= Time::GetMsPerFixedFrame()) {
 				// For fixedUpdate
-				// FixedUpdate(MsPerFixedFrame)
+				sceneManager.FixedUpdate();
 				lag -= Time::GetMsPerFixedFrame();
 			}
 
