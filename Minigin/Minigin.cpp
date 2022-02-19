@@ -8,6 +8,7 @@
 #include "TextObject.h"
 #include "GameObject.h"
 #include "Scene.h"
+#include <chrono>
 
 using namespace std;
 
@@ -95,11 +96,32 @@ void dae::Minigin::Run()
 
 		// todo: this update loop could use some work.
 		bool doContinue = true;
+		auto lastTime = std::chrono::high_resolution_clock::now();
+		float lag = 0.0f;
 		while (doContinue)
 		{
+			const auto currentTime = std::chrono::high_resolution_clock::now();
+			float deltaTime = std::chrono::duration<float>(currentTime - lastTime).count();
+			lastTime = currentTime;
+			lag += deltaTime;
 			doContinue = input.ProcessInput();
-			sceneManager.Update();
+
+			while (lag >= MsPerFixedFrame) {
+				// For fixedUpdate
+				// FixedUpdate(MsPerFixedFrame)
+				lag -= MsPerFixedFrame;
+			}
+
+			sceneManager.Update(deltaTime);
 			renderer.Render();
+
+			// What if sleep time goes lowe than 0?
+			const auto sleepTime = currentTime + std::chrono::milliseconds(MsPerFrame)
+					- std::chrono::high_resolution_clock::now();
+
+			std::cout << sleepTime << std::endl;
+			this_thread::sleep_for(sleepTime);
+
 		}
 	}
 

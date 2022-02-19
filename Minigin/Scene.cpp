@@ -15,7 +15,7 @@ void Scene::Add(const std::shared_ptr<SceneObject>& object)
 	m_Objects.push_back(object);
 }
 
-void Scene::Update()
+void Scene::Update(float deltaTime)
 {
 	for(auto& object : m_Objects)
 	{
