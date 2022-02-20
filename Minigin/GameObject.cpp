@@ -36,3 +36,35 @@ void dae::GameObject::Render() const
 	rc->Render();
 }
 
+void dae::GameObject::SetParent(dae::GameObject* parent)
+{
+	m_Parent = parent;
+}
+
+dae::GameObject* dae::GameObject::GetParent() const
+{
+	return m_Parent;
+}
+
+size_t dae::GameObject::GetAmountOfChildren() const
+{
+	return m_Children.size();
+}
+
+dae::GameObject* dae::GameObject::GetChildAt(int index)
+{
+	return m_Children.at(index);
+}
+
+void dae::GameObject::RemoveChild(int index)
+{
+	m_Children.at(index)->SetParent(nullptr);
+	m_Children.erase(m_Children.begin() + index);
+}
+
+void dae::GameObject::AddChild(dae::GameObject* gameObject)
+{
+	gameObject->SetParent(this);
+	m_Children.push_back(gameObject);
+}
+

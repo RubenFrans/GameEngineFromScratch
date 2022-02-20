@@ -28,10 +28,18 @@ namespace dae
 		template <typename T> T* GetComponent() const;
 		template <typename T> void RemoveComponent();
 
+		void SetParent(GameObject* parent);
+		GameObject* GetParent() const;
+
+		size_t GetAmountOfChildren() const;
+		GameObject* GetChildAt(int index);
+		void RemoveChild(int index);
+		void AddChild(GameObject* gameObject);
+
 	private:
-
+		GameObject* m_Parent;
 		std::vector<BaseComponent*> m_Components;
-
+		std::vector<GameObject*> m_Children; // Think to change to set for unique entries (no gameobject should be added twice as child to the same go)
 	};
 
 	template<typename T>

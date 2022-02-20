@@ -99,6 +99,14 @@ void dae::Minigin::LoadGame() const
 	// Line to test removal of Components
 	//fpsCounter->AddComponent<FPSComponent>();
 
+	// Adding fpsCounter as child to title
+	//title->AddChild(fpsCounter.get());
+	// uncomment to check if removal of child also works
+	//title->RemoveChild(0);
+
+
+	// Seeting parent of FpsCounter directly to title
+	//fpsCounter->SetParent(title.get());
 
 	scene.Add(fpsCounter);
 }
