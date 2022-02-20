@@ -97,7 +97,7 @@ void dae::Minigin::LoadGame() const
 	fpsCounter->AddComponent<FPSComponent>();
 	
 	// Line to test removal of Components, fps counter will not display fps but "missing component"
-	//fpsCounter->AddComponent<FPSComponent>();
+	//fpsCounter->RemoveComponent<FPSComponent>();
 
 	// Adding fpsCounter as child to title
 	//title->AddChild(fpsCounter.get());
