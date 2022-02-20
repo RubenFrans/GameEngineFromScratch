@@ -6,6 +6,11 @@
 #include "BaseComponent.h"
 #include "RenderComponent.h"
 
+dae::GameObject::GameObject() 
+	: SceneObject{}, m_pParent{ nullptr }, m_Components{}, m_Children{}
+{
+
+}
 
 dae::GameObject::~GameObject() {
 	for (BaseComponent*& comp : m_Components) {
@@ -38,12 +43,12 @@ void dae::GameObject::Render() const
 
 void dae::GameObject::SetParent(dae::GameObject* parent)
 {
-	m_Parent = parent;
+	m_pParent = parent;
 }
 
 dae::GameObject* dae::GameObject::GetParent() const
 {
-	return m_Parent;
+	return m_pParent;
 }
 
 size_t dae::GameObject::GetAmountOfChildren() const

@@ -88,7 +88,7 @@ void dae::Minigin::LoadGame() const
 	// Fps counter
 	auto fpsCounter = std::make_shared<GameObject>();
 	fpsCounter->AddComponent<TextComponent>()
-		->SetText("It'ss working!!!")
+		->SetText("Missing FPS component")
 		->SetFont(font)
 		->SetColor(RGBColor{150, 150, 0});
 
@@ -96,7 +96,7 @@ void dae::Minigin::LoadGame() const
 	fpsCounter->AddComponent<TransformComponent>();
 	fpsCounter->AddComponent<FPSComponent>();
 	
-	// Line to test removal of Components
+	// Line to test removal of Components, fps counter will not display fps but "missing component"
 	//fpsCounter->AddComponent<FPSComponent>();
 
 	// Adding fpsCounter as child to title
@@ -141,8 +141,10 @@ void dae::Minigin::Run()
 		{
 			const auto currentTime = std::chrono::high_resolution_clock::now();
 			float deltaTime = std::chrono::duration<float>(currentTime - lastTime).count();
+			
 			lastTime = currentTime;
 			lag += deltaTime;
+
 			Time::SetDeltaTime(deltaTime);
 			Time::SetTotalTime(Time::GetTotalTime() + deltaTime);
 
@@ -157,7 +159,6 @@ void dae::Minigin::Run()
 			sceneManager.Update();
 			renderer.Render();
 
-			// What if sleep time goes lowe than 0?
 			const auto sleepTime = currentTime + std::chrono::milliseconds(Time::GetMsPerFrame())
 					- std::chrono::high_resolution_clock::now();
 

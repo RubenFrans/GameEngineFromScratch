@@ -13,7 +13,7 @@ namespace dae
 	{
 	public:
 
-		GameObject() = default;
+		GameObject();
 		virtual ~GameObject();
 		GameObject(const GameObject & other) = delete;
 		GameObject(GameObject && other) = delete;
@@ -37,7 +37,7 @@ namespace dae
 		void AddChild(GameObject* gameObject);
 
 	private:
-		GameObject* m_Parent;
+		GameObject* m_pParent;
 		std::vector<BaseComponent*> m_Components;
 		std::vector<GameObject*> m_Children; // Think to change to set for unique entries (no gameobject should be added twice as child to the same go)
 	};
