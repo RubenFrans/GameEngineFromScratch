@@ -57,6 +57,14 @@ namespace dae
 	template<typename T>
 	inline void GameObject::RemoveComponent()
 	{
-		// TODO implement RemoveComponent
+		auto it = std::remove_if(m_Components.begin(), m_Components.end(), [](BaseComponent* comp) {
+			if (typeid(*comp) == typeid(T)) {
+				return true;
+			}
+			return false;
+			});
+
+		delete *it;
+		m_Components.erase(it, m_Components.end());
 	}
 }

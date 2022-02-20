@@ -95,6 +95,10 @@ void dae::Minigin::LoadGame() const
 	fpsCounter->AddComponent<RenderComponent>();
 	fpsCounter->AddComponent<TransformComponent>();
 	fpsCounter->AddComponent<FPSComponent>();
+	
+	// Line to test removal of Components
+	//fpsCounter->AddComponent<FPSComponent>();
+
 
 	scene.Add(fpsCounter);
 }
@@ -150,7 +154,6 @@ void dae::Minigin::Run()
 			const auto sleepTime = currentTime + std::chrono::milliseconds(Time::GetMsPerFrame())
 					- std::chrono::high_resolution_clock::now();
 
-			std::cout << sleepTime << std::endl;
 			this_thread::sleep_for(sleepTime);
 
 		}
