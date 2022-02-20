@@ -104,7 +104,6 @@ void dae::Minigin::LoadGame() const
 	// uncomment to check if removal of child also works
 	//title->RemoveChild(0);
 
-
 	// Seeting parent of FpsCounter directly to title
 	//fpsCounter->SetParent(title.get());
 
