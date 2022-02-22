@@ -14,7 +14,7 @@ namespace dae
 	public:
 
 		GameObject();
-		virtual ~GameObject();
+		~GameObject(); // no virtual because class is final
 		GameObject(const GameObject & other) = delete;
 		GameObject(GameObject && other) = delete;
 		GameObject& operator=(const GameObject & other) = delete;
@@ -55,8 +55,9 @@ namespace dae
 	{
 		T* result{nullptr};
 		for (BaseComponent* comp : m_Components) {
-			if (typeid(*comp) == typeid(T)) {
+			if (typeid(*comp) == typeid(T)) { // you can also just use dynamic cast in for loop and not check type id's
 				result = dynamic_cast<T*>(comp);
+				break;
 			}
 		}
 
