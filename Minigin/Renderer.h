@@ -1,6 +1,8 @@
 #pragma once
 #include "Singleton.h"
 
+class ImgGuiRenderComponent;
+
 namespace dae
 {
 	class Texture2D;
@@ -24,6 +26,13 @@ namespace dae
 
 		const SDL_Color& GetBackgroundColor() const { return m_clearColor; }
 		void SetBackgroundColor(const SDL_Color& color) { m_clearColor = color; }
+
+		void AddImgGuiRenderComponent(ImgGuiRenderComponent* imguiRenderComponent);
+		void RenderImgGui() const;
+
+	private:
+		std::vector<ImgGuiRenderComponent*> m_ImgGuiRenderComponents{};
+
 	};
 }
 

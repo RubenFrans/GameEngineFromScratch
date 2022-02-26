@@ -16,6 +16,8 @@
 #include "TransformComponent.h"
 #include "FPSComponent.h"
 #include "RGBColor.h"
+#include "ImGuiPlotComponent.h"
+
 
 using namespace std;
 
@@ -45,8 +47,8 @@ void dae::Minigin::Initialize()
 		"Programming 4 assignment",
 		SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED,
-		640,
-		480,
+		1280,
+		720,
 		SDL_WINDOW_OPENGL
 	);
 	if (m_Window == nullptr) 
@@ -55,6 +57,9 @@ void dae::Minigin::Initialize()
 	}
 
 	Renderer::GetInstance().Init(m_Window);
+
+
+
 }
 
 /**
@@ -95,6 +100,12 @@ void dae::Minigin::LoadGame() const
 	fpsCounter->AddComponent<RenderComponent>();
 	fpsCounter->AddComponent<TransformComponent>();
 	fpsCounter->AddComponent<FPSComponent>();
+
+	auto plot1 = std::make_shared<GameObject>();
+
+	plot1->AddComponent<ImGuiPlotComponent>();
+
+	scene.Add(plot1);
 	
 	// Line to test removal of Components, fps counter will not display fps but "missing component"
 	//fpsCounter->RemoveComponent<FPSComponent>();

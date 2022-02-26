@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Time">
       <UniqueIdentifier>{58c47d45-9e68-42aa-a3af-866465589cea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Components\ImgGuiRenderComponent">
+      <UniqueIdentifier>{e2a7da46-7d40-4f95-a7bf-c5a4ff55dce0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\ImgGuiRenderComponent\ImgGUIPlotComponent">
+      <UniqueIdentifier>{6785b914-3922-408a-8d99-32b543245854}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniginPCH.h">
@@ -120,6 +126,12 @@
     <ClInclude Include="imstb_truetype.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ImGuiPlotComponent.h">
+      <Filter>Source Files\Components\ImgGuiRenderComponent\ImgGUIPlotComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgGuiRenderComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
@@ -198,6 +210,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="imgui_widgets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuiPlotComponent.cpp">
+      <Filter>Source Files\Components\ImgGuiRenderComponent\ImgGUIPlotComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="ImgGuiRenderComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
