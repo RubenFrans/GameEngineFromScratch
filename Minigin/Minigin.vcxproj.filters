@@ -37,6 +37,9 @@
     <Filter Include="Source Files\Components\ImgGuiRenderComponent\ImgGUIPlotComponent">
       <UniqueIdentifier>{6785b914-3922-408a-8d99-32b543245854}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\CacheMeasure">
+      <UniqueIdentifier>{7c6fcc7a-b052-40d2-9148-4a03d92f2b30}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniginPCH.h">
@@ -132,6 +135,12 @@
     <ClInclude Include="ImgGuiRenderComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="imgui_plot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CacheDataGenerator.h">
+      <Filter>Source Files\CacheMeasure</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
@@ -217,6 +226,12 @@
     </ClCompile>
     <ClCompile Include="ImgGuiRenderComponent.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_plot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CacheDataGenerator.cpp">
+      <Filter>Source Files\CacheMeasure</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
