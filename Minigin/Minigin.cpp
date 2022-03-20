@@ -19,6 +19,8 @@
 #include "ImGuiPlotComponent.h"
 #include "MrPepperComponent.h"
 #include "LivesComponent.h"
+#include "BurgerComponent.h"
+#include "PointsComponent.h"
 
 using namespace std;
 
@@ -147,7 +149,7 @@ void dae::Minigin::LoadGame() const
 	p2Lives->AddComponent<RenderComponent>();
 	p2Lives->AddComponent<TransformComponent>()->SetTransform(0.0f, 200.0f);
 	p2Lives->AddComponent<TextComponent>()
-		->SetText("Lives: ")
+		->SetText("Lives: 3")
 		->SetFont(font)
 		->SetColor(RGBColor{ 150, 150, 0 });
 	LivesComponent* p2LivesComponent = p2Lives->AddComponent<LivesComponent>();
@@ -161,6 +163,50 @@ void dae::Minigin::LoadGame() const
 	scene.Add(mrPepper2);
 
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonA, std::make_shared<DieCommand>(pepperComp2), ButtonBehaviour::DownThisFrame, 1);
+
+
+
+	// Points player 1
+	auto p1Points = std::make_shared<GameObject>();
+	p1Points->AddComponent<TextComponent>()
+		->SetText("Points: 0")
+		->SetFont(font)
+		->SetColor(RGBColor{ 0, 150, 0 });
+	p1Points->AddComponent<TransformComponent>()
+		->SetTransform(0.0f, 130.0f);
+	p1Points->AddComponent<RenderComponent>();
+	auto p1PointComp = p1Points->AddComponent<PointsComponent>();
+	scene.Add(p1Points);
+
+
+	// Points player 2
+	auto p2Points = std::make_shared<GameObject>();
+	p2Points->AddComponent<TextComponent>()
+		->SetText("Points: 0")
+		->SetFont(font)
+		->SetColor(RGBColor{ 0, 150, 0 });
+	p2Points->AddComponent<TransformComponent>()
+		->SetTransform(0.0f, 220.0f);
+	p2Points->AddComponent<RenderComponent>();
+	auto p2PointComp = p2Points->AddComponent<PointsComponent>();
+	scene.Add(p2Points);
+
+	// Burger 
+	auto burger = std::make_shared<GameObject>();
+	auto burgerComp = burger->AddComponent<BurgerComponent>();
+	burgerComp->AddObserver(p1PointComp);
+	scene.Add(burger);
+
+	// Burger2
+	auto burger2 = std::make_shared<GameObject>();
+	auto burgerComp2 = burger2->AddComponent<BurgerComponent>();
+	burgerComp2->AddObserver(p2PointComp);
+	scene.Add(burger2);
+
+
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonB, std::make_shared<BurgerDropCommand>(burgerComp), ButtonBehaviour::DownThisFrame, 0);
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonB, std::make_shared<BurgerDropCommand>(burgerComp2), ButtonBehaviour::DownThisFrame, 1);
+
 }
 
 void dae::Minigin::Cleanup()

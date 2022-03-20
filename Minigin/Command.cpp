@@ -51,3 +51,8 @@ void DieCommand::Execute()
 {
 	m_MrPepper->Die();
 }
+
+void BurgerDropCommand::Execute()
+{
+	m_pBurgerComponent->DropBurger();
+}

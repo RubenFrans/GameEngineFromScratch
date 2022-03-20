@@ -32,6 +32,6 @@ void LivesComponent::onNotify(const BaseComponent&, Event event)
 {
     if (event == Event::PLAYER_DIE) {
         --m_CurrentAmountOfLives;
-        GetGameObject()->GetComponent<TextComponent>()->SetText(std::to_string(m_CurrentAmountOfLives));
+        GetGameObject()->GetComponent<TextComponent>()->SetText("Lives: " + std::to_string(m_CurrentAmountOfLives));
     }
 }

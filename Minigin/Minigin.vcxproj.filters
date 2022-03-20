@@ -58,6 +58,9 @@
     <Filter Include="Source Files\Components\LivesComponent">
       <UniqueIdentifier>{1c55a1d7-161d-4257-a5e9-a9b56f4372c8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Components\PointsComponent">
+      <UniqueIdentifier>{a4db8ac9-59d5-4b6e-9870-6892547b8193}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniginPCH.h">
@@ -189,6 +192,12 @@
     <ClInclude Include="LivesComponent.h">
       <Filter>Source Files\Components\LivesComponent</Filter>
     </ClInclude>
+    <ClInclude Include="PointsComponent.h">
+      <Filter>Source Files\Components\PointsComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="BurgerComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
@@ -304,6 +313,12 @@
     </ClCompile>
     <ClCompile Include="LivesComponent.cpp">
       <Filter>Source Files\Components\LivesComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="PointsComponent.cpp">
+      <Filter>Source Files\Components\PointsComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="BurgerComponent.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
