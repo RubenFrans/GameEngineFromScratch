@@ -24,10 +24,10 @@ void PointsComponent::onNotify(const BaseComponent&, Event event)
 	case Event::PLAYER_DIE:
 		break;
 	case Event::ENEMY_DIE:
-		AddPoints(10);
+		AddPoints(20);
 		break;
 	case Event::BURGER_DROP:
-		AddPoints(20);
+		AddPoints(10);
 		break;
 	default:
 		break;

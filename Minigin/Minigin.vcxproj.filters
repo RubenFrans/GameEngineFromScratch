@@ -198,6 +198,9 @@
     <ClInclude Include="BurgerComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
@@ -318,6 +321,9 @@
       <Filter>Source Files\Components\PointsComponent</Filter>
     </ClCompile>
     <ClCompile Include="BurgerComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

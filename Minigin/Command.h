@@ -1,6 +1,7 @@
 #pragma once
 #include "MrPepperComponent.h"
 #include "BurgerComponent.h"
+#include "EnemyComponent.h"
 
 class Command
 {
@@ -93,4 +94,20 @@ public:
 private:
 
 	BurgerComponent* m_pBurgerComponent;
+};
+
+class EnemyDieCommand
+	: public Command
+{
+public:
+	EnemyDieCommand(EnemyComponent* enemyComponent)
+		: m_pEnemyComponent{ enemyComponent }
+	{
+	}
+
+	virtual ~EnemyDieCommand() = default;
+	virtual void Execute() override;
+private:
+
+	EnemyComponent* m_pEnemyComponent;
 };

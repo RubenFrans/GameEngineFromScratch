@@ -21,6 +21,7 @@
 #include "LivesComponent.h"
 #include "BurgerComponent.h"
 #include "PointsComponent.h"
+#include "EnemyComponent.h"
 
 using namespace std;
 
@@ -207,6 +208,20 @@ void dae::Minigin::LoadGame() const
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonB, std::make_shared<BurgerDropCommand>(burgerComp), ButtonBehaviour::DownThisFrame, 0);
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonB, std::make_shared<BurgerDropCommand>(burgerComp2), ButtonBehaviour::DownThisFrame, 1);
 
+	// Enemy
+
+	auto enemy = std::make_shared<GameObject>();
+	auto enemyComp = enemy->AddComponent<EnemyComponent>();
+	enemyComp->AddObserver(p1PointComp);
+	scene.Add(enemy);
+
+	auto enemy2 = std::make_shared<GameObject>();
+	auto enemyComp2 = enemy2->AddComponent<EnemyComponent>();
+	enemyComp2->AddObserver(p2PointComp);
+	scene.Add(enemy2);
+
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonY, std::make_shared<EnemyDieCommand>(enemyComp), ButtonBehaviour::DownThisFrame, 0);
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonY, std::make_shared<EnemyDieCommand>(enemyComp2), ButtonBehaviour::DownThisFrame, 1);
 }
 
 void dae::Minigin::Cleanup()
