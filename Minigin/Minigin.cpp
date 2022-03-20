@@ -1,7 +1,7 @@
 #include "MiniginPCH.h"
 #include "Minigin.h"
 #include <thread>
-#include "InputManager.h"
+#include "InputManager2.h"
 #include "SceneManager.h"
 #include "Renderer.h"
 #include "ResourceManager.h"
@@ -17,7 +17,8 @@
 #include "FPSComponent.h"
 #include "RGBColor.h"
 #include "ImGuiPlotComponent.h"
-
+#include "MrPepperComponent.h"
+#include "LivesComponent.h"
 
 using namespace std;
 
@@ -57,9 +58,6 @@ void dae::Minigin::Initialize()
 	}
 
 	Renderer::GetInstance().Init(m_Window);
-
-
-
 }
 
 /**
@@ -67,6 +65,7 @@ void dae::Minigin::Initialize()
  */
 void dae::Minigin::LoadGame() const
 {
+
 	auto& scene = SceneManager::GetInstance().CreateScene("Demo");
 	auto font = ResourceManager::GetInstance().LoadFont("Lingua.otf", 36);
 
@@ -101,11 +100,11 @@ void dae::Minigin::LoadGame() const
 	fpsCounter->AddComponent<TransformComponent>();
 	fpsCounter->AddComponent<FPSComponent>();
 
-	auto plot1 = std::make_shared<GameObject>();
+	//auto plot1 = std::make_shared<GameObject>();
 
-	plot1->AddComponent<ImGuiPlotComponent>();
+	//plot1->AddComponent<ImGuiPlotComponent>();
 
-	scene.Add(plot1);
+	//scene.Add(plot1);
 	
 	// Line to test removal of Components, fps counter will not display fps but "missing component"
 	//fpsCounter->RemoveComponent<FPSComponent>();
@@ -119,6 +118,49 @@ void dae::Minigin::LoadGame() const
 	//fpsCounter->SetParent(title.get());
 
 	scene.Add(fpsCounter);
+
+
+	// p1 lives
+	auto p1Lives = std::make_shared<GameObject>();
+	p1Lives->AddComponent<RenderComponent>();
+	p1Lives->AddComponent<TransformComponent>()->SetTransform(0.0f, 100.0f);
+	p1Lives->AddComponent<TextComponent>()
+		->SetText("Lives: ")
+		->SetFont(font)
+		->SetColor(RGBColor{ 150, 150, 0 });
+	LivesComponent* p1LivesComponent = p1Lives->AddComponent<LivesComponent>();
+	
+	scene.Add(p1Lives);
+
+
+
+	// Mr pepper
+	auto mrPepper = std::make_shared<GameObject>();
+	auto pepperComp = mrPepper->AddComponent<MrPepperComponent>();
+	pepperComp->AddObserver(p1LivesComponent);
+	scene.Add(mrPepper);
+
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonA, std::make_shared<DieCommand>(pepperComp), ButtonBehaviour::DownThisFrame, 0);
+
+	// p2 lives
+	auto p2Lives = std::make_shared<GameObject>();
+	p2Lives->AddComponent<RenderComponent>();
+	p2Lives->AddComponent<TransformComponent>()->SetTransform(0.0f, 200.0f);
+	p2Lives->AddComponent<TextComponent>()
+		->SetText("Lives: ")
+		->SetFont(font)
+		->SetColor(RGBColor{ 150, 150, 0 });
+	LivesComponent* p2LivesComponent = p2Lives->AddComponent<LivesComponent>();
+
+	scene.Add(p2Lives);
+
+	// Mr pepper player 2
+	auto mrPepper2 = std::make_shared<GameObject>();
+	auto pepperComp2 = mrPepper->AddComponent<MrPepperComponent>();
+	pepperComp2->AddObserver(p2LivesComponent);
+	scene.Add(mrPepper2);
+
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonA, std::make_shared<DieCommand>(pepperComp2), ButtonBehaviour::DownThisFrame, 1);
 }
 
 void dae::Minigin::Cleanup()
@@ -142,7 +184,7 @@ void dae::Minigin::Run()
 	{
 		auto& renderer = Renderer::GetInstance();
 		auto& sceneManager = SceneManager::GetInstance();
-		auto& input = InputManager::GetInstance();
+		//auto& input = InputManager::GetInstance();
 
 		// todo: this update loop could use some work.
 		bool doContinue = true;
@@ -159,7 +201,7 @@ void dae::Minigin::Run()
 			Time::SetDeltaTime(deltaTime);
 			Time::SetTotalTime(Time::GetTotalTime() + deltaTime);
 
-			doContinue = input.ProcessInput();
+			doContinue = InputManager::GetInstance().ProcessInput();
 
 			while (lag >= Time::GetMsPerFixedFrame()) {
 				// For fixedUpdate

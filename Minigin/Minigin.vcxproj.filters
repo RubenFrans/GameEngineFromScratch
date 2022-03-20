@@ -40,6 +40,24 @@
     <Filter Include="Source Files\CacheMeasure">
       <UniqueIdentifier>{7c6fcc7a-b052-40d2-9148-4a03d92f2b30}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{687745dd-2ed4-4ac0-9d14-3b6564b1e839}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input\Controllers">
+      <UniqueIdentifier>{5c3267f2-7b8e-4bed-a881-a3527880972f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input\Commands">
+      <UniqueIdentifier>{816455b4-f846-4d7e-af48-e4bd67512234}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\MrPepperComponent">
+      <UniqueIdentifier>{dc42a439-7a49-41fc-8dab-2fe6dbdf596b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Observer">
+      <UniqueIdentifier>{afb1276c-47ca-4c4b-9550-82b97e9a98e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\LivesComponent">
+      <UniqueIdentifier>{1c55a1d7-161d-4257-a5e9-a9b56f4372c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniginPCH.h">
@@ -141,6 +159,36 @@
     <ClInclude Include="CacheDataGenerator.h">
       <Filter>Source Files\CacheMeasure</Filter>
     </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ControllerButtons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XboxControllerImpl.h">
+      <Filter>Source Files\Input\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="XboxController.h">
+      <Filter>Source Files\Input\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager2.h">
+      <Filter>Source Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="MrPepperComponent.h">
+      <Filter>Source Files\Components\MrPepperComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Source Files\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Subject.h">
+      <Filter>Source Files\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Events.h">
+      <Filter>Source Files\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="LivesComponent.h">
+      <Filter>Source Files\Components\LivesComponent</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
@@ -232,6 +280,30 @@
     </ClCompile>
     <ClCompile Include="CacheDataGenerator.cpp">
       <Filter>Source Files\CacheMeasure</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Source Files\Input\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="XboxControllerImpl.cpp">
+      <Filter>Source Files\Input\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="XboxController.cpp">
+      <Filter>Source Files\Input\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager2.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="MrPepperComponent.cpp">
+      <Filter>Source Files\Components\MrPepperComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>Source Files\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="Subject.cpp">
+      <Filter>Source Files\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="LivesComponent.cpp">
+      <Filter>Source Files\Components\LivesComponent</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

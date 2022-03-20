@@ -12,7 +12,6 @@ namespace dae
 	class GameObject final : public SceneObject
 	{
 	public:
-
 		GameObject();
 		~GameObject(); // no virtual because class is final
 		GameObject(const GameObject & other) = delete;
