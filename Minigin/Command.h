@@ -111,3 +111,17 @@ private:
 
 	EnemyComponent* m_pEnemyComponent;
 };
+
+class WinGameCommand
+	: public Command
+{
+public:
+	WinGameCommand()
+	{
+	}
+
+	virtual ~WinGameCommand() = default;
+	virtual void Execute() override;
+private:
+};
+

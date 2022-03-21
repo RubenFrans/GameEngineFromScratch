@@ -10,6 +10,7 @@
 #include "Scene.h"
 #include <chrono>
 #include "Time.h"
+#include <steam_api.h>
 
 #include "TextComponent.h"
 #include "RenderComponent.h"
@@ -22,6 +23,7 @@
 #include "BurgerComponent.h"
 #include "PointsComponent.h"
 #include "EnemyComponent.h"
+#include "AchievementSystem.h"
 
 using namespace std;
 
@@ -128,7 +130,7 @@ void dae::Minigin::LoadGame() const
 	p1Lives->AddComponent<RenderComponent>();
 	p1Lives->AddComponent<TransformComponent>()->SetTransform(0.0f, 100.0f);
 	p1Lives->AddComponent<TextComponent>()
-		->SetText("Lives: ")
+		->SetText("Lives: 3")
 		->SetFont(font)
 		->SetColor(RGBColor{ 150, 150, 0 });
 	LivesComponent* p1LivesComponent = p1Lives->AddComponent<LivesComponent>();
@@ -148,7 +150,7 @@ void dae::Minigin::LoadGame() const
 	// p2 lives
 	auto p2Lives = std::make_shared<GameObject>();
 	p2Lives->AddComponent<RenderComponent>();
-	p2Lives->AddComponent<TransformComponent>()->SetTransform(0.0f, 200.0f);
+	p2Lives->AddComponent<TransformComponent>()->SetTransform(0.0f, 300.0f);
 	p2Lives->AddComponent<TextComponent>()
 		->SetText("Lives: 3")
 		->SetFont(font)
@@ -165,7 +167,11 @@ void dae::Minigin::LoadGame() const
 
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonA, std::make_shared<DieCommand>(pepperComp2), ButtonBehaviour::DownThisFrame, 1);
 
+	// Achievment system
+	auto achievementSystem = std::make_shared<GameObject>();
+	auto achievementComp = achievementSystem->AddComponent<AchievementComponent>();
 
+	scene.Add(achievementSystem);
 
 	// Points player 1
 	auto p1Points = std::make_shared<GameObject>();
@@ -174,9 +180,10 @@ void dae::Minigin::LoadGame() const
 		->SetFont(font)
 		->SetColor(RGBColor{ 0, 150, 0 });
 	p1Points->AddComponent<TransformComponent>()
-		->SetTransform(0.0f, 130.0f);
+		->SetTransform(0.0f, 200.0f);
 	p1Points->AddComponent<RenderComponent>();
 	auto p1PointComp = p1Points->AddComponent<PointsComponent>();
+	p1PointComp->AddObserver(achievementComp);
 	scene.Add(p1Points);
 
 
@@ -187,9 +194,10 @@ void dae::Minigin::LoadGame() const
 		->SetFont(font)
 		->SetColor(RGBColor{ 0, 150, 0 });
 	p2Points->AddComponent<TransformComponent>()
-		->SetTransform(0.0f, 220.0f);
+		->SetTransform(0.0f, 400.0f);
 	p2Points->AddComponent<RenderComponent>();
 	auto p2PointComp = p2Points->AddComponent<PointsComponent>();
+	p2PointComp->AddObserver(achievementComp);
 	scene.Add(p2Points);
 
 	// Burger 
@@ -222,6 +230,8 @@ void dae::Minigin::LoadGame() const
 
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonY, std::make_shared<EnemyDieCommand>(enemyComp), ButtonBehaviour::DownThisFrame, 0);
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonY, std::make_shared<EnemyDieCommand>(enemyComp2), ButtonBehaviour::DownThisFrame, 1);
+
+	//InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonX, std::make_shared<WinGameCommand>(), ButtonBehaviour::DownThisFrame, 0);
 }
 
 void dae::Minigin::Cleanup()
@@ -272,6 +282,8 @@ void dae::Minigin::Run()
 
 			sceneManager.Update();
 			renderer.Render();
+
+			SteamAPI_RunCallbacks();
 
 			const auto sleepTime = currentTime + std::chrono::milliseconds(Time::GetMsPerFrame())
 					- std::chrono::high_resolution_clock::now();

@@ -1,7 +1,7 @@
 #include "MiniginPCH.h"
 #include "Command.h"
 #include <iostream>
-//#include "Application.h"
+#include <steam_api.h>
 
 /*
 * FIRE COMMAND
@@ -60,4 +60,11 @@ void BurgerDropCommand::Execute()
 void EnemyDieCommand::Execute()
 {
 	m_pEnemyComponent->Die();
+}
+
+// Only used for testing, see AchievementSystem.h / .cpp for achievement implementation
+void WinGameCommand::Execute()
+{
+	SteamUserStats()->SetAchievement("ACH_WIN_ONE_GAME");
+	SteamUserStats()->StoreStats();
 }
