@@ -40,10 +40,18 @@ void PrintSDLVersion()
 		linked.major, linked.minor, linked.patch);
 }
 
+void PrintGameInfo() {
+	cout << "How to play (using controller): " << std::endl;
+	cout << "X / A: Kill player" << std::endl;
+	cout << "O / B: Drop burger" << std::endl;
+	cout << "Triangle / Y: Kill enemy" << std::endl;
+	cout << "Goal: Get to 500 points on either player one or player two to get the winner achievement" << std::endl;
+}
+
 void dae::Minigin::Initialize()
 {
 	PrintSDLVersion();
-	
+	PrintGameInfo();
 	if (SDL_Init(SDL_INIT_VIDEO) != 0) 
 	{
 		throw std::runtime_error(std::string("SDL_Init Error: ") + SDL_GetError());

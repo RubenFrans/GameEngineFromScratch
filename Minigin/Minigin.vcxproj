@@ -112,7 +112,13 @@
     <PostBuildEvent />
     <PostBuildEvent>
       <Command>xcopy $(solutiondir)3rdParty\steamworks\redistributable_bin\*dll $(OutputPath) /Y
-echo 480 &gt;&gt; $(OutputPath)steam_appid.txt</Command>
+echo 480 &gt;&gt; $(OutputPath)steam_appid.txt
+xcopy $(solutiondir)3rdParty\SDL2\lib\x86\SDL2.dll $(OutputPath) /R /Y 
+xcopy $(solutiondir)3rdParty\SDL2_image\lib\x86\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2\lib\x64\SDL2.dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_image\lib\x64\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -137,7 +143,13 @@ echo 480 &gt;&gt; $(OutputPath)steam_appid.txt</Command>
     <PostBuildEvent />
     <PostBuildEvent>
       <Command>xcopy $(solutiondir)3rdParty\steamworks\redistributable_bin\*dll $(OutputPath) /Y
-echo 480 &gt;&gt; $(OutputPath)steam_appid.txt</Command>
+echo 480 &gt;&gt; $(OutputPath)steam_appid.txt
+xcopy $(solutiondir)3rdParty\SDL2\lib\x86\SDL2.dll $(OutputPath) /R /Y 
+xcopy $(solutiondir)3rdParty\SDL2_image\lib\x86\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2\lib\x64\SDL2.dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_image\lib\x64\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -166,7 +178,13 @@ echo 480 &gt;&gt; $(OutputPath)steam_appid.txt</Command>
     <PostBuildEvent />
     <PostBuildEvent>
       <Command>xcopy $(solutiondir)3rdParty\steamworks\redistributable_bin\*dll $(OutputPath) /Y
-echo 480 &gt;&gt; $(OutputPath)steam_appid.txt</Command>
+echo 480 &gt;&gt; $(OutputPath)steam_appid.txt
+xcopy $(solutiondir)3rdParty\SDL2\lib\x86\SDL2.dll $(OutputPath) /R /Y 
+xcopy $(solutiondir)3rdParty\SDL2_image\lib\x86\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2\lib\x64\SDL2.dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_image\lib\x64\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -195,7 +213,13 @@ echo 480 &gt;&gt; $(OutputPath)steam_appid.txt</Command>
     <PostBuildEvent />
     <PostBuildEvent>
       <Command>xcopy $(solutiondir)3rdParty\steamworks\redistributable_bin\*dll $(OutputPath) /Y
-echo 480 &gt;&gt; $(OutputPath)steam_appid.txt</Command>
+echo 480 &gt;&gt; $(OutputPath)steam_appid.txt
+xcopy $(solutiondir)3rdParty\SDL2\lib\x86\SDL2.dll $(OutputPath) /R /Y 
+xcopy $(solutiondir)3rdParty\SDL2_image\lib\x86\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2\lib\x64\SDL2.dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_image\lib\x64\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
