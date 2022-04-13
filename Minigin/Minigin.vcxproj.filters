@@ -165,9 +165,6 @@
     <ClInclude Include="InputManager2.h">
       <Filter>Source Files\Input</Filter>
     </ClInclude>
-    <ClInclude Include="MrPepperComponent.h">
-      <Filter>Source Files\Components\MrPepperComponent</Filter>
-    </ClInclude>
     <ClInclude Include="Observer.h">
       <Filter>Source Files\Observer</Filter>
     </ClInclude>
@@ -177,20 +174,8 @@
     <ClInclude Include="Events.h">
       <Filter>Source Files\Observer</Filter>
     </ClInclude>
-    <ClInclude Include="LivesComponent.h">
-      <Filter>Source Files\Components\LivesComponent</Filter>
-    </ClInclude>
-    <ClInclude Include="PointsComponent.h">
-      <Filter>Source Files\Components\PointsComponent</Filter>
-    </ClInclude>
-    <ClInclude Include="BurgerComponent.h">
-      <Filter>Source Files\Components\BurgerComponent</Filter>
-    </ClInclude>
     <ClInclude Include="AchievementSystem.h">
       <Filter>Source Files\Components\AchievementComponent</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyComponent.h">
-      <Filter>Source Files\Components\EnemyComponent</Filter>
     </ClInclude>
     <ClInclude Include="imconfig.h">
       <Filter>Header Files\Imgui</Filter>
@@ -227,6 +212,21 @@
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="BurgerComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LivesComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MrPepperComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PointsComponent.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -296,29 +296,14 @@
     <ClCompile Include="InputManager2.cpp">
       <Filter>Source Files\Input</Filter>
     </ClCompile>
-    <ClCompile Include="MrPepperComponent.cpp">
-      <Filter>Source Files\Components\MrPepperComponent</Filter>
-    </ClCompile>
     <ClCompile Include="Observer.cpp">
       <Filter>Source Files\Observer</Filter>
     </ClCompile>
     <ClCompile Include="Subject.cpp">
       <Filter>Source Files\Observer</Filter>
     </ClCompile>
-    <ClCompile Include="LivesComponent.cpp">
-      <Filter>Source Files\Components\LivesComponent</Filter>
-    </ClCompile>
-    <ClCompile Include="PointsComponent.cpp">
-      <Filter>Source Files\Components\PointsComponent</Filter>
-    </ClCompile>
-    <ClCompile Include="BurgerComponent.cpp">
-      <Filter>Source Files\Components\BurgerComponent</Filter>
-    </ClCompile>
     <ClCompile Include="AchievementSystem.cpp">
       <Filter>Source Files\Components\AchievementComponent</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyComponent.cpp">
-      <Filter>Source Files\Components\EnemyComponent</Filter>
     </ClCompile>
     <ClCompile Include="imgui_widgets.cpp">
       <Filter>Source Files\Imgui</Filter>
@@ -355,6 +340,21 @@
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="BurgerComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LivesComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MrPepperComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PointsComponent.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

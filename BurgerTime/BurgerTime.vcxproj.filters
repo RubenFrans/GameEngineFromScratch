@@ -18,5 +18,16 @@
     <ClCompile Include="BurgerTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BurgerEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BurgerEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgui.ini" />
   </ItemGroup>
 </Project>
