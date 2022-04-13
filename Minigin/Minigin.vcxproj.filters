@@ -150,9 +150,6 @@
     <ClInclude Include="CacheDataGenerator.h">
       <Filter>Source Files\CacheMeasure</Filter>
     </ClInclude>
-    <ClInclude Include="Command.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ControllerButtons.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -213,20 +210,8 @@
     <ClInclude Include="Scene.h">
       <Filter>Source Files\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="BurgerComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LivesComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MrPepperComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PointsComponent.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Command.h">
+      <Filter>Source Files\Input\Commands</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -284,9 +269,6 @@
     <ClCompile Include="CacheDataGenerator.cpp">
       <Filter>Source Files\CacheMeasure</Filter>
     </ClCompile>
-    <ClCompile Include="Command.cpp">
-      <Filter>Source Files\Input\Commands</Filter>
-    </ClCompile>
     <ClCompile Include="XboxControllerImpl.cpp">
       <Filter>Source Files\Input\Controllers</Filter>
     </ClCompile>
@@ -341,20 +323,8 @@
     <ClCompile Include="SceneManager.cpp">
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="BurgerComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LivesComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MrPepperComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PointsComponent.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Command.cpp">
+      <Filter>Source Files\Input\Commands</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -159,11 +159,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BurgerComponent.cpp" />
     <ClCompile Include="BurgerEngine.cpp" />
     <ClCompile Include="BurgerTime.cpp" />
+    <ClCompile Include="Commands.cpp" />
+    <ClCompile Include="EnemyComponent.cpp" />
+    <ClCompile Include="LivesComponent.cpp" />
+    <ClCompile Include="MrPepperComponent.cpp" />
+    <ClCompile Include="PointsComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BurgerComponent.h" />
     <ClInclude Include="BurgerEngine.h" />
+    <ClInclude Include="Commands.h" />
+    <ClInclude Include="EnemyComponent.h" />
+    <ClInclude Include="LivesComponent.h" />
+    <ClInclude Include="MrPepperComponent.h" />
+    <ClInclude Include="PointsComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="imgui.ini" />

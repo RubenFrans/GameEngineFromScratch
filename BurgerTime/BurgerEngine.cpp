@@ -12,6 +12,7 @@
 #include "InputManager2.h"
 #include "AchievementSystem.h"
 #include "PointsComponent.h"
+#include "Commands.h"
 
 using namespace dae;
 
