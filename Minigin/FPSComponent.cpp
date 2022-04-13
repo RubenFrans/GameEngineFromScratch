@@ -1,6 +1,6 @@
 #include "MiniginPCH.h"
 #include "FPSComponent.h"
-#include "Time.h"
+#include "TimeManager.h"
 #include "GameObject.h"
 #include "TextComponent.h"
 
@@ -11,7 +11,7 @@ FPSComponent::FPSComponent(dae::GameObject* pOwner)
 
 void FPSComponent::Update()
 {
-    m_CurrentFps = 1.0f / Time::GetDeltaTime();
+    m_CurrentFps = 1.0f / TimeManager::GetDeltaTime();
 
     TextComponent* tc = GetGameObject()->GetComponent<TextComponent>();
 

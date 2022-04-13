@@ -24,6 +24,5 @@ void AchievementComponent::onNotify(const BaseComponent& comp, Event event)
 			SteamUserStats()->SetAchievement("ACH_WIN_ONE_GAME");
 			SteamUserStats()->StoreStats();
 		}
-
 	}
 }

@@ -22,6 +22,7 @@ void PointsComponent::onNotify(const BaseComponent&, Event event)
 	switch (event)
 	{
 	case Event::PLAYER_DIE:
+
 		break;
 	case Event::ENEMY_DIE:
 		AddPoints(20);

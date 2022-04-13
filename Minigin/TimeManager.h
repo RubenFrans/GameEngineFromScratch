@@ -2,7 +2,7 @@
 #include "Minigin.h"
 
 
-class Time final
+class TimeManager final
 {
 public:
 	friend void dae::Minigin::Run(); 

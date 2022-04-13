@@ -9,7 +9,7 @@
 #include "GameObject.h"
 #include "Scene.h"
 #include <chrono>
-#include "Time.h"
+#include "TimeManager.h"
 #include <steam_api.h>
 
 #include "TextComponent.h"
@@ -69,6 +69,14 @@ void dae::Minigin::Initialize()
 	{
 		throw std::runtime_error(std::string("SDL_CreateWindow Error: ") + SDL_GetError());
 	}
+
+	if (!SteamAPI_Init())
+	{
+		std::cerr << "Fatal Error - Steam must be running to play this game (SteamAPI_Init() failed)." << std::endl;
+		m_DoContinue = false;
+	}
+	else
+		std::cout << "Successfully initialized steam." << std::endl;
 
 	Renderer::GetInstance().Init(m_Window);
 }
@@ -225,7 +233,6 @@ void dae::Minigin::LoadGame() const
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonB, std::make_shared<BurgerDropCommand>(burgerComp2), ButtonBehaviour::DownThisFrame, 1);
 
 	// Enemy
-
 	auto enemy = std::make_shared<GameObject>();
 	auto enemyComp = enemy->AddComponent<EnemyComponent>();
 	enemyComp->AddObserver(p1PointComp);
@@ -247,6 +254,7 @@ void dae::Minigin::Cleanup()
 	Renderer::GetInstance().Destroy();
 	SDL_DestroyWindow(m_Window);
 	m_Window = nullptr;
+	SteamAPI_Shutdown();
 	SDL_Quit();
 }
 
@@ -265,11 +273,10 @@ void dae::Minigin::Run()
 		auto& sceneManager = SceneManager::GetInstance();
 		//auto& input = InputManager::GetInstance();
 
-		// todo: this update loop could use some work.
-		bool doContinue = true;
+		// m_DoContinnue = true;
 		auto lastTime = std::chrono::high_resolution_clock::now();
 		float lag = 0.0f;
-		while (doContinue)
+		while (m_DoContinue)
 		{
 			const auto currentTime = std::chrono::high_resolution_clock::now();
 			float deltaTime = std::chrono::duration<float>(currentTime - lastTime).count();
@@ -277,15 +284,15 @@ void dae::Minigin::Run()
 			lastTime = currentTime;
 			lag += deltaTime;
 
-			Time::SetDeltaTime(deltaTime);
-			Time::SetTotalTime(Time::GetTotalTime() + deltaTime);
+			TimeManager::SetDeltaTime(deltaTime);
+			TimeManager::SetTotalTime(TimeManager::GetTotalTime() + deltaTime);
 
-			doContinue = InputManager::GetInstance().ProcessInput();
+			m_DoContinue = InputManager::GetInstance().ProcessInput();
 
-			while (lag >= Time::GetMsPerFixedFrame()) {
+			while (lag >= TimeManager::GetMsPerFixedFrame()) {
 				// For fixedUpdate
 				sceneManager.FixedUpdate();
-				lag -= Time::GetMsPerFixedFrame();
+				lag -= TimeManager::GetMsPerFixedFrame();
 			}
 
 			sceneManager.Update();
@@ -293,7 +300,7 @@ void dae::Minigin::Run()
 
 			SteamAPI_RunCallbacks();
 
-			const auto sleepTime = currentTime + std::chrono::milliseconds(Time::GetMsPerFrame())
+			const auto sleepTime = currentTime + std::chrono::milliseconds(TimeManager::GetMsPerFrame())
 					- std::chrono::high_resolution_clock::now();
 
 			this_thread::sleep_for(sleepTime);

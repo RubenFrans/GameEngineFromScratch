@@ -12,5 +12,6 @@ namespace dae
 		void Run();
 	private:
 		SDL_Window* m_Window{};
+		bool m_DoContinue = true;
 	};
 }
