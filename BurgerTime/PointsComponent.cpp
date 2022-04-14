@@ -17,6 +17,10 @@ void PointsComponent::FixedUpdate()
 {
 }
 
+void PointsComponent::Initialize()
+{
+}
+
 void PointsComponent::onNotify(const BaseComponent&, Event event)
 {
 	switch (event)

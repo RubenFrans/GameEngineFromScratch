@@ -22,6 +22,7 @@ namespace dae
 		void Update() override;
 		void FixedUpdate() override;
 		void Render() const override;
+		void Initialize() override;
 
 		template <typename T> T* AddComponent();
 		template <typename T> T* GetComponent() const;

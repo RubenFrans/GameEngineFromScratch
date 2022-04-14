@@ -7,8 +7,9 @@ class AchievementComponent
 public:
 	AchievementComponent(dae::GameObject* pOwner);
 	virtual ~AchievementComponent() = default;
-	virtual void Update();
-	virtual void FixedUpdate();
+	virtual void Update() override;
+	virtual void FixedUpdate() override;
+	virtual void Initialize() override;
 	void onNotify(const BaseComponent& comp, Event event) override;
 private:
 

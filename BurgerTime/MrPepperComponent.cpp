@@ -17,6 +17,10 @@ void MrPepperComponent::FixedUpdate()
 
 }
 
+void MrPepperComponent::Initialize()
+{
+}
+
 void MrPepperComponent::Die() {
 	m_IsDead = true;
 	Notify(*this, Event::PLAYER_DIE);

@@ -26,6 +26,10 @@ void FPSComponent::FixedUpdate()
 {
 }
 
+void FPSComponent::Initialize()
+{
+}
+
 float FPSComponent::GetFPS()
 {
     return m_CurrentFps;

@@ -240,6 +240,8 @@ xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AchievementSystem.h" />
+    <ClInclude Include="Animation.h" />
+    <ClInclude Include="AnimationComponent.h" />
     <ClInclude Include="BaseComponent.h" />
     <ClInclude Include="CacheDataGenerator.h" />
     <ClInclude Include="Command.h" />
@@ -284,6 +286,8 @@ xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AchievementSystem.cpp" />
+    <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="AnimationComponent.cpp" />
     <ClCompile Include="BaseComponent.cpp" />
     <ClCompile Include="CacheDataGenerator.cpp" />
     <ClCompile Include="Command.cpp" />

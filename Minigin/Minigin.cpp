@@ -18,12 +18,6 @@
 #include "FPSComponent.h"
 #include "RGBColor.h"
 #include "ImGuiPlotComponent.h"
-//#include "MrPepperComponent.h"
-//#include "LivesComponent.h"
-//#include "BurgerComponent.h"
-//#include "PointsComponent.h"
-//#include "EnemyComponent.h"
-//#include "AchievementSystem.h"
 
 using namespace std;
 
@@ -88,7 +82,7 @@ void dae::Minigin::Initialize()
  */
 void dae::Minigin::LoadGame() const
 {
-
+	std::cout << "Test" << std::endl;
 }
 
 void dae::Minigin::Cleanup()
@@ -111,6 +105,8 @@ void dae::Minigin::Run()
 	{
 		auto& renderer = Renderer::GetInstance();
 		auto& sceneManager = SceneManager::GetInstance();
+		sceneManager.Initialize();
+		
 		//auto& input = InputManager::GetInstance();
 
 		// m_DoContinnue = true;

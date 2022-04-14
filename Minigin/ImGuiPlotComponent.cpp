@@ -103,6 +103,10 @@ void ImGuiPlotComponent::FixedUpdate()
 
 }
 
+void ImGuiPlotComponent::Initialize()
+{
+}
+
 void ImGuiPlotComponent::Render() const
 {
 

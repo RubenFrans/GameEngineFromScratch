@@ -43,7 +43,11 @@ void RenderComponent::Render() const
 		return;
 
 	dae::Renderer::GetInstance().RenderTexture(*m_pTexture,
-		transform.GetPosition().x, transform.GetPosition().y);
+		transform.GetPosition().x, transform.GetPosition().y, m_SourceRect);
+}
+
+void RenderComponent::Initialize()
+{
 }
 
 void RenderComponent::SetTexture(const std::string& filename)
@@ -54,4 +58,9 @@ void RenderComponent::SetTexture(const std::string& filename)
 void RenderComponent::SetTexture(std::shared_ptr<dae::Texture2D> texture)
 {
 	m_pTexture = texture;
+}
+
+void RenderComponent::SetSourceRect(const SDL_Rect& sourceRect)
+{
+	m_SourceRect = sourceRect;
 }

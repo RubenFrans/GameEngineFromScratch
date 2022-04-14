@@ -9,6 +9,8 @@ public:
 	virtual ~MrPepperComponent() = default;
 	virtual void Update() override;
 	virtual void FixedUpdate() override;
+	virtual void Initialize() override;
+
 	void Die();
 private:
 	bool m_IsDead;

@@ -11,6 +11,7 @@ public:
 	virtual ~TextComponent() = default;
 	virtual void Update() override;
 	virtual void FixedUpdate() override;
+	virtual void Initialize() override;
 
 	TextComponent* SetText(const std::string& text);
 	TextComponent* SetFont(std::shared_ptr<dae::Font> font);

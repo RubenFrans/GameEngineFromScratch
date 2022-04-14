@@ -18,6 +18,10 @@ void LivesComponent::FixedUpdate()
 
 }
 
+void LivesComponent::Initialize()
+{
+}
+
 void LivesComponent::SetAmountOfLives(int amountOfLives)
 {
     m_CurrentAmountOfLives = amountOfLives;

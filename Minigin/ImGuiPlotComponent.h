@@ -10,6 +10,7 @@ public:
 	virtual ~ImGuiPlotComponent();
 	virtual void Update() override;
 	virtual void FixedUpdate() override;
+	virtual void Initialize() override;
 	virtual void Render() const override;
 	virtual void RenderImgGui(bool isOpen) override;
 	void GenerateIntMetricData();

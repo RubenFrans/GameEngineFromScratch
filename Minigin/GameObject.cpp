@@ -9,7 +9,6 @@
 dae::GameObject::GameObject() 
 	: SceneObject{}, m_pParent{ nullptr }, m_Components{}, m_Children{}
 {
-
 }
 
 dae::GameObject::~GameObject() {
@@ -39,6 +38,13 @@ void dae::GameObject::Render() const
 		return;
 
 	rc->Render();
+}
+
+void dae::GameObject::Initialize()
+{
+	std::for_each(m_Components.begin(), m_Components.end(), [](BaseComponent* comp) {
+		comp->Initialize();
+		});
 }
 
 void dae::GameObject::SetParent(dae::GameObject* parent)

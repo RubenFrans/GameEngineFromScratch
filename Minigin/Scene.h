@@ -13,6 +13,7 @@ namespace dae
 		void Update();
 		void FixedUpdate();
 		void Render() const;
+		void Initialize(); // Calls initilize function on all gameobjects
 
 		~Scene();
 		Scene(const Scene& other) = delete;

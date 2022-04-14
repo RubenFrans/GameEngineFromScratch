@@ -6,8 +6,9 @@ class FPSComponent :
 public:
 	FPSComponent(dae::GameObject* pOwner);
 	virtual ~FPSComponent() = default;
-	virtual void Update();
-	virtual void FixedUpdate();
+	virtual void Update() override;
+	virtual void FixedUpdate() override;
+	virtual void Initialize() override;
 	float GetFPS();
 private:
 	float m_CurrentFps;

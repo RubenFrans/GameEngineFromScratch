@@ -16,6 +16,10 @@ void AchievementComponent::FixedUpdate()
 {
 }
 
+void AchievementComponent::Initialize()
+{
+}
+
 void AchievementComponent::onNotify(const BaseComponent&, Event event)
 {
 	if (event == Event::POINTS_ADDED) {

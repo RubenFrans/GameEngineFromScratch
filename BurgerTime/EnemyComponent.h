@@ -8,8 +8,9 @@ class EnemyComponent :
 public:
 	EnemyComponent(dae::GameObject* pOwner);
 	virtual ~EnemyComponent() = default;
-	virtual void Update();
-	virtual void FixedUpdate();
+	virtual void Update() override;
+	virtual void FixedUpdate() override;
+	virtual void Initialize() override;
 	void Die();
 
 private:

@@ -14,6 +14,7 @@ namespace dae
 		void Update();
 		void FixedUpdate();
 		void Render();
+		void Initialize(); // Calls initialize on all gameobjects and its components
 	private:
 		friend class Singleton<SceneManager>;
 		SceneManager() = default;

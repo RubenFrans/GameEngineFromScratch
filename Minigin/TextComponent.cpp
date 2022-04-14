@@ -42,6 +42,10 @@ void TextComponent::FixedUpdate()
 
 }
 
+void TextComponent::Initialize()
+{
+}
+
 TextComponent* TextComponent::SetText(const std::string& text)
 {
 	m_Text = text;

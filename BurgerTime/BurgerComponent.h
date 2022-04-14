@@ -8,8 +8,9 @@ class BurgerComponent :
 public:
 	BurgerComponent(dae::GameObject* pOwner);
 	virtual ~BurgerComponent() = default;
-	virtual void Update();
-	virtual void FixedUpdate();
+	virtual void Update() override;
+	virtual void FixedUpdate() override;
+	virtual void Initialize() override;
 	void DropBurger();
 private:
 

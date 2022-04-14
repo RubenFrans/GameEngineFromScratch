@@ -17,6 +17,10 @@ void TransformComponent::FixedUpdate()
 	
 }
 
+void TransformComponent::Initialize()
+{
+}
+
 void TransformComponent::SetTransform(float x, float y)
 {
 	m_Transform.SetPosition(x, y, 0.0f);

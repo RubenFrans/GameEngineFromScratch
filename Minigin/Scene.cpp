@@ -38,3 +38,11 @@ void Scene::Render() const
 	}
 }
 
+void dae::Scene::Initialize()
+{
+	for (auto& object : m_Objects)
+	{
+		object->Initialize();
+	}
+}
+

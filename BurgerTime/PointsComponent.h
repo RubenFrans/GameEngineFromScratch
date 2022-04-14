@@ -9,8 +9,9 @@ class PointsComponent :
 public:
 	PointsComponent(dae::GameObject* pOwner);
 	virtual ~PointsComponent() = default;
-	virtual void Update();
-	virtual void FixedUpdate();
+	virtual void Update() override;
+	virtual void FixedUpdate() override;
+	virtual void Initialize() override;
 
 	virtual void onNotify(const BaseComponent& component, Event event) override;
 

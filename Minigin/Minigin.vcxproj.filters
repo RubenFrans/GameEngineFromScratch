@@ -49,29 +49,14 @@
     <Filter Include="Source Files\Input\Commands">
       <UniqueIdentifier>{816455b4-f846-4d7e-af48-e4bd67512234}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Components\MrPepperComponent">
-      <UniqueIdentifier>{dc42a439-7a49-41fc-8dab-2fe6dbdf596b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Observer">
       <UniqueIdentifier>{afb1276c-47ca-4c4b-9550-82b97e9a98e4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components\LivesComponent">
-      <UniqueIdentifier>{1c55a1d7-161d-4257-a5e9-a9b56f4372c8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components\PointsComponent">
-      <UniqueIdentifier>{a4db8ac9-59d5-4b6e-9870-6892547b8193}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\AchievmentSystem">
       <UniqueIdentifier>{e7047964-525f-4ece-8990-135aa38c1bb2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Components\BurgerComponent">
-      <UniqueIdentifier>{531fc6de-e981-468e-b2ff-547e690d5868}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Components\AchievementComponent">
       <UniqueIdentifier>{2fb62afe-a082-423d-8994-72281fd44a63}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components\EnemyComponent">
-      <UniqueIdentifier>{621409fb-3957-45c8-aee1-91c6a554cff4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Imgui">
       <UniqueIdentifier>{0acf193c-c9de-4a91-8a50-4ff3446b8447}</UniqueIdentifier>
@@ -84,6 +69,12 @@
     </Filter>
     <Filter Include="Source Files\Scene">
       <UniqueIdentifier>{fe3ca855-98d8-4a7b-ba10-e37157b2dfa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\AnimationComponent">
+      <UniqueIdentifier>{ff10883f-f9e3-4a86-80d8-5544626c582f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\AnimationComponent\Animation">
+      <UniqueIdentifier>{bd2efe04-02df-4b87-9d16-b685f6e54977}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -213,6 +204,12 @@
     <ClInclude Include="Command.h">
       <Filter>Source Files\Input\Commands</Filter>
     </ClInclude>
+    <ClInclude Include="AnimationComponent.h">
+      <Filter>Source Files\Components\AnimationComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Source Files\Components\AnimationComponent\Animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
@@ -325,6 +322,12 @@
     </ClCompile>
     <ClCompile Include="Command.cpp">
       <Filter>Source Files\Input\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationComponent.cpp">
+      <Filter>Source Files\Components\AnimationComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Source Files\Components\AnimationComponent\Animation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

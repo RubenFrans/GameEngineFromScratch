@@ -14,6 +14,10 @@ void BurgerComponent::FixedUpdate()
 {
 }
 
+void BurgerComponent::Initialize()
+{
+}
+
 void BurgerComponent::DropBurger()
 {
 	Notify(*this, Event::BURGER_DROP);

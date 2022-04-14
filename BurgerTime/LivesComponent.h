@@ -8,8 +8,9 @@ class LivesComponent :
 public:
 	LivesComponent(dae::GameObject* pOwner);
 	virtual ~LivesComponent() = default;
-	virtual void Update();
-	virtual void FixedUpdate();
+	virtual void Update() override;
+	virtual void FixedUpdate() override;
+	virtual void Initialize() override;
 
 	void SetAmountOfLives(int amountOfLives);
 	int GetAmountOfLivesLeft() const;

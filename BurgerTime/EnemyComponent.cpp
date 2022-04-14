@@ -14,6 +14,10 @@ void EnemyComponent::FixedUpdate()
 {
 }
 
+void EnemyComponent::Initialize()
+{
+}
+
 void EnemyComponent::Die()
 {
 	Notify(*this, Event::ENEMY_DIE);
