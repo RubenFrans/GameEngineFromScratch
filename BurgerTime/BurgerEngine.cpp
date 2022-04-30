@@ -14,13 +14,13 @@
 #include "PointsComponent.h"
 #include "Commands.h"
 #include "AnimationComponent.h"
+#include "AudioSystemLocator.h"
 
 using namespace dae;
 
 void BurgerEngine::Initialize()
 {
 	dae::Minigin::Initialize();
-
 }
 
 /*
@@ -51,6 +51,12 @@ void BurgerEngine::LoadGame() const
 	mrPepper->AddComponent<AnimationComponent>()
 		->AddAnimation(0, animation);
 	scene.Add(mrPepper);
+
+	AudioSystemLocator::GetService()->LoadAudioClip(0, "C:\\Users\\Ruben Frans\\Music\\Navi - Hey.mp3", true);
+	AudioSystemLocator::GetService()->PlayAudioClip(0);
+
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonA, std::make_shared<PlaySoundCommand>(), ButtonBehaviour::DownThisFrame, 0);
+
 
 	//auto go = std::make_shared<GameObject>();
 	//go->AddComponent<RenderComponent>()->SetTexture("background.jpg");

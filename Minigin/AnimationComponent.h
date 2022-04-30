@@ -20,6 +20,7 @@ public:
     void AddAnimation(int animationKey, const Animation& animation);
     void SetPlayAnimation(int animationKey);
 
+
 private:
     std::shared_ptr<dae::Texture2D> m_pSpriteSheet{};
     std::unordered_map<int, Animation> m_Animations;

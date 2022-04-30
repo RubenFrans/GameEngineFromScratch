@@ -76,6 +76,9 @@
     <Filter Include="Source Files\Components\AnimationComponent\Animation">
       <UniqueIdentifier>{bd2efe04-02df-4b87-9d16-b685f6e54977}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\AudioSystem">
+      <UniqueIdentifier>{61200eaa-8f2c-4f5b-8199-d7a3d7435a07}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniginPCH.h">
@@ -210,6 +213,21 @@
     <ClInclude Include="Animation.h">
       <Filter>Source Files\Components\AnimationComponent\Animation</Filter>
     </ClInclude>
+    <ClInclude Include="AudioClip.h">
+      <Filter>Source Files\AudioSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioSystem.h">
+      <Filter>Source Files\AudioSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsAudioSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Locator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioSystemLocator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
@@ -328,6 +346,18 @@
     </ClCompile>
     <ClCompile Include="Animation.cpp">
       <Filter>Source Files\Components\AnimationComponent\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioClip.cpp">
+      <Filter>Source Files\AudioSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsAudioSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Locator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioSystemLocator.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

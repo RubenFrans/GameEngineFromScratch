@@ -176,6 +176,7 @@
     <ClInclude Include="LivesComponent.h" />
     <ClInclude Include="MrPepperComponent.h" />
     <ClInclude Include="PointsComponent.h" />
+    <ClInclude Include="Sounds.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="imgui.ini" />

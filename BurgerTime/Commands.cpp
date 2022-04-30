@@ -1,5 +1,5 @@
 #include "Commands.h"
-
+#include "AudioSystemLocator.h"
 #include <iostream>
 
 void FireCommand::Execute()
@@ -55,4 +55,8 @@ void BurgerDropCommand::Execute()
 void EnemyDieCommand::Execute()
 {
 	m_pEnemyComponent->Die();
+}
+
+void PlaySoundCommand::Execute() {
+	AudioSystemLocator::GetService()->PlayAudioClip(0);
 }

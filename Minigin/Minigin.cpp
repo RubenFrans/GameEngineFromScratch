@@ -19,6 +19,12 @@
 #include "RGBColor.h"
 #include "ImGuiPlotComponent.h"
 
+#include "SDL_mixer.h"
+
+#include "AudioSystemLocator.h"
+#include "WindowsAudioSystem.h"
+#include "AudioSystem.h"
+
 using namespace std;
 
 void PrintSDLVersion()
@@ -40,6 +46,7 @@ void PrintGameInfo() {
 	cout << "O / B: Drop burger" << std::endl;
 	cout << "Triangle / Y: Kill enemy" << std::endl;
 	cout << "Goal: Get to 500 points on either player one or player two to get the winner achievement" << std::endl;
+	
 }
 
 void dae::Minigin::Initialize()
@@ -64,15 +71,16 @@ void dae::Minigin::Initialize()
 		throw std::runtime_error(std::string("SDL_CreateWindow Error: ") + SDL_GetError());
 	}
 
-	if (!SteamAPI_Init())
-	{
-		std::cerr << "Fatal Error - Steam must be running to play this game (SteamAPI_Init() failed)." << std::endl;
-		m_DoContinue = false;
-	}
-	else {
-		std::cout << "Successfully initialized steam." << std::endl;
-		SteamUserStats()->ClearAchievement("ACH_WIN_ONE_GAME");
-	}
+	// Disabled steam
+	//if (!SteamAPI_Init())
+	//{
+	//	std::cerr << "Fatal Error - Steam must be running to play this game (SteamAPI_Init() failed)." << std::endl;
+	//	m_DoContinue = false;
+	//}
+	//else {
+	//	std::cout << "Successfully initialized steam." << std::endl;
+	//	SteamUserStats()->ClearAchievement("ACH_WIN_ONE_GAME");
+	//}
 
 	Renderer::GetInstance().Init(m_Window);
 }
@@ -83,10 +91,16 @@ void dae::Minigin::Initialize()
 void dae::Minigin::LoadGame() const
 {
 	std::cout << "Test" << std::endl;
+
+	// Initialize and provide audio system
+	WindowsAudioSystem* audioSystem = new WindowsAudioSystem();
+	audioSystem->Initialize();
+	AudioSystemLocator::provide(audioSystem);
 }
 
 void dae::Minigin::Cleanup()
 {
+	delete AudioSystemLocator::GetService();
 	Renderer::GetInstance().Destroy();
 	SDL_DestroyWindow(m_Window);
 	m_Window = nullptr;
@@ -114,6 +128,36 @@ void dae::Minigin::Run()
 		float lag = 0.0f;
 		while (m_DoContinue)
 		{
+
+			// sdl mixer test
+
+			//int result = 0;
+			//int flags = MIX_INIT_MP3;
+
+			//if (SDL_Init(SDL_INIT_AUDIO) < 0) {
+			//	printf("Failed to init SDL\n");
+			//	exit(1);
+			//}
+
+			//if (flags != (result = Mix_Init(flags))) {
+			//	printf("Could not initialize mixer (result: %d).\n", result);
+			//	printf("Mix_Init: %s\n", Mix_GetError());
+			//	exit(1);
+			//}
+
+			//Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 640);
+			//Mix_Music* music = Mix_LoadMUS("C:\\Users\\Ruben Frans\\Music\\Navi - Hey.mp3");
+			//Mix_PlayMusic(music, 1);
+
+			//while (!SDL_QuitRequested()) {
+			//	SDL_Delay(250);
+			//}
+
+			//Mix_FreeMusic(music);
+			////SDL_Quit();
+
+			// end sdl mixer test
+
 			const auto currentTime = std::chrono::high_resolution_clock::now();
 			float deltaTime = std::chrono::duration<float>(currentTime - lastTime).count();
 			

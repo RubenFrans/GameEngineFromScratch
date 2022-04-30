@@ -98,7 +98,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>MiniginPCH.h</PrecompiledHeaderFile>
       <TreatWarningAsError>true</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -121,8 +121,8 @@ xcopy $(solutiondir)3rdParty\SDL2_image\lib\x64\*dll $(OutputPath) /R /Y
 xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     </PostBuildEvent>
     <Lib>
-      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\lib\x86;$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -133,7 +133,7 @@ xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>MiniginPCH.h</PrecompiledHeaderFile>
       <TreatWarningAsError>true</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -156,8 +156,8 @@ xcopy $(solutiondir)3rdParty\SDL2_image\lib\x64\*dll $(OutputPath) /R /Y
 xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     </PostBuildEvent>
     <Lib>
-      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\lib\x64;$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -170,7 +170,7 @@ xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>MiniginPCH.h</PrecompiledHeaderFile>
       <TreatWarningAsError>true</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -195,8 +195,8 @@ xcopy $(solutiondir)3rdParty\SDL2_image\lib\x64\*dll $(OutputPath) /R /Y
 xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     </PostBuildEvent>
     <Lib>
-      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\lib\x86;$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -209,7 +209,7 @@ xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>MiniginPCH.h</PrecompiledHeaderFile>
       <TreatWarningAsError>true</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -234,14 +234,17 @@ xcopy $(solutiondir)3rdParty\SDL2_image\lib\x64\*dll $(OutputPath) /R /Y
 xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     </PostBuildEvent>
     <Lib>
-      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\lib\x64;$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AchievementSystem.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AnimationComponent.h" />
+    <ClInclude Include="AudioClip.h" />
+    <ClInclude Include="AudioSystem.h" />
+    <ClInclude Include="AudioSystemLocator.h" />
     <ClInclude Include="BaseComponent.h" />
     <ClInclude Include="CacheDataGenerator.h" />
     <ClInclude Include="Command.h" />
@@ -263,6 +266,7 @@ xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     <ClInclude Include="imstb_truetype.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="InputManager2.h" />
+    <ClInclude Include="Locator.h" />
     <ClInclude Include="Minigin.h" />
     <ClInclude Include="MiniginPCH.h" />
     <ClInclude Include="Observer.h" />
@@ -281,6 +285,7 @@ xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="TransformComponent.h" />
+    <ClInclude Include="WindowsAudioSystem.h" />
     <ClInclude Include="XboxController.h" />
     <ClInclude Include="XboxControllerImpl.h" />
   </ItemGroup>
@@ -288,6 +293,8 @@ xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     <ClCompile Include="AchievementSystem.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AnimationComponent.cpp" />
+    <ClCompile Include="AudioClip.cpp" />
+    <ClCompile Include="AudioSystemLocator.cpp" />
     <ClCompile Include="BaseComponent.cpp" />
     <ClCompile Include="CacheDataGenerator.cpp" />
     <ClCompile Include="Command.cpp" />
@@ -350,6 +357,7 @@ xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     </ClCompile>
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="InputManager2.cpp" />
+    <ClCompile Include="Locator.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Minigin.cpp" />
     <ClCompile Include="MiniginPCH.cpp">
@@ -372,6 +380,7 @@ xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
+    <ClCompile Include="WindowsAudioSystem.cpp" />
     <ClCompile Include="XboxController.cpp" />
     <ClCompile Include="XboxControllerImpl.cpp" />
   </ItemGroup>

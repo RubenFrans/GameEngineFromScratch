@@ -36,6 +36,16 @@ private:
 
 };
 
+class PlaySoundCommand
+	: public Command
+{
+public:
+	virtual ~PlaySoundCommand() = default;
+	virtual void Execute() override;
+private:
+
+};
+
 class JumpCommand
 	: public Command
 {
