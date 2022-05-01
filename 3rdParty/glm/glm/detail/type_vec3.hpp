@@ -2,8 +2,9 @@
 /// @file glm/detail/type_vec3.hpp
 
 #pragma once
-
+#pragma warning(push, 0)
 #include "type_vec.hpp"
+
 #if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
 #	if GLM_HAS_UNRESTRICTED_UNIONS
 #		include "_swizzle.hpp"
@@ -407,3 +408,4 @@ namespace glm
 #ifndef GLM_EXTERNAL_TEMPLATE
 #include "type_vec3.inl"
 #endif//GLM_EXTERNAL_TEMPLATE
+#pragma warning (pop)

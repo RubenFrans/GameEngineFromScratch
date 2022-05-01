@@ -34,7 +34,7 @@ void BurgerEngine::LoadGame() const
 
 	// Mr pepper
 	auto mrPepper = std::make_shared<GameObject>();
-	auto pepperComp = mrPepper->AddComponent<MrPepperComponent>();
+	/*auto pepperComp =*/ mrPepper->AddComponent<MrPepperComponent>();
 	
 	mrPepper->AddComponent<TransformComponent>();
 	mrPepper->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
