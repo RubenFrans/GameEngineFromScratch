@@ -1,5 +1,6 @@
 #pragma once
-#include "SDL_mixer.h"
+class AudioClipImpl;
+
 class AudioClip
 {
 public:
@@ -12,8 +13,6 @@ public:
 
 	bool IsLoaded() const;
 private:
-	Mix_Chunk* m_pChunk;
-	std::string m_Path;
-
+	AudioClipImpl* m_pAudioClipImpl;
 };
 

@@ -79,6 +79,12 @@
     <Filter Include="Source Files\AudioSystem">
       <UniqueIdentifier>{61200eaa-8f2c-4f5b-8199-d7a3d7435a07}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\AudioSystem\WindowsAudioSystem">
+      <UniqueIdentifier>{f6558958-9f20-445b-9df4-809926bc0e1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Services">
+      <UniqueIdentifier>{5f56bce8-68b5-497e-b544-f781d969b33c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniginPCH.h">
@@ -219,14 +225,20 @@
     <ClInclude Include="AudioSystem.h">
       <Filter>Source Files\AudioSystem</Filter>
     </ClInclude>
-    <ClInclude Include="WindowsAudioSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Locator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AudioClipImpl.h">
+      <Filter>Source Files\AudioSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsAudioSystem.h">
+      <Filter>Source Files\AudioSystem\WindowsAudioSystem</Filter>
+    </ClInclude>
     <ClInclude Include="AudioSystemLocator.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsAudioSystemImpl.h">
+      <Filter>Source Files\AudioSystem\WindowsAudioSystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -350,14 +362,20 @@
     <ClCompile Include="AudioClip.cpp">
       <Filter>Source Files\AudioSystem</Filter>
     </ClCompile>
-    <ClCompile Include="WindowsAudioSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Locator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AudioClipImpl.cpp">
+      <Filter>Source Files\AudioSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsAudioSystem.cpp">
+      <Filter>Source Files\AudioSystem\WindowsAudioSystem</Filter>
+    </ClCompile>
     <ClCompile Include="AudioSystemLocator.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsAudioSystemImpl.cpp">
+      <Filter>Source Files\AudioSystem\WindowsAudioSystem</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

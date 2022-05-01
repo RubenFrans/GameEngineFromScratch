@@ -116,9 +116,10 @@ echo 480 &gt;&gt; $(OutputPath)steam_appid.txt
 xcopy $(solutiondir)3rdParty\SDL2\lib\x86\SDL2.dll $(OutputPath) /R /Y 
 xcopy $(solutiondir)3rdParty\SDL2_image\lib\x86\*dll $(OutputPath) /R /Y
 xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll $(OutputPath) /R /Y
-xcopy $(solutiondir)3rdParty\SDL2\lib\x64\SDL2.dll $(OutputPath) /R /Y
-xcopy $(solutiondir)3rdParty\SDL2_image\lib\x64\*dll $(OutputPath) /R /Y
-xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
+xcopy $(solutiondir)3rdParty\SDL2\lib\x86\SDL2.dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_image\lib\x86\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll $(OutputPath) /R /Y</Command>
     </PostBuildEvent>
     <Lib>
       <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -153,7 +154,9 @@ xcopy $(solutiondir)3rdParty\SDL2_image\lib\x86\*dll $(OutputPath) /R /Y
 xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll $(OutputPath) /R /Y
 xcopy $(solutiondir)3rdParty\SDL2\lib\x64\SDL2.dll $(OutputPath) /R /Y
 xcopy $(solutiondir)3rdParty\SDL2_image\lib\x64\*dll $(OutputPath) /R /Y
-xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
+xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll $(OutputPath) /R /Y</Command>
     </PostBuildEvent>
     <Lib>
       <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -190,9 +193,10 @@ echo 480 &gt;&gt; $(OutputPath)steam_appid.txt
 xcopy $(solutiondir)3rdParty\SDL2\lib\x86\SDL2.dll $(OutputPath) /R /Y 
 xcopy $(solutiondir)3rdParty\SDL2_image\lib\x86\*dll $(OutputPath) /R /Y
 xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll $(OutputPath) /R /Y
-xcopy $(solutiondir)3rdParty\SDL2\lib\x64\SDL2.dll $(OutputPath) /R /Y
-xcopy $(solutiondir)3rdParty\SDL2_image\lib\x64\*dll $(OutputPath) /R /Y
-xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
+xcopy $(solutiondir)3rdParty\SDL2\lib\x86\SDL2.dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_image\lib\x86\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll $(OutputPath) /R /Y</Command>
     </PostBuildEvent>
     <Lib>
       <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -231,7 +235,9 @@ xcopy $(solutiondir)3rdParty\SDL2_image\lib\x86\*dll $(OutputPath) /R /Y
 xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll $(OutputPath) /R /Y
 xcopy $(solutiondir)3rdParty\SDL2\lib\x64\SDL2.dll $(OutputPath) /R /Y
 xcopy $(solutiondir)3rdParty\SDL2_image\lib\x64\*dll $(OutputPath) /R /Y
-xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
+xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll $(OutputPath) /R /Y
+xcopy $(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll $(OutputPath) /R /Y</Command>
     </PostBuildEvent>
     <Lib>
       <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -243,6 +249,7 @@ xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AnimationComponent.h" />
     <ClInclude Include="AudioClip.h" />
+    <ClInclude Include="AudioClipImpl.h" />
     <ClInclude Include="AudioSystem.h" />
     <ClInclude Include="AudioSystemLocator.h" />
     <ClInclude Include="BaseComponent.h" />
@@ -286,6 +293,7 @@ xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     <ClInclude Include="Transform.h" />
     <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="WindowsAudioSystem.h" />
+    <ClInclude Include="WindowsAudioSystemImpl.h" />
     <ClInclude Include="XboxController.h" />
     <ClInclude Include="XboxControllerImpl.h" />
   </ItemGroup>
@@ -294,6 +302,7 @@ xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AnimationComponent.cpp" />
     <ClCompile Include="AudioClip.cpp" />
+    <ClCompile Include="AudioClipImpl.cpp" />
     <ClCompile Include="AudioSystemLocator.cpp" />
     <ClCompile Include="BaseComponent.cpp" />
     <ClCompile Include="CacheDataGenerator.cpp" />
@@ -381,6 +390,7 @@ xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y</Command>
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="WindowsAudioSystem.cpp" />
+    <ClCompile Include="WindowsAudioSystemImpl.cpp" />
     <ClCompile Include="XboxController.cpp" />
     <ClCompile Include="XboxControllerImpl.cpp" />
   </ItemGroup>
