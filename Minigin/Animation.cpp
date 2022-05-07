@@ -3,7 +3,15 @@
 #include "ResourceManager.h"
 #include "TimeManager.h"
 
+
 Animation::Animation()
+	: m_AnchorPoint{ 0, 0 }
+{
+
+}
+
+Animation::Animation(const IVector2& anchorPoint)
+	: m_AnchorPoint{anchorPoint}
 {
 
 }
@@ -60,5 +68,5 @@ void Animation::SetCellSize(int width, int height)
 
 SDL_Rect Animation::GetCurrentFrameTexture() const 
 {
-	return SDL_Rect{m_CurrentCellColumn * m_CellWidth, m_CurrentCellRow * m_CellHeigth, m_CellWidth, m_CellHeigth};
+	return SDL_Rect{m_CurrentCellColumn * m_CellWidth + m_AnchorPoint.x, m_CurrentCellRow * m_CellHeigth + m_AnchorPoint.y, m_CellWidth, m_CellHeigth};
 }

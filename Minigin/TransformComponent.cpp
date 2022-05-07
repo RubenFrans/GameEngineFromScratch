@@ -19,6 +19,7 @@ void TransformComponent::FixedUpdate()
 
 void TransformComponent::Initialize()
 {
+
 }
 
 void TransformComponent::SetPosition(float x, float y)

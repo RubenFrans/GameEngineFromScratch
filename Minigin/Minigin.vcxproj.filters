@@ -240,6 +240,9 @@
     <ClInclude Include="WindowsAudioSystemImpl.h">
       <Filter>Source Files\AudioSystem\WindowsAudioSystem</Filter>
     </ClInclude>
+    <ClInclude Include="structs.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">

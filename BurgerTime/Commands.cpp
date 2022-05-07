@@ -63,12 +63,12 @@ void PlaySoundCommand::Execute() {
 
 void MoveRightCommand::Execute()
 {
-	m_pMrPepperComponent->MoveLeft();
+	m_pMrPepperComponent->MoveRight();
 }
 
 void MoveLeftCommand::Execute()
 {
-	m_pMrPepperComponent->MoveRight();
+	m_pMrPepperComponent->MoveLeft();
 }
 
 void MoveUpCommand::Execute()

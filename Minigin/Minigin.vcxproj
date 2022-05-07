@@ -285,6 +285,7 @@ xcopy $(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll $(OutputPath) /R /Y</Comman
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="structs.h" />
     <ClInclude Include="Subject.h" />
     <ClInclude Include="TextComponent.h" />
     <ClInclude Include="TextObject.h" />

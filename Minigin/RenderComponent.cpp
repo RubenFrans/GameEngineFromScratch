@@ -43,7 +43,7 @@ void RenderComponent::Render() const
 		return;
 
 	dae::Renderer::GetInstance().RenderTexture(*m_pTexture,
-		transform.GetPosition().x, transform.GetPosition().y, transform.GetSize().x, transform.GetSize().y,  m_SourceRect);
+		transform.GetPosition().x, transform.GetPosition().y, transform.GetSize().x, transform.GetSize().y,  m_SourceRect, m_FlipHorizontal, m_FlipVertical);
 }
 
 void RenderComponent::Initialize()
@@ -63,4 +63,14 @@ void RenderComponent::SetTexture(std::shared_ptr<dae::Texture2D> texture)
 void RenderComponent::SetSourceRect(const SDL_Rect& sourceRect)
 {
 	m_SourceRect = sourceRect;
+}
+
+void RenderComponent::FlipHorizontal(bool flip)
+{
+	m_FlipHorizontal = flip;
+}
+
+void RenderComponent::FlipVertical(bool flip)
+{
+	m_FlipVertical = flip;
 }

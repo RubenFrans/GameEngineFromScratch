@@ -75,15 +75,8 @@ void dae::Renderer::Destroy()
 
 void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const float y) const
 {
-	//SDL_Rect dst{};
-	//dst.x = static_cast<int>(x);
-	//dst.y = static_cast<int>(y);
-
 	SDL_Rect srcRect{};
-
 	SDL_QueryTexture(texture.GetSDLTexture(), nullptr, nullptr, &srcRect.w, &srcRect.h);
-	//SDL_RenderCopy(GetSDLRenderer(), texture.GetSDLTexture(), &srcRect, &dst);
-
 	RenderTexture(texture, x, y, srcRect);
 
 }
@@ -95,21 +88,23 @@ void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const
 	dst.y = static_cast<int>(y);
 
 	SDL_QueryTexture(texture.GetSDLTexture(), nullptr, nullptr, &dst.w, &dst.h);
-	//SDL_RenderCopy(GetSDLRenderer(), texture.GetSDLTexture(), &srcRect, &dst);
-
-
-	RenderTexture(texture, x, y, float(dst.w), float(dst.h), srcRect);
+	RenderTexture(texture, x, y, float(dst.w), float(dst.h), srcRect, false, false);
 
 }
 
-void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const float y, const float width, const float height, const SDL_Rect& srcRect) const
+void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const float y, const float width, const float height, const SDL_Rect& srcRect, bool flipHorizontal, bool flipVertical) const
 {
 	SDL_Rect dst{};
 	dst.x = static_cast<int>(x);
 	dst.y = static_cast<int>(y);
 	dst.w = static_cast<int>(srcRect.w * width);
 	dst.h = static_cast<int>(srcRect.h * height);
-	SDL_RenderCopy(GetSDLRenderer(), texture.GetSDLTexture(), &srcRect, &dst);
+
+	SDL_RendererFlip flip{};
+
+	// If flip vertical or horizontal booleans are false negate their corresponding bitwise or part
+	flip = static_cast<SDL_RendererFlip>((flipHorizontal ? SDL_FLIP_HORIZONTAL : 0) | (flipVertical ? SDL_FLIP_VERTICAL : 0));
+	SDL_RenderCopyEx(GetSDLRenderer(), texture.GetSDLTexture(), &srcRect, &dst, 0.0, nullptr, flip);
 }
 
 void dae::Renderer::RenderImgGui() const {

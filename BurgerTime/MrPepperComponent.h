@@ -5,6 +5,14 @@
 class TransformComponent;
 class AnimationComponent;
 
+
+enum class MrPepperState : int {
+	down = 0,
+	up = 1,
+	left = 2,
+	right = 3
+};
+
 class MrPepperComponent
 	: public BaseComponent, public Subject
 {
@@ -30,6 +38,8 @@ private:
 	float m_VerticalSpeed;
 	TransformComponent* m_pTransformComponent;
 	AnimationComponent* m_pAnimationComponent;
+
+	MrPepperState m_State;
 
 };
 
