@@ -2,6 +2,7 @@
 #include "BaseComponent.h"
 #include "Texture2D.h"
 #include "SDL_rect.h"
+#include <memory>
 class RenderComponent :
     public BaseComponent
 {
