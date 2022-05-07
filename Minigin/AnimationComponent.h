@@ -17,7 +17,7 @@ public:
     void FixedUpdate() override;
     void Initialize() override;
 
-    void AddAnimation(int animationKey, const Animation& animation);
+    AnimationComponent* AddAnimation(int animationKey, const Animation& animation);
     void SetPlayAnimation(int animationKey);
 
 

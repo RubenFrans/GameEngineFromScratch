@@ -36,7 +36,6 @@ void WindowsAudioSystemImpl::Initialize()
 	if (flags != (result = Mix_Init(flags))) {
 		printf("Could not initialize mixer (result: %d).\n", result);
 		printf("Mix_Init: %s\n", Mix_GetError());
-
 	}
 
 	// Open mixer with audio settings
@@ -47,6 +46,7 @@ void WindowsAudioSystemImpl::Initialize()
 
 void WindowsAudioSystemImpl::PlayAudioClip(int id)
 {
+	// Make sure to lock the queue to make it thread safe, its very unsafe now
 	m_SoundQueue.push(m_ContinuouslyLoadedAudio.at(id));
 	m_ProcessAudioCondition.notify_all();
 }
@@ -82,8 +82,11 @@ void WindowsAudioSystemImpl::ProcessAudioQueue()
 		if (m_KillAudioThread)
 			break;
 
+		// Make sure to only lock the soundquuee popping not the entire loading and playing otherwise we have the same problem with waiting until a sound is loaded and played
+
 		AudioClip* sound = m_SoundQueue.front();
 		m_SoundQueue.pop();
+		// unlock the lock here
 		m_ProcessAudioCondition.notify_all();
 
 		std::cout << "Play audio file" << std::endl;

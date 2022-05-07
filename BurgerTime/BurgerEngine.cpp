@@ -34,28 +34,42 @@ void BurgerEngine::LoadGame() const
 
 	// Mr pepper
 	auto mrPepper = std::make_shared<GameObject>();
-	/*auto pepperComp =*/ mrPepper->AddComponent<MrPepperComponent>();
+	auto pepperComp = mrPepper->AddComponent<MrPepperComponent>();
 	
-	mrPepper->AddComponent<TransformComponent>();
+	mrPepper->AddComponent<TransformComponent>()->SetSize(5, 5);
 	mrPepper->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
 
-	Animation animation{};
-	animation.SetSpriteSheet("spritesheet.png");
-	animation.m_AmountOfColumns = 2;
-	animation.m_AmountOfRows = 1;
+	Animation runDownAnimation{};
+	runDownAnimation.SetSpriteSheet("spritesheet.png");
+	runDownAnimation.m_AmountOfColumns = 2;
+	runDownAnimation.m_AmountOfRows = 1;
 
-	animation.m_CellWidth = 15;
-	animation.m_CellHeigth = 15;
-	animation.m_AnimationFramesPerSecond = 3;
+	runDownAnimation.m_CellWidth = 16;
+	runDownAnimation.m_CellHeigth = 16;
+	runDownAnimation.m_AnimationFramesPerSecond = 10;
+
+	Animation runRightAnimation{};
+	runRightAnimation.SetSpriteSheet("spritesheet.png");
+	runRightAnimation.m_AmountOfColumns = 2;
+	runRightAnimation.m_AmountOfRows = 1;
+
+	runRightAnimation.m_CellWidth = 16;
+	runRightAnimation.m_CellHeigth = 16;
+	runRightAnimation.m_AnimationFramesPerSecond = 10;
 
 	mrPepper->AddComponent<AnimationComponent>()
-		->AddAnimation(0, animation);
+		->AddAnimation(0, runDownAnimation)
+		->AddAnimation(1, runRightAnimation);
+
 	scene.Add(mrPepper);
 
-	AudioSystemLocator::GetService()->LoadAudioClip(0, "Navi - Hey.mp3", true);
-	AudioSystemLocator::GetService()->PlayAudioClip(0);
+	//AudioSystemLocator::GetService()->LoadAudioClip(0, "Navi - Hey.mp3", true);
+	//AudioSystemLocator::GetService()->PlayAudioClip(0);
 
-	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonA, std::make_shared<PlaySoundCommand>(), ButtonBehaviour::DownThisFrame, 0);
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Right, std::make_shared<MoveRightCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Left, std::make_shared<MoveLeftCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Up, std::make_shared<MoveUpCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Down, std::make_shared<MoveDownCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
 
 
 	//auto go = std::make_shared<GameObject>();

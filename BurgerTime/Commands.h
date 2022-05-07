@@ -99,6 +99,71 @@ private:
 	BurgerComponent* m_pBurgerComponent;
 };
 
+
+class MoveRightCommand
+	: public Command
+{
+public:
+	MoveRightCommand(MrPepperComponent* pepperComponent)
+		: m_pMrPepperComponent{ pepperComponent }
+	{
+	}
+
+	virtual ~MoveRightCommand() = default;
+	virtual void Execute() override;
+private:
+	MrPepperComponent* m_pMrPepperComponent;
+
+};
+
+class MoveLeftCommand
+	: public Command
+{
+public:
+	MoveLeftCommand(MrPepperComponent* pepperComponent)
+		: m_pMrPepperComponent{ pepperComponent }
+	{
+	}
+
+	virtual ~MoveLeftCommand() = default;
+	virtual void Execute() override;
+private:
+	MrPepperComponent* m_pMrPepperComponent;
+
+};
+
+class MoveUpCommand
+	: public Command
+{
+public:
+	MoveUpCommand(MrPepperComponent* pepperComponent)
+		: m_pMrPepperComponent{ pepperComponent }
+	{
+	}
+
+	virtual ~MoveUpCommand() = default;
+	virtual void Execute() override;
+private:
+	MrPepperComponent* m_pMrPepperComponent;
+
+};
+
+class MoveDownCommand
+	: public Command
+{
+public:
+	MoveDownCommand(MrPepperComponent* pepperComponent)
+		: m_pMrPepperComponent{ pepperComponent }
+	{
+	}
+
+	virtual ~MoveDownCommand() = default;
+	virtual void Execute() override;
+private:
+	MrPepperComponent* m_pMrPepperComponent;
+
+};
+
 class EnemyDieCommand
 	: public Command
 {

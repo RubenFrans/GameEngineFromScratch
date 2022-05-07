@@ -30,9 +30,10 @@ void AnimationComponent::Initialize()
 	m_pRenderComponent->SetTexture(m_pCurrentAnimation->m_pSpriteSheet);
 }
 
-void AnimationComponent::AddAnimation(int animationKey, const Animation& animation)
+AnimationComponent* AnimationComponent::AddAnimation(int animationKey, const Animation& animation)
 {
 	m_Animations.insert(std::pair<int, Animation>(animationKey, animation));
+	return this;
 }
 
 void AnimationComponent::SetPlayAnimation(int)

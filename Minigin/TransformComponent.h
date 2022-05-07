@@ -12,9 +12,13 @@ public:
 	virtual void FixedUpdate() override;
 	virtual void Initialize() override;
 
-	void SetTransform(float x, float y);
+	void SetPosition(float x, float y);
+	void SetSize(float x, float y);
 	void SetTransform(const dae::Transform& transform);
 	const dae::Transform& GetTransform() const;
+
+	void Translate(float x, float y);
+
 private:
 	dae::Transform m_Transform;
 };

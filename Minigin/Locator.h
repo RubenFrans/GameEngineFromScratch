@@ -1,4 +1,9 @@
 #pragma once
+
+// TODO 
+	// Reimplement without tempaltes
+	// Now its possible to not use the interface and then we tightly couple again.
+
 template <class T>
 class Locator
 {
@@ -15,4 +20,4 @@ private:
 };
 
 template <class T> 
-T* Locator<T>::m_pService;
+T* Locator<T>::m_pService{};

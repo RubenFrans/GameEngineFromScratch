@@ -60,3 +60,23 @@ void EnemyDieCommand::Execute()
 void PlaySoundCommand::Execute() {
 	AudioSystemLocator::GetService()->PlayAudioClip(0);
 }
+
+void MoveRightCommand::Execute()
+{
+	m_pMrPepperComponent->MoveLeft();
+}
+
+void MoveLeftCommand::Execute()
+{
+	m_pMrPepperComponent->MoveRight();
+}
+
+void MoveUpCommand::Execute()
+{
+	m_pMrPepperComponent->MoveUp();
+}
+
+void MoveDownCommand::Execute()
+{
+	m_pMrPepperComponent->MoveDown();
+}

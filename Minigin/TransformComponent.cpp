@@ -21,14 +21,26 @@ void TransformComponent::Initialize()
 {
 }
 
-void TransformComponent::SetTransform(float x, float y)
+void TransformComponent::SetPosition(float x, float y)
 {
 	m_Transform.SetPosition(x, y, 0.0f);
+}
+
+void TransformComponent::SetSize(float x, float y) {
+	m_Transform.SetSize(x, y, 0.0f);
 }
 
 void TransformComponent::SetTransform(const dae::Transform& transform)
 {
 	m_Transform = transform;
+}
+
+void TransformComponent::Translate(float x, float y) {
+
+	glm::vec3 pos = m_Transform.GetPosition();
+
+	m_Transform.SetPosition(pos.x + x, pos.y + y, pos.z);
+
 }
 
 const dae::Transform& TransformComponent::GetTransform() const

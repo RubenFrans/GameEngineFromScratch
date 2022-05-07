@@ -43,7 +43,7 @@ void RenderComponent::Render() const
 		return;
 
 	dae::Renderer::GetInstance().RenderTexture(*m_pTexture,
-		transform.GetPosition().x, transform.GetPosition().y, m_SourceRect);
+		transform.GetPosition().x, transform.GetPosition().y, transform.GetSize().x, transform.GetSize().y,  m_SourceRect);
 }
 
 void RenderComponent::Initialize()
