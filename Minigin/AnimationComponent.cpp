@@ -27,10 +27,10 @@ void AnimationComponent::Initialize()
 {
 	m_pRenderComponent = GetGameObject()->GetComponent<RenderComponent>();
 
-	m_pCurrentAnimation = &m_Animations.at(0);
-
-	m_pRenderComponent->SetTexture(m_pCurrentAnimation->m_pSpriteSheet);
-
+	if (m_Animations.size() > 0) {
+		m_pCurrentAnimation = &m_Animations.at(0);
+		m_pRenderComponent->SetTexture(m_pCurrentAnimation->m_pSpriteSheet);
+	}
 }
 
 AnimationComponent* AnimationComponent::AddAnimation(int animationKey, const Animation& animation)
@@ -42,5 +42,6 @@ AnimationComponent* AnimationComponent::AddAnimation(int animationKey, const Ani
 void AnimationComponent::SetPlayAnimation(int key)
 {
 	m_pCurrentAnimation = &m_Animations.at(key);
+	m_pRenderComponent->SetTexture(m_pCurrentAnimation->m_pSpriteSheet); // this way 1 animation component can use different sprite sheets
 }
 

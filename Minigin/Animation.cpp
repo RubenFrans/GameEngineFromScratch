@@ -60,7 +60,8 @@ void Animation::SetAnimationSpeed(int framesPerSecond)
 	m_AnimationFramesPerSecond = framesPerSecond;
 }
 
-void Animation::SetCellSize(int width, int height)
+void Animation::SetCellSize(int 
+	width, int height)
 {
 	m_CellWidth = width;
 	m_CellHeigth = height;

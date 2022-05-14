@@ -16,7 +16,7 @@ public:
 	void FixedUpdate() override;
 
 private:
-	void ConstructLevelGameObjects();
+	void ParseLevelFile();
 
 	std::string m_LevelFilePath;
 	RenderComponent* m_pRenderComponent;
