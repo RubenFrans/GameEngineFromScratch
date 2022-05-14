@@ -2,7 +2,8 @@
 #include "Texture2D.h"
 #include "SDL_rect.h"
 #include "structs.h"
-
+#include <string>
+#include <memory>
 
 class Animation
 {

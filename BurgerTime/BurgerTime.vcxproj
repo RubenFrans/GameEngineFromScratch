@@ -183,6 +183,7 @@
     <ClCompile Include="LevelComponent.cpp" />
     <ClCompile Include="LivesComponent.cpp" />
     <ClCompile Include="MrPepperComponent.cpp" />
+    <ClCompile Include="PlatformComponent.cpp" />
     <ClCompile Include="PointsComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +194,7 @@
     <ClInclude Include="LevelComponent.h" />
     <ClInclude Include="LivesComponent.h" />
     <ClInclude Include="MrPepperComponent.h" />
+    <ClInclude Include="PlatformComponent.h" />
     <ClInclude Include="PointsComponent.h" />
     <ClInclude Include="Sounds.h" />
   </ItemGroup>

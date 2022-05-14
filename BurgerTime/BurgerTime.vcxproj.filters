@@ -19,6 +19,21 @@
     <Filter Include="Source Files\Level">
       <UniqueIdentifier>{f1bde512-f960-4d90-be2b-fa73d3672c2d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Component">
+      <UniqueIdentifier>{e93972a8-41a5-4885-9288-22da832d14ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Component\BurgerComponent">
+      <UniqueIdentifier>{71ac5c7f-c6da-4377-a615-ca083c8ce552}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Component\PlatformComponent">
+      <UniqueIdentifier>{e91ebaf3-c46c-453c-be48-d6420bdd52c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Component\MrPepperComponent">
+      <UniqueIdentifier>{745943fe-c0a9-4232-8b04-900366b8b759}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Component\LadderComponent">
+      <UniqueIdentifier>{36bd5072-6294-4c3a-a9a9-06b3eff88642}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BurgerTime.cpp">
@@ -48,6 +63,9 @@
     <ClCompile Include="LevelComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PlatformComponent.cpp">
+      <Filter>Source Files\Component\PlatformComponent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BurgerEngine.h">
@@ -76,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="LevelComponent.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformComponent.h">
+      <Filter>Source Files\Component\PlatformComponent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

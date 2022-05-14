@@ -23,9 +23,12 @@ Animation::~Animation()
 
 void Animation::UpdateCurrentFrame() {
 
+
+
 	if (m_CurrentFrameTime > 1.0f / float(m_AnimationFramesPerSecond)) {
 
-		if (m_CurrentCellColumn / m_AmountOfColumns != 1) {
+		//if (m_CurrentCellColumn / m_AmountOfColumns != 1) {
+		if(m_CurrentCellColumn < m_AmountOfColumns){
 			m_CurrentCellColumn++;
 		}
 		else {
@@ -33,7 +36,8 @@ void Animation::UpdateCurrentFrame() {
 			m_CurrentCellColumn = 0;
 		}
 
-		if (m_CurrentCellRow / m_AmountOfRows == 1) {
+		//if (m_CurrentCellRow / m_AmountOfRows == 1) {
+		if(m_CurrentCellRow >= m_AmountOfRows){
 			m_CurrentCellRow = 0;
 		}
 
