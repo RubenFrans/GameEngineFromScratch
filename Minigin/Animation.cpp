@@ -5,7 +5,7 @@
 
 
 Animation::Animation()
-	: m_AnchorPoint{ 0, 0 }
+	: Animation{ {0, 0} }
 {
 
 }
@@ -22,8 +22,6 @@ Animation::~Animation()
 }
 
 void Animation::UpdateCurrentFrame() {
-
-
 
 	if (m_CurrentFrameTime > 1.0f / float(m_AnimationFramesPerSecond)) {
 

@@ -54,7 +54,7 @@ void BurgerEngine::LoadGame() const
 	auto platform = std::make_shared<GameObject>();
 
 	platform->AddComponent<PlatformComponent>();
-	platform->AddComponent<TransformComponent>();
+	platform->AddComponent<TransformComponent>()->SetSize(5,5);
 	platform->AddComponent<RenderComponent>();
 	auto animationComp = platform->AddComponent<AnimationComponent>();
 
