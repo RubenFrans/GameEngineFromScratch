@@ -16,6 +16,7 @@
 #include "AnimationComponent.h"
 #include "AudioSystemLocator.h"
 #include "PlatformComponent.h"
+#include "LevelComponent.h"
 
 using namespace dae;
 
@@ -37,7 +38,7 @@ void BurgerEngine::LoadGame() const
 	auto mrPepper = std::make_shared<GameObject>();
 	auto pepperComp = mrPepper->AddComponent<MrPepperComponent>();
 
-	mrPepper->AddComponent<TransformComponent>()->SetSize(5, 5);
+	mrPepper->AddComponent<TransformComponent>()->SetSize(50 / 16, 50 / 16);
 	mrPepper->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
 	mrPepper->AddComponent<AnimationComponent>();
 
@@ -47,34 +48,43 @@ void BurgerEngine::LoadGame() const
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Down, std::make_shared<MoveDownCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
 
 	scene.Add(mrPepper);
+
 #pragma endregion
 
 #pragma region platform
 
-	auto platform = std::make_shared<GameObject>();
+	//auto platform = std::make_shared<GameObject>();
 
-	platform->AddComponent<PlatformComponent>();
-	platform->AddComponent<TransformComponent>()->SetSize(5,5);
-	platform->AddComponent<RenderComponent>();
-	auto animationComp = platform->AddComponent<AnimationComponent>();
+	//platform->AddComponent<PlatformComponent>();
+	//platform->AddComponent<TransformComponent>()->SetSize(5,5);
+	//platform->AddComponent<RenderComponent>();
+	//auto animationComp = platform->AddComponent<AnimationComponent>();
 
-	Animation platformAnimation{};
-	platformAnimation.SetSpriteSheet("spritesheet.png");
-	platformAnimation.m_AmountOfColumns = 0;
-	platformAnimation.m_AmountOfRows = 0;
+	//Animation platformAnimation{};
+	//platformAnimation.SetSpriteSheet("spritesheet.png");
+	//platformAnimation.m_AmountOfColumns = 0;
+	//platformAnimation.m_AmountOfRows = 0;
 
-	platformAnimation.m_CellWidth = 16;
-	platformAnimation.m_CellHeigth = 16;
-	platformAnimation.m_AnimationFramesPerSecond = 10;
-	platformAnimation.m_AnchorPoint = IVector2{ 150, 152 };
+	//platformAnimation.m_CellWidth = 16;
+	//platformAnimation.m_CellHeigth = 16;
+	//platformAnimation.m_AnimationFramesPerSecond = 10;
+	//platformAnimation.m_AnchorPoint = IVector2{ 150, 152 };
 
-	animationComp->AddAnimation(0, platformAnimation);
+	//animationComp->AddAnimation(0, platformAnimation);
 
 
-	scene.Add(platform);
+//	scene.Add(platform);
 
+
+	auto level = std::make_shared<GameObject>();
+	auto levelComp = level->AddComponent<LevelComponent>();
+	levelComp->SetLevelPath("..\\data\\Level1.txt");
+	levelComp->ParseLevelFile();
+
+	for (const std::shared_ptr<GameObject> obj : levelComp->GetGameObjects()) {
+		scene.Add(obj);
+	}
 #pragma endregion
-
 
 #pragma region ExampleCode
 	//AudioSystemLocator::GetService()->LoadAudioClip(0, "Navi - Hey.mp3", true);
