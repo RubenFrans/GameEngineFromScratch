@@ -7,7 +7,7 @@ class PointsComponent :
     public BaseComponent, public Observer, public Subject
 {
 public:
-	PointsComponent(dae::GameObject* pOwner);
+	PointsComponent(BTEngine::GameObject* pOwner);
 	virtual ~PointsComponent() = default;
 	virtual void Update() override;
 	virtual void FixedUpdate() override;

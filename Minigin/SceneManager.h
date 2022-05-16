@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
-namespace dae
+namespace BTEngine
 {
 	class Scene;
 	class SceneManager final : public Singleton<SceneManager>

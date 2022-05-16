@@ -1,7 +1,7 @@
 #include "MiniginPCH.h"
 #include "BurgerComponent.h"
 
-BurgerComponent::BurgerComponent(dae::GameObject* pOwner)
+BurgerComponent::BurgerComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }
 {
 }

@@ -6,7 +6,7 @@ class BurgerComponent :
     public BaseComponent, public Subject
 {
 public:
-	BurgerComponent(dae::GameObject* pOwner);
+	BurgerComponent(BTEngine::GameObject* pOwner);
 	virtual ~BurgerComponent() = default;
 	virtual void Update() override;
 	virtual void FixedUpdate() override;

@@ -3,7 +3,7 @@
 #include "GameObject.h"
 #include "TextComponent.h"
 
-PointsComponent::PointsComponent(dae::GameObject* pOwner)
+PointsComponent::PointsComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }, m_AmountOfPoints{ 0 }
 {
 

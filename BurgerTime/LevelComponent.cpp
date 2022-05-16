@@ -5,7 +5,7 @@
 #include "PlatformComponent.h"
 #include <fstream>
 
-LevelComponent::LevelComponent(dae::GameObject* pOwner)
+LevelComponent::LevelComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }
 	, m_LevelFilePath{ }
 	, m_AmountOfColumns{ 13 }
@@ -75,9 +75,9 @@ void LevelComponent::ParseLevelFile()
 	}
 }
 
-std::shared_ptr<dae::GameObject> LevelComponent::ConstructPlatform(const IVector2& position) {
+std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructPlatform(const IVector2& position) {
 
-	auto platform = std::make_shared<dae::GameObject>();
+	auto platform = std::make_shared<BTEngine::GameObject>();
 
 	platform->AddComponent<PlatformComponent>();
 	auto transform = platform->AddComponent<TransformComponent>();
@@ -103,8 +103,8 @@ std::shared_ptr<dae::GameObject> LevelComponent::ConstructPlatform(const IVector
 
 }
 
-std::shared_ptr<dae::GameObject> LevelComponent::ConstructLadder(const IVector2& position) {
-	auto ladder = std::make_shared<dae::GameObject>();
+std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructLadder(const IVector2& position) {
+	auto ladder = std::make_shared<BTEngine::GameObject>();
 
 	//ladder->AddComponent<LadderComponent>();
 	auto transform = ladder->AddComponent<TransformComponent>();
@@ -129,11 +129,11 @@ std::shared_ptr<dae::GameObject> LevelComponent::ConstructLadder(const IVector2&
 	return ladder;
 }
 
-std::shared_ptr<dae::GameObject> LevelComponent::ConstructTrapDoor() {
-	auto obj = std::make_shared<dae::GameObject>();
+std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructTrapDoor() {
+	auto obj = std::make_shared<BTEngine::GameObject>();
 	return obj;
 }
 
-std::vector<std::shared_ptr<dae::GameObject>>& LevelComponent::GetGameObjects() {
+std::vector<std::shared_ptr<BTEngine::GameObject>>& LevelComponent::GetGameObjects() {
 	return m_LevelObjects;
 }

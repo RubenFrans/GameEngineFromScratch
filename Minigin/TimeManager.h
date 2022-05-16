@@ -5,7 +5,7 @@
 class TimeManager final
 {
 public:
-	friend void dae::Minigin::Run(); 
+	friend void BTEngine::Minigin::Run(); 
 
 	static float GetDeltaTime();
 	static float GetTotalTime();

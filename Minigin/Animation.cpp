@@ -49,10 +49,10 @@ void Animation::UpdateCurrentFrame() {
 
 void Animation::SetSpriteSheet(const std::string& filename)
 {
-	m_pSpriteSheet = dae::ResourceManager::GetInstance().LoadTexture(filename);
+	m_pSpriteSheet = BTEngine::ResourceManager::GetInstance().LoadTexture(filename);
 }
 
-void Animation::SetSpriteSheet(std::shared_ptr<dae::Texture2D> texture)
+void Animation::SetSpriteSheet(std::shared_ptr<BTEngine::Texture2D> texture)
 {
 	m_pSpriteSheet = texture;
 }

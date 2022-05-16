@@ -2,7 +2,7 @@
 #include "InputManager.h"
 #include "imgui_impl_sdl.h"
 
-bool dae::InputManager::ProcessInput()
+bool BTEngine::InputManager::ProcessInput()
 {
 	ZeroMemory(&m_CurrentState, sizeof(XINPUT_STATE));
 	XInputGetState(0, &m_CurrentState);
@@ -26,7 +26,7 @@ bool dae::InputManager::ProcessInput()
 	return true;
 }
 
-bool dae::InputManager::IsPressed(ControllerButton button) const
+bool BTEngine::InputManager::IsPressed(ControllerButton button) const
 {
 	switch (button)
 	{

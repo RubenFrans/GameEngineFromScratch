@@ -6,7 +6,7 @@ class TransformComponent :
     public BaseComponent
 {
 public:
-	TransformComponent(dae::GameObject* pOwner);
+	TransformComponent(BTEngine::GameObject* pOwner);
 	virtual ~TransformComponent() = default;
 	virtual void Update() override;
 	virtual void FixedUpdate() override;
@@ -14,12 +14,12 @@ public:
 
 	void SetPosition(float x, float y);
 	void SetSize(float x, float y);
-	void SetTransform(const dae::Transform& transform);
-	const dae::Transform& GetTransform() const;
+	void SetTransform(const BTEngine::Transform& transform);
+	const BTEngine::Transform& GetTransform() const;
 
 	void Translate(float x, float y);
 
 private:
-	dae::Transform m_Transform;
+	BTEngine::Transform m_Transform;
 };
 

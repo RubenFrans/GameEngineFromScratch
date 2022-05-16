@@ -3,7 +3,7 @@
 //#include "PointsComponent.h"
 #include <steam_api.h>
 
-AchievementComponent::AchievementComponent(dae::GameObject* pOwner)
+AchievementComponent::AchievementComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }
 {
 }

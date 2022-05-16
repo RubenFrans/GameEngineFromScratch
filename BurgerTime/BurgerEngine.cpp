@@ -18,11 +18,11 @@
 #include "PlatformComponent.h"
 #include "LevelComponent.h"
 
-using namespace dae;
+using namespace BTEngine;
 
 void BurgerEngine::Initialize()
 {
-	dae::Minigin::Initialize();
+	BTEngine::Minigin::Initialize();
 }
 
 /*
@@ -30,7 +30,7 @@ void BurgerEngine::Initialize()
 */
 void BurgerEngine::LoadGame() const
 {
-	dae::Minigin::LoadGame();
+	BTEngine::Minigin::LoadGame();
 	auto& scene = SceneManager::GetInstance().CreateScene("Demo");
 	auto font = ResourceManager::GetInstance().LoadFont("Lingua.otf", 36);
 
@@ -196,11 +196,11 @@ void BurgerEngine::LoadGame() const
 
 void BurgerEngine::Cleanup()
 {
-	dae::Minigin::Cleanup();
+	BTEngine::Minigin::Cleanup();
 }
 
 void BurgerEngine::Run()
 {
-	dae::Minigin::Run();
+	BTEngine::Minigin::Run();
 
 }

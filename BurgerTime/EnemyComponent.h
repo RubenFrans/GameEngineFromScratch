@@ -6,7 +6,7 @@ class EnemyComponent :
     public BaseComponent, public Subject
 {
 public:
-	EnemyComponent(dae::GameObject* pOwner);
+	EnemyComponent(BTEngine::GameObject* pOwner);
 	virtual ~EnemyComponent() = default;
 	virtual void Update() override;
 	virtual void FixedUpdate() override;

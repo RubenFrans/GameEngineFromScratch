@@ -6,7 +6,7 @@ class ImGuiPlotComponent
 	: public ImgGuiRenderComponent
 {
 public:
-	ImGuiPlotComponent(dae::GameObject* pOwner);
+	ImGuiPlotComponent(BTEngine::GameObject* pOwner);
 	virtual ~ImGuiPlotComponent();
 	virtual void Update() override;
 	virtual void FixedUpdate() override;

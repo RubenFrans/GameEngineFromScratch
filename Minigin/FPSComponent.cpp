@@ -4,7 +4,7 @@
 #include "GameObject.h"
 #include "TextComponent.h"
 
-FPSComponent::FPSComponent(dae::GameObject* pOwner)
+FPSComponent::FPSComponent(BTEngine::GameObject* pOwner)
     : BaseComponent{ pOwner }, m_CurrentFps{}
 {
 }

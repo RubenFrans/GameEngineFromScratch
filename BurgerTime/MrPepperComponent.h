@@ -17,7 +17,7 @@ class MrPepperComponent
 	: public BaseComponent, public Subject
 {
 public:
-	MrPepperComponent(dae::GameObject* pOwner);
+	MrPepperComponent(BTEngine::GameObject* pOwner);
 	virtual ~MrPepperComponent() = default;
 	virtual void Update() override;
 	virtual void FixedUpdate() override;

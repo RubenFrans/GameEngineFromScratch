@@ -21,7 +21,7 @@ int GetOpenGLDriverIndex()
 	return openglIndex;
 }
 
-void dae::Renderer::Init(SDL_Window * window)
+void BTEngine::Renderer::Init(SDL_Window * window)
 {
 	m_Window = window;
 	m_Renderer = SDL_CreateRenderer(window, GetOpenGLDriverIndex(), SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
@@ -41,7 +41,7 @@ void dae::Renderer::Init(SDL_Window * window)
 	ImGui_ImplOpenGL2_Init();
 }
 
-void dae::Renderer::Render() const
+void BTEngine::Renderer::Render() const
 {
 	const auto& color = GetBackgroundColor();
 	SDL_SetRenderDrawColor(m_Renderer, color.r, color.g, color.b, color.a);
@@ -60,7 +60,7 @@ void dae::Renderer::Render() const
 	SDL_RenderPresent(m_Renderer);
 }
 
-void dae::Renderer::Destroy()
+void BTEngine::Renderer::Destroy()
 {
 	ImGui_ImplOpenGL2_Shutdown();
 	ImGui_ImplSDL2_Shutdown();
@@ -73,7 +73,7 @@ void dae::Renderer::Destroy()
 	}
 }
 
-void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const float y) const
+void BTEngine::Renderer::RenderTexture(const Texture2D& texture, const float x, const float y) const
 {
 	SDL_Rect srcRect{};
 	SDL_QueryTexture(texture.GetSDLTexture(), nullptr, nullptr, &srcRect.w, &srcRect.h);
@@ -81,7 +81,7 @@ void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const
 
 }
 
-void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const float y, const SDL_Rect& srcRect) const
+void BTEngine::Renderer::RenderTexture(const Texture2D& texture, const float x, const float y, const SDL_Rect& srcRect) const
 {
 	SDL_Rect dst{};
 	dst.x = static_cast<int>(x);
@@ -92,7 +92,7 @@ void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const
 
 }
 
-void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const float y, const float width, const float height, const SDL_Rect& srcRect, bool flipHorizontal, bool flipVertical) const
+void BTEngine::Renderer::RenderTexture(const Texture2D& texture, const float x, const float y, const float width, const float height, const SDL_Rect& srcRect, bool flipHorizontal, bool flipVertical) const
 {
 	SDL_Rect dst{};
 	dst.x = static_cast<int>(x);
@@ -107,13 +107,13 @@ void dae::Renderer::RenderTexture(const Texture2D& texture, const float x, const
 	SDL_RenderCopyEx(GetSDLRenderer(), texture.GetSDLTexture(), &srcRect, &dst, 0.0, nullptr, flip);
 }
 
-void dae::Renderer::RenderImgGui() const {
+void BTEngine::Renderer::RenderImgGui() const {
 	for (ImgGuiRenderComponent* comp : m_ImgGuiRenderComponents) {
 		comp->RenderImgGui(true);
 	}
 }
 
-void dae::Renderer::AddImgGuiRenderComponent(ImgGuiRenderComponent* imguiRenderComponent)
+void BTEngine::Renderer::AddImgGuiRenderComponent(ImgGuiRenderComponent* imguiRenderComponent)
 {
 	m_ImgGuiRenderComponents.push_back(imguiRenderComponent);
 }

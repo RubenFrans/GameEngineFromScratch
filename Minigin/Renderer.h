@@ -3,7 +3,7 @@
 
 class ImgGuiRenderComponent;
 
-namespace dae
+namespace BTEngine
 {
 	class Texture2D;
 	/**

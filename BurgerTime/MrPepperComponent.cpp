@@ -5,7 +5,7 @@
 #include "TimeManager.h"
 #include "AnimationComponent.h"
 
-MrPepperComponent::MrPepperComponent(dae::GameObject* pOwner)
+MrPepperComponent::MrPepperComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }, m_IsDead{ false }
 	, m_HorizontalSpeed{ 50.0f }
 	, m_VerticalSpeed{ 50.0f }

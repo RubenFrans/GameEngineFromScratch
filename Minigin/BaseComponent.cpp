@@ -1,13 +1,13 @@
 #include "MiniginPCH.h"
 #include "BaseComponent.h"
 
-BaseComponent::BaseComponent(dae::GameObject* pOwner)
+BaseComponent::BaseComponent(BTEngine::GameObject* pOwner)
     : m_pOwner{ pOwner }
 {
 
 }
 
-dae::GameObject* BaseComponent::GetGameObject() const
+BTEngine::GameObject* BaseComponent::GetGameObject() const
 {
     return m_pOwner;
 }

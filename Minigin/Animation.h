@@ -13,11 +13,11 @@ public:
     ~Animation();
     void UpdateCurrentFrame();
     void SetSpriteSheet(const std::string& filename);
-    void SetSpriteSheet(std::shared_ptr<dae::Texture2D> texture);
+    void SetSpriteSheet(std::shared_ptr<BTEngine::Texture2D> texture);
     void SetAnimationSpeed(int framesPerSecond);
     void SetCellSize(int width, int height);
     SDL_Rect GetCurrentFrameTexture() const;
-    std::shared_ptr<dae::Texture2D> m_pSpriteSheet{};
+    std::shared_ptr<BTEngine::Texture2D> m_pSpriteSheet{};
     int m_AnimationFramesPerSecond;
 
     IVector2 m_AnchorPoint;

@@ -3,7 +3,7 @@
 #include "TextComponent.h"
 #include "GameObject.h"
 
-LivesComponent::LivesComponent(dae::GameObject* pOwner)
+LivesComponent::LivesComponent(BTEngine::GameObject* pOwner)
     : BaseComponent{ pOwner }, m_CurrentAmountOfLives{ 3 }
 {
 }

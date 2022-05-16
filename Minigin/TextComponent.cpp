@@ -7,7 +7,7 @@
 #include "GameObject.h"
 #include "RenderComponent.h"
 
-TextComponent::TextComponent(dae::GameObject* pOwner)
+TextComponent::TextComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }, m_NeedsUpdate{ false }, m_Color{ 255, 255, 255 }
 {
 }
@@ -22,7 +22,7 @@ void TextComponent::Update()
 		{
 			throw std::runtime_error(std::string("Render text failed: ") + SDL_GetError());
 		}
-		auto texture = SDL_CreateTextureFromSurface(dae::Renderer::GetInstance().GetSDLRenderer(), surf);
+		auto texture = SDL_CreateTextureFromSurface(BTEngine::Renderer::GetInstance().GetSDLRenderer(), surf);
 		if (texture == nullptr)
 		{
 			throw std::runtime_error(std::string("Create text texture from surface failed: ") + SDL_GetError());
@@ -30,7 +30,7 @@ void TextComponent::Update()
 		SDL_FreeSurface(surf);
 		
 		// texture of renderComponent
-		auto texturePointer = std::make_shared<dae::Texture2D>(texture);
+		auto texturePointer = std::make_shared<BTEngine::Texture2D>(texture);
 		GetGameObject()->GetComponent<RenderComponent>()->SetTexture(texturePointer);
 
 		m_NeedsUpdate = false;
@@ -53,7 +53,7 @@ TextComponent* TextComponent::SetText(const std::string& text)
 	return this;
 }
 
-TextComponent* TextComponent::SetFont(std::shared_ptr<dae::Font> font)
+TextComponent* TextComponent::SetFont(std::shared_ptr<BTEngine::Font> font)
 {
 	m_Font = font;
 	return this;

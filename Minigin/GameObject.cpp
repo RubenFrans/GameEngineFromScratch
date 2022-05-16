@@ -6,31 +6,31 @@
 #include "BaseComponent.h"
 #include "RenderComponent.h"
 
-dae::GameObject::GameObject() 
+BTEngine::GameObject::GameObject() 
 	: SceneObject{}, m_pParent{ nullptr }, m_Components{}, m_Children{}
 {
 }
 
-dae::GameObject::~GameObject() {
+BTEngine::GameObject::~GameObject() {
 	for (BaseComponent*& comp : m_Components) {
 		delete comp;
 		comp = nullptr;
 	}
 };
 
-void dae::GameObject::Update(){
+void BTEngine::GameObject::Update(){
 	std::for_each(m_Components.begin(), m_Components.end(), [](BaseComponent* comp) {
 		comp->Update();
 		});
 }
 
-void dae::GameObject::FixedUpdate(){
+void BTEngine::GameObject::FixedUpdate(){
 	std::for_each(m_Components.begin(), m_Components.end(), [](BaseComponent* comp) {
 		comp->FixedUpdate();
 		});
 }
 
-void dae::GameObject::Render() const
+void BTEngine::GameObject::Render() const
 {
 	RenderComponent* rc = GetComponent<RenderComponent>();
 
@@ -40,40 +40,40 @@ void dae::GameObject::Render() const
 	rc->Render();
 }
 
-void dae::GameObject::Initialize()
+void BTEngine::GameObject::Initialize()
 {
 	std::for_each(m_Components.begin(), m_Components.end(), [](BaseComponent* comp) {
 		comp->Initialize();
 		});
 }
 
-void dae::GameObject::SetParent(dae::GameObject* parent)
+void BTEngine::GameObject::SetParent(BTEngine::GameObject* parent)
 {
 	m_pParent = parent;
 }
 
-dae::GameObject* dae::GameObject::GetParent() const
+BTEngine::GameObject* BTEngine::GameObject::GetParent() const
 {
 	return m_pParent;
 }
 
-size_t dae::GameObject::GetAmountOfChildren() const
+size_t BTEngine::GameObject::GetAmountOfChildren() const
 {
 	return m_Children.size();
 }
 
-dae::GameObject* dae::GameObject::GetChildAt(int index)
+BTEngine::GameObject* BTEngine::GameObject::GetChildAt(int index)
 {
 	return m_Children.at(index);
 }
 
-void dae::GameObject::RemoveChild(int index)
+void BTEngine::GameObject::RemoveChild(int index)
 {
 	m_Children.at(index)->SetParent(nullptr);
 	m_Children.erase(m_Children.begin() + index);
 }
 
-void dae::GameObject::AddChild(dae::GameObject* gameObject)
+void BTEngine::GameObject::AddChild(BTEngine::GameObject* gameObject)
 {
 	gameObject->SetParent(this);
 	m_Children.push_back(gameObject);

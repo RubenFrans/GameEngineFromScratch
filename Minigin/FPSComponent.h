@@ -4,7 +4,7 @@ class FPSComponent :
     public BaseComponent
 {
 public:
-	FPSComponent(dae::GameObject* pOwner);
+	FPSComponent(BTEngine::GameObject* pOwner);
 	virtual ~FPSComponent() = default;
 	virtual void Update() override;
 	virtual void FixedUpdate() override;

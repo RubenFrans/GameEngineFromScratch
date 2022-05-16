@@ -1,7 +1,7 @@
 #include "MiniginPCH.h"
 #include "TransformComponent.h"
 
-TransformComponent::TransformComponent(dae::GameObject* pOwner)
+TransformComponent::TransformComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }, m_Transform{}
 {
 
@@ -31,7 +31,7 @@ void TransformComponent::SetSize(float x, float y) {
 	m_Transform.SetSize(x, y, 0.0f);
 }
 
-void TransformComponent::SetTransform(const dae::Transform& transform)
+void TransformComponent::SetTransform(const BTEngine::Transform& transform)
 {
 	m_Transform = transform;
 }
@@ -44,7 +44,7 @@ void TransformComponent::Translate(float x, float y) {
 
 }
 
-const dae::Transform& TransformComponent::GetTransform() const
+const BTEngine::Transform& TransformComponent::GetTransform() const
 {
 	return m_Transform;
 }

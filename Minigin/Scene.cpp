@@ -2,7 +2,7 @@
 #include "Scene.h"
 #include "GameObject.h"
 
-using namespace dae;
+using namespace BTEngine;
 
 unsigned int Scene::m_IdCounter = 0;
 
@@ -38,7 +38,7 @@ void Scene::Render() const
 	}
 }
 
-void dae::Scene::Initialize()
+void BTEngine::Scene::Initialize()
 {
 	for (auto& object : m_Objects)
 	{

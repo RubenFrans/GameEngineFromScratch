@@ -1,14 +1,14 @@
 #pragma once
 #include "BaseComponent.h"
 
-class dae::GameObject;
+class BTEngine::GameObject;
 class AnimationComponent;
 
 class PlatformComponent final
 	: public BaseComponent
 {
 public:
-	PlatformComponent(dae::GameObject* pOwner);
+	PlatformComponent(BTEngine::GameObject* pOwner);
 	virtual ~PlatformComponent();
 
 	virtual void Update() override;

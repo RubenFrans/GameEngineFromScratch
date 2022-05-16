@@ -12,7 +12,7 @@
 #include "ControllerButtons.h"
 #include "Singleton.h"
 
-class InputManager : public dae::Singleton<InputManager>
+class InputManager : public BTEngine::Singleton<InputManager>
 {
 public:
 	InputManager();

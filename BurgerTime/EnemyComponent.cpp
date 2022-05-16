@@ -1,7 +1,7 @@
 #include "MiniginPCH.h"
 #include "EnemyComponent.h"
 
-EnemyComponent::EnemyComponent(dae::GameObject* pOwner)
+EnemyComponent::EnemyComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }
 {
 }

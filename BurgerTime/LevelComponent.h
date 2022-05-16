@@ -12,14 +12,14 @@ class LevelComponent final
 	: public BaseComponent
 {
 public:
-	LevelComponent(dae::GameObject* pOwner);
+	LevelComponent(BTEngine::GameObject* pOwner);
 	virtual ~LevelComponent();
 
 	void Initialize() override;
 	void Update() override;
 	void FixedUpdate() override;
 
-	std::vector<std::shared_ptr<dae::GameObject>>& GetGameObjects();
+	std::vector<std::shared_ptr<BTEngine::GameObject>>& GetGameObjects();
 
 	void SetLevelPath(const std::string& levelPath);
 
@@ -29,9 +29,9 @@ private:
 	std::string m_LevelFilePath;
 	RenderComponent* m_pRenderComponent;
 
-	std::shared_ptr<dae::GameObject> ConstructPlatform(const IVector2& position);
-	std::shared_ptr<dae::GameObject> ConstructLadder(const IVector2& position);
-	std::shared_ptr<dae::GameObject> ConstructTrapDoor();
+	std::shared_ptr<BTEngine::GameObject> ConstructPlatform(const IVector2& position);
+	std::shared_ptr<BTEngine::GameObject> ConstructLadder(const IVector2& position);
+	std::shared_ptr<BTEngine::GameObject> ConstructTrapDoor();
 
 	int m_TileSizeX;
 	int m_TileSizeY;
@@ -39,7 +39,7 @@ private:
 	int m_AmountOfColumns;
 	int m_AmountOfRows;
 
-	std::vector<std::shared_ptr<dae::GameObject>> m_LevelObjects;
+	std::vector<std::shared_ptr<BTEngine::GameObject>> m_LevelObjects;
 
 	// platform locations
 

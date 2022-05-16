@@ -1,7 +1,7 @@
 #pragma once
 #include "glm/vec3.hpp"
 
-namespace dae
+namespace BTEngine
 {
 	class Transform final
 	{

@@ -51,7 +51,7 @@ void PrintGameInfo() {
 	cout << "Press the A button on your controller to play a sound" << std::endl;
 }
 
-void dae::Minigin::Initialize()
+void BTEngine::Minigin::Initialize()
 {
 	PrintSDLVersion();
 	PrintGameInfo();
@@ -90,7 +90,7 @@ void dae::Minigin::Initialize()
 /**
  * Code constructing the scene world starts here
  */
-void dae::Minigin::LoadGame() const
+void BTEngine::Minigin::LoadGame() const
 {
 	std::cout << "Test" << std::endl;
 
@@ -100,7 +100,7 @@ void dae::Minigin::LoadGame() const
 	AudioSystemLocator::provide(audioSystem);
 }
 
-void dae::Minigin::Cleanup()
+void BTEngine::Minigin::Cleanup()
 {
 	delete AudioSystemLocator::GetService();
 	Renderer::GetInstance().Destroy();
@@ -110,7 +110,7 @@ void dae::Minigin::Cleanup()
 	SDL_Quit();
 }
 
-void dae::Minigin::Run()
+void BTEngine::Minigin::Run()
 {
 	Initialize();
 	// tell the resource manager where he can find the game data

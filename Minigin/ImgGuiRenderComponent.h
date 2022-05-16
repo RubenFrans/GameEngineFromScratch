@@ -4,7 +4,7 @@ class ImgGuiRenderComponent :
     public BaseComponent
 {
 public:
-	ImgGuiRenderComponent(dae::GameObject* pOwner);
+	ImgGuiRenderComponent(BTEngine::GameObject* pOwner);
 	virtual ~ImgGuiRenderComponent() = default;
 	virtual void Update() override = 0;
 	virtual void Render() const = 0;

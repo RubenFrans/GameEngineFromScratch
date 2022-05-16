@@ -3,7 +3,7 @@
 #include "ResourceManager.h"
 #include "RenderComponent.h"
 
-AnimationComponent::AnimationComponent(dae::GameObject* pOwner)
+AnimationComponent::AnimationComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner },
 	m_pSpriteSheet{},
 	m_Animations{},

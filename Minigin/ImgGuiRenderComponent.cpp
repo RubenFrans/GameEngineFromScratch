@@ -1,7 +1,7 @@
 #include "MiniginPCH.h"
 #include "ImgGuiRenderComponent.h"
 
-ImgGuiRenderComponent::ImgGuiRenderComponent(dae::GameObject* pOwner)
+ImgGuiRenderComponent::ImgGuiRenderComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent(pOwner)
 {
 }

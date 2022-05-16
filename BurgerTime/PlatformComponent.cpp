@@ -1,7 +1,7 @@
 #include "PlatformComponent.h"
 #include "AnimationComponent.h"
 
-PlatformComponent::PlatformComponent(dae::GameObject* pOwner)
+PlatformComponent::PlatformComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }
 	, m_pAnimationComponent{ nullptr }
 {

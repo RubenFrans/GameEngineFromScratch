@@ -1,20 +1,20 @@
 #pragma once
 #include "GameObject.h"
-//namespace dae {
+//namespace BTEngine {
 //	class GameObject;
 //}
 
 class BaseComponent
 {
 public:
-	BaseComponent(dae::GameObject* pOwner);
+	BaseComponent(BTEngine::GameObject* pOwner);
 	virtual ~BaseComponent() = default;
 	virtual void Initialize() = 0;
 	virtual void Update() = 0;
 	virtual void FixedUpdate() = 0;
-	dae::GameObject* GetGameObject() const;
+	BTEngine::GameObject* GetGameObject() const;
 private:
-	dae::GameObject* m_pOwner;
+	BTEngine::GameObject* m_pOwner;
 
 };
 

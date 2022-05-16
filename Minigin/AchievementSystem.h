@@ -5,7 +5,7 @@ class AchievementComponent
 	: public BaseComponent, public Observer
 {
 public:
-	AchievementComponent(dae::GameObject* pOwner);
+	AchievementComponent(BTEngine::GameObject* pOwner);
 	virtual ~AchievementComponent() = default;
 	virtual void Update() override;
 	virtual void FixedUpdate() override;

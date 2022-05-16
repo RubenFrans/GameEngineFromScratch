@@ -6,10 +6,10 @@
 #include "Renderer.h"
 #include "imgui_plot.h"
 
-ImGuiPlotComponent::ImGuiPlotComponent(dae::GameObject* pOwner)
+ImGuiPlotComponent::ImGuiPlotComponent(BTEngine::GameObject* pOwner)
 	: ImgGuiRenderComponent(pOwner), m_NrOfSamplesInt{ 10 }
 {
-    dae::Renderer::GetInstance().AddImgGuiRenderComponent(this);
+    BTEngine::Renderer::GetInstance().AddImgGuiRenderComponent(this);
 }
 
 ImGuiPlotComponent::~ImGuiPlotComponent()
