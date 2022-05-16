@@ -22,6 +22,8 @@ public:
 	void AddButtonMapping(ControllerButton btn, std::shared_ptr<Command> command, ButtonBehaviour behv);
 	void AddButtonMapping(ControllerButton btn, std::shared_ptr<Command> command, ButtonBehaviour behv, int controllerId);
 
+	void AddKeyboardMapping(KeyboardButton btn, std::shared_ptr<Command> command, ButtonBehaviour behv);
+
 private:
 	void CheckPressed();
 	void CheckDownThisFrame() const;
@@ -29,4 +31,5 @@ private:
 
 	const int m_AmountOfControllers{ 4 };
 	std::vector<XboxController*> m_Controllers{};
+
 };

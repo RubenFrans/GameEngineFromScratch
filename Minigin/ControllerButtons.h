@@ -19,3 +19,12 @@ enum class ControllerButton {
 	ButtonR3,
 	ButtonL3
 };
+
+enum class KeyboardButton {
+	UpArrow,
+	DownArrow,
+	LeftArrow,
+	RightArrow,
+	Space,
+	Enter
+};
