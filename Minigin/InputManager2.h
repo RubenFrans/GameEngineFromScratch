@@ -12,6 +12,10 @@
 #include "ControllerButtons.h"
 #include "Singleton.h"
 
+namespace BTEngine {
+	class Keyboard;
+}
+
 class InputManager : public BTEngine::Singleton<InputManager>
 {
 public:
@@ -31,5 +35,5 @@ private:
 
 	const int m_AmountOfControllers{ 4 };
 	std::vector<XboxController*> m_Controllers{};
-
+	BTEngine::Keyboard* m_pKeyboard;
 };

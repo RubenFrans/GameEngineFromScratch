@@ -2,7 +2,7 @@
 #include "InputManager.h"
 #include "imgui_impl_sdl.h"
 
-bool BTEngine::InputManager::ProcessInput()
+bool BTEngine::InputManager::CheckPressed()
 {
 	ZeroMemory(&m_CurrentState, sizeof(XINPUT_STATE));
 	XInputGetState(0, &m_CurrentState);

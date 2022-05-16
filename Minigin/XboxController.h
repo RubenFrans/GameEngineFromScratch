@@ -28,7 +28,6 @@ public:
 	int GetButtonsReleasedThisFrame() const;
 
 	void AddControllerMapping(ControllerButton btn, std::shared_ptr<Command> command, ButtonBehaviour behv);
-	void AddKeyboardMapping(KeyboardButton btn, std::shared_ptr<Command> command, ButtonBehaviour behv);
 
 private:
 	class XboxControllerImpl;

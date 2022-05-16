@@ -247,7 +247,7 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Keyboard.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\Input\Keyboard</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -387,7 +387,7 @@
       <Filter>Source Files\AudioSystem\WindowsAudioSystem</Filter>
     </ClCompile>
     <ClCompile Include="Keyboard.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Input\Keyboard</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
