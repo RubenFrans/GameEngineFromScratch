@@ -13,5 +13,6 @@ public:
 
 	bool IsLoaded() const;
 private:
+	class AudioClipImpl;
 	AudioClipImpl* m_pAudioClipImpl;
 };

@@ -4,7 +4,6 @@
 #include "NullAudioSystem.h"
 
 class AudioSystemLocator final
-    /*public Locator<AudioSystem>*/
 {
 public:
     static void Initialize() { m_AudioSystemService = &m_NullService; };
@@ -31,6 +30,3 @@ private:
     static AudioSystem* m_AudioSystemService;
     static NullAudioSystem m_NullService;
 };
-
-
-

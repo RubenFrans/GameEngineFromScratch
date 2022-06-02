@@ -90,7 +90,6 @@ void BTEngine::Minigin::Initialize()
 
 void BTEngine::Minigin::LoadGame()
 {
-
 	/// <summary>
 	/// Why initialize and provide the audio system here and not let the user of the engine library provide it himself
 	/// The user should not have to worry which audiosystem gets chosen, the user just wants sound to come out of his target platform
