@@ -17,6 +17,8 @@
 #include "AudioSystemLocator.h"
 #include "PlatformComponent.h"
 #include "LevelComponent.h"
+#include "PhysicsManager.h"
+#include <iostream>
 
 using namespace BTEngine;
 
@@ -34,6 +36,13 @@ void BurgerEngine::LoadGame()
 	auto& scene = SceneManager::GetInstance().CreateScene("Demo");
 	auto font = ResourceManager::GetInstance().LoadFont("Lingua.otf", 36);
 	AudioSystemLocator::GetAudio().LoadAudioClip(0, "Navi - Hey.mp3", true);
+
+	auto physics = std::make_shared<PhysicsManager>();
+
+	
+
+	scene.Add(physics);
+
 #pragma region MrPepper
 	auto mrPepper = std::make_shared<GameObject>();
 	auto pepperComp = mrPepper->AddComponent<MrPepperComponent>();
@@ -41,6 +50,26 @@ void BurgerEngine::LoadGame()
 	mrPepper->AddComponent<TransformComponent>()->SetSize(50 / 16, 50 / 16);
 	mrPepper->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
 	mrPepper->AddComponent<AnimationComponent>();
+	auto collision = mrPepper->AddComponent<CollisionComponent>();
+	collision->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
+	collision->SetOnTriggerCallback([]() {
+		std::cout << "Collision happened on peter" << std::endl;
+		});
+
+	physics->AddPhysicsBody(collision);
+
+	auto testObj = std::make_shared<GameObject>();
+	testObj->AddComponent<TransformComponent>()->SetSize(50 / 16, 50 / 16);
+	auto collision2 = testObj->AddComponent<CollisionComponent>();
+	collision2->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
+	collision2->SetOnTriggerCallback([]() {
+		std::cout << "Collision happened on test object" << std::endl;
+		});
+
+	physics->AddPhysicsBody(collision2);
+
+	scene.Add(testObj);
+
 
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Right, std::make_shared<MoveRightCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Left, std::make_shared<MoveLeftCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
@@ -48,8 +77,10 @@ void BurgerEngine::LoadGame()
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Down, std::make_shared<MoveDownCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonA, std::make_shared<PlaySoundCommand>(), ButtonBehaviour::DownThisFrame);
 
-	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::RightArrow, std::make_shared<MoveRightCommand>(pepperComp), ButtonBehaviour::DownThisFrame);
-	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::LeftArrow, std::make_shared<MoveLeftCommand>(pepperComp), ButtonBehaviour::UpThisFrame);
+	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::RightArrow, std::make_shared<MoveRightCommand>(pepperComp), ButtonBehaviour::Pressed);
+	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::LeftArrow, std::make_shared<MoveLeftCommand>(pepperComp), ButtonBehaviour::Pressed);
+	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::UpArrow, std::make_shared<MoveUpCommand>(pepperComp), ButtonBehaviour::Pressed);
+	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::DownArrow, std::make_shared<MoveDownCommand>(pepperComp), ButtonBehaviour::Pressed);
 
 	scene.Add(mrPepper);
 

@@ -3,11 +3,13 @@
 #include "structs.h"
 #include <functional>
 
+class TransformComponent;
+
 class CollisionComponent :
     public BaseComponent
 {
 public:
-    
+
     CollisionComponent(BTEngine::GameObject* m_pOwner);
     ~CollisionComponent() override = default;
     CollisionComponent(const CollisionComponent& other) = delete;
@@ -22,6 +24,8 @@ public:
     void SetBoundingBox(const Rect& boundingBox);
     void SetTrigger(bool isTrigger);
 
+    const Rect& GetBoudingBox() const;
+
 
     void TriggerOverlap();
 
@@ -31,4 +35,5 @@ private:
     Rect m_BoundingBox;
     bool m_IsTrigger;
     std::function<void()> m_OnTriggerCallback;
+    TransformComponent* m_pTransformComponent;
 };

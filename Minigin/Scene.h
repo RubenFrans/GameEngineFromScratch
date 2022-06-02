@@ -1,5 +1,6 @@
 #pragma once
 #include "SceneManager.h"
+#include "PhysicsManager.h"
 
 namespace BTEngine
 {
@@ -28,6 +29,9 @@ namespace BTEngine
 		std::vector < std::shared_ptr<SceneObject>> m_Objects{};
 
 		static unsigned int m_IdCounter; 
+
+		//PhysicsManager m_PhysicsManager;
+
 	};
 
 }

@@ -254,6 +254,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     <ClInclude Include="AudioSystemLocator.h" />
     <ClInclude Include="BaseComponent.h" />
     <ClInclude Include="CacheDataGenerator.h" />
+    <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="ControllerButtons.h" />
     <ClInclude Include="Events.h" />
@@ -279,6 +280,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     <ClInclude Include="MiniginPCH.h" />
     <ClInclude Include="NullAudioSystem.h" />
     <ClInclude Include="Observer.h" />
+    <ClInclude Include="PhysicsManager.h" />
     <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="RGBColor.h" />
     <ClInclude Include="SceneObject.h" />
@@ -309,6 +311,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     <ClCompile Include="AudioSystemLocator.cpp" />
     <ClCompile Include="BaseComponent.cpp" />
     <ClCompile Include="CacheDataGenerator.cpp" />
+    <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FPSComponent.cpp" />
@@ -382,6 +385,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     </ClCompile>
     <ClCompile Include="NullAudioSystem.cpp" />
     <ClCompile Include="Observer.cpp" />
+    <ClCompile Include="PhysicsManager.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="ResourceManager.cpp" />

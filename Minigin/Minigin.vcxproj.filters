@@ -91,6 +91,15 @@
     <Filter Include="Source Files\AudioSystem\NullAudioSystem">
       <UniqueIdentifier>{ffcb7bcb-56c3-4ee1-9cb9-b6286957acc7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Components\CollisionComponent">
+      <UniqueIdentifier>{6bf89b6a-9d67-4e0c-b3d5-57937b34c4f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PhysicsManager">
+      <UniqueIdentifier>{81b5d930-bd91-4a74-a9ea-5eb904c586d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Services\AudioService">
+      <UniqueIdentifier>{ce57548d-932a-4f1f-89b9-52d024085378}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniginPCH.h">
@@ -240,9 +249,6 @@
     <ClInclude Include="WindowsAudioSystem.h">
       <Filter>Source Files\AudioSystem\WindowsAudioSystem</Filter>
     </ClInclude>
-    <ClInclude Include="AudioSystemLocator.h">
-      <Filter>Source Files\Services</Filter>
-    </ClInclude>
     <ClInclude Include="WindowsAudioSystemImpl.h">
       <Filter>Source Files\AudioSystem\WindowsAudioSystem</Filter>
     </ClInclude>
@@ -254,6 +260,15 @@
     </ClInclude>
     <ClInclude Include="NullAudioSystem.h">
       <Filter>Source Files\AudioSystem\NullAudioSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionComponent.h">
+      <Filter>Source Files\Components\CollisionComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioSystemLocator.h">
+      <Filter>Source Files\Services\AudioService</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -386,9 +401,6 @@
     <ClCompile Include="WindowsAudioSystem.cpp">
       <Filter>Source Files\AudioSystem\WindowsAudioSystem</Filter>
     </ClCompile>
-    <ClCompile Include="AudioSystemLocator.cpp">
-      <Filter>Source Files\Services</Filter>
-    </ClCompile>
     <ClCompile Include="WindowsAudioSystemImpl.cpp">
       <Filter>Source Files\AudioSystem\WindowsAudioSystem</Filter>
     </ClCompile>
@@ -397,6 +409,15 @@
     </ClCompile>
     <ClCompile Include="NullAudioSystem.cpp">
       <Filter>Source Files\AudioSystem\NullAudioSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionComponent.cpp">
+      <Filter>Source Files\Components\CollisionComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioSystemLocator.cpp">
+      <Filter>Source Files\Services\AudioService</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
