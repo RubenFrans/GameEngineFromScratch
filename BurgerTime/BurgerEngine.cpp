@@ -48,8 +48,8 @@ void BurgerEngine::LoadGame()
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Down, std::make_shared<MoveDownCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonA, std::make_shared<PlaySoundCommand>(), ButtonBehaviour::DownThisFrame);
 
-	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::RightArrow, std::make_shared<MoveRightCommand>(pepperComp), ButtonBehaviour::Pressed);
-	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::LeftArrow, std::make_shared<MoveLeftCommand>(pepperComp), ButtonBehaviour::Pressed);
+	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::RightArrow, std::make_shared<MoveRightCommand>(pepperComp), ButtonBehaviour::DownThisFrame);
+	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::LeftArrow, std::make_shared<MoveLeftCommand>(pepperComp), ButtonBehaviour::UpThisFrame);
 
 	scene.Add(mrPepper);
 

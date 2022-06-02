@@ -14,6 +14,7 @@ namespace BTEngine {
 	private:
 		class KeyboardImpl;
 		KeyboardImpl* m_pKeyboardImpl;
+
 	};
 }
 

@@ -6,13 +6,22 @@
 class BTEngine::Keyboard::KeyboardImpl {
 
 public:
-	KeyboardImpl() 
+	KeyboardImpl()
 		: m_IsDownCommands{}
 		, m_IsUpCommands{}
 		, m_IsPressedCommands{}
+		, m_PrevKeyboardState{ nullptr }
 	{
-
+		m_pAmountOfKeys = new int{};
+		m_KeyboardState = SDL_GetKeyboardState(m_pAmountOfKeys);
+		m_PrevKeyboardState = new UINT8[*m_pAmountOfKeys];
 	}
+
+	~KeyboardImpl() {
+		delete m_PrevKeyboardState;
+		delete m_pAmountOfKeys;
+	}
+
 	enum class KeyboardSDLMapping {
 		UpArrow = SDL_SCANCODE_UP,
 		DownArrow = SDL_SCANCODE_DOWN,
@@ -22,19 +31,32 @@ public:
 		Enter = SDL_SCANCODE_RETURN
 	};
 
-
 	void CheckKeysPressed() {
-		const Uint8* state = SDL_GetKeyboardState(NULL);
 
 		for (auto& button : m_IsPressedCommands) {
-			if (state[int(KeyboardButtonToSDL(button.first))]) {
+			if (m_KeyboardState[int(KeyboardButtonToSDL(button.first))]) {
 				button.second->Execute();
 			}
 		}
+
+		for (auto& button : m_IsDownCommands) {
+			if (!m_PrevKeyboardState[int(KeyboardButtonToSDL(button.first))] && m_KeyboardState[int(KeyboardButtonToSDL(button.first))]) {
+				button.second->Execute();
+			}
+		}
+
+		for (auto& button : m_IsUpCommands) {
+			if (m_PrevKeyboardState[int(KeyboardButtonToSDL(button.first))] && !m_KeyboardState[int(KeyboardButtonToSDL(button.first))]) {
+				button.second->Execute();
+			}
+		}
+
+		std::memcpy(m_PrevKeyboardState, m_KeyboardState, *m_pAmountOfKeys);
+
 	}
 
 	void AddKeyboardMappingImpl(KeyboardButton btn, std::shared_ptr<Command> command, ButtonBehaviour behv) {
-		
+
 		switch (behv) {
 		case ButtonBehaviour::DownThisFrame:
 			m_IsDownCommands.insert({ btn, command });
@@ -107,9 +129,12 @@ private:
 	std::unordered_map<KeyboardButton, std::shared_ptr<Command>> m_IsUpCommands;
 	std::unordered_map<KeyboardButton, std::shared_ptr<Command>> m_IsPressedCommands;
 
+	UINT8* m_PrevKeyboardState;
+	int* m_pAmountOfKeys;
+	const UINT8* m_KeyboardState;
 };
 
-BTEngine::Keyboard::Keyboard() 
+BTEngine::Keyboard::Keyboard()
 	: m_pKeyboardImpl{ new KeyboardImpl{} }
 {
 
