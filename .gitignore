@@ -55,13 +55,17 @@
 # Mono auto generated files
 mono_crash.*
 
+# Do include these
+!3rdParty/**/x64/
+!3rdParty/**/x86/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
-/x64/
-/x86/
+x64/
+x86/
 [Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
