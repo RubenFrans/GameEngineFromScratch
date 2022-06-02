@@ -88,6 +88,9 @@
     <Filter Include="Source Files\Input\Keyboard">
       <UniqueIdentifier>{7eaba647-5955-41f9-b081-c58ded5c9c5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\AudioSystem\NullAudioSystem">
+      <UniqueIdentifier>{ffcb7bcb-56c3-4ee1-9cb9-b6286957acc7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniginPCH.h">
@@ -249,6 +252,9 @@
     <ClInclude Include="Keyboard.h">
       <Filter>Source Files\Input\Keyboard</Filter>
     </ClInclude>
+    <ClInclude Include="NullAudioSystem.h">
+      <Filter>Source Files\AudioSystem\NullAudioSystem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
@@ -388,6 +394,9 @@
     </ClCompile>
     <ClCompile Include="Keyboard.cpp">
       <Filter>Source Files\Input\Keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="NullAudioSystem.cpp">
+      <Filter>Source Files\AudioSystem\NullAudioSystem</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

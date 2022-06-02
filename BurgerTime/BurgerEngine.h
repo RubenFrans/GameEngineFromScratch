@@ -5,7 +5,7 @@ class BurgerEngine :
 {
 public:
 	void Initialize() override;
-	void LoadGame() const override;
+	void LoadGame() override;
 	void Cleanup() override;
 	void Run() override;
 private:

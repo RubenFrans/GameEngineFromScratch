@@ -13,8 +13,11 @@ public:
     virtual void PlayAudioClip(int id) override;
     virtual void StopAudioClip() override;
     virtual void LoadAudioClip(int id, const std::string& path, bool storedContinuous) override;
-private:
+    
+protected:
     virtual void ProcessAudioQueue() override;
+
+private:
     WindowsAudioSystemImpl* m_pAudioSystemImpl;
 
 };

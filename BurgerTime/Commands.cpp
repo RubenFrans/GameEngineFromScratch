@@ -1,3 +1,4 @@
+#pragma once
 #include "Commands.h"
 #include "AudioSystemLocator.h"
 #include <iostream>
@@ -23,7 +24,7 @@ void EnemyDieCommand::Execute()
 }
 
 void PlaySoundCommand::Execute() {
-	AudioSystemLocator::GetService()->PlayAudioClip(0);
+	AudioSystemLocator::GetAudio().PlayAudioClip(0);
 }
 
 void MoveRightCommand::Execute()

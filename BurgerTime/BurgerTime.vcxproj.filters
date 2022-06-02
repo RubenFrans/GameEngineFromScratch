@@ -66,6 +66,9 @@
     <ClCompile Include="PlatformComponent.cpp">
       <Filter>Source Files\Component\PlatformComponent</Filter>
     </ClCompile>
+    <ClCompile Include="CollisionComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BurgerEngine.h">
@@ -97,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="PlatformComponent.h">
       <Filter>Source Files\Component\PlatformComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionComponent.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

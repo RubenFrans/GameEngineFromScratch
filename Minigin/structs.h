@@ -9,3 +9,10 @@ struct FVector2 {
 	float y;
 	float z;
 };
+
+struct Rect {
+	int x;
+	int y;
+	int w;
+	int h;
+};

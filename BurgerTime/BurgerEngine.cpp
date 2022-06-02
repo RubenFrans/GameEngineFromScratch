@@ -28,12 +28,12 @@ void BurgerEngine::Initialize()
 /*
 * Loading and scene construction starts here
 */
-void BurgerEngine::LoadGame() const
+void BurgerEngine::LoadGame()
 {
 	BTEngine::Minigin::LoadGame();
 	auto& scene = SceneManager::GetInstance().CreateScene("Demo");
 	auto font = ResourceManager::GetInstance().LoadFont("Lingua.otf", 36);
-
+	AudioSystemLocator::GetAudio().LoadAudioClip(0, "Navi - Hey.mp3", true);
 #pragma region MrPepper
 	auto mrPepper = std::make_shared<GameObject>();
 	auto pepperComp = mrPepper->AddComponent<MrPepperComponent>();
@@ -46,6 +46,7 @@ void BurgerEngine::LoadGame() const
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Left, std::make_shared<MoveLeftCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Up, std::make_shared<MoveUpCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Down, std::make_shared<MoveDownCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonA, std::make_shared<PlaySoundCommand>(), ButtonBehaviour::DownThisFrame);
 
 	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::RightArrow, std::make_shared<MoveRightCommand>(pepperComp), ButtonBehaviour::Pressed);
 	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::LeftArrow, std::make_shared<MoveLeftCommand>(pepperComp), ButtonBehaviour::Pressed);

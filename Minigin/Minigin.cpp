@@ -87,22 +87,25 @@ void BTEngine::Minigin::Initialize()
 	Renderer::GetInstance().Init(m_Window);
 }
 
-/**
- * Code constructing the scene world starts here
- */
-void BTEngine::Minigin::LoadGame() const
-{
-	std::cout << "Test" << std::endl;
 
-	// Initialize and provide audio system
-	WindowsAudioSystem* audioSystem = new WindowsAudioSystem();
-	audioSystem->Initialize();
-	AudioSystemLocator::provide(audioSystem);
+void BTEngine::Minigin::LoadGame()
+{
+
+	/// <summary>
+	/// Why initialize and provide the audio system here and not let the user of the engine library provide it himself
+	/// The user should not have to worry which audiosystem gets chosen, the user just wants sound to come out of his target platform
+	/// The user should be able to tell the engine, I'm building for this platform and the engine should select the appropriate system
+	/// This becomes especially relevant when multiple services are at play to prevent the user from mixing service implementations designed for other target platforms
+	/// </summary>
+
+	m_pAudioSystem = new WindowsAudioSystem();
+	m_pAudioSystem->Initialize();
+	AudioSystemLocator::Provide(m_pAudioSystem);
 }
 
 void BTEngine::Minigin::Cleanup()
 {
-	delete AudioSystemLocator::GetService();
+	delete m_pAudioSystem;
 	Renderer::GetInstance().Destroy();
 	SDL_DestroyWindow(m_Window);
 	m_Window = nullptr;
