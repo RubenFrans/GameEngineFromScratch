@@ -148,14 +148,15 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll" "$(OutputPath)" /R /Y</Co
     <PostBuildEvent />
     <PostBuildEvent>
       <Command>xcopy "$(solutiondir)3rdParty\steamworks\redistributable_bin\*dll" "$(OutputPath)" /Y
-echo 480 &gt;&gt; "$(OutputPath)steam_appid.txt"
+echo 480 &gt;&gt; $(OutputPath)steam_appid.txt
 xcopy "$(solutiondir)3rdParty\SDL2\lib\x86\SDL2.dll" "$(OutputPath)" /R /Y 
 xcopy "$(solutiondir)3rdParty\SDL2_image\lib\x86\*dll" "$(OutputPath)" /R /Y
 xcopy "$(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll" "$(OutputPath)" /R /Y
-xcopy "$(solutiondir)3rdParty\SDL2\lib\x86\SDL2.dll" "$(OutputPath)" /R /Y
-xcopy "$(solutiondir)3rdParty\SDL2_image\lib\x86\*dll" "$(OutputPath)" /R /Y
-xcopy "$(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll" "$(OutputPath)" /R /Y
-xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll" "$(OutputPath)" /R /Y</Command>
+xcopy "$(solutiondir)3rdParty\SDL2\lib\x64\SDL2.dll" "$(OutputPath)" /R /Y
+xcopy "$(solutiondir)3rdParty\SDL2_image\lib\x64\*dll" "$(OutputPath)" /R /Y
+xcopy "$(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll" "$(OutputPath)" /R /Y
+xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll" "$(OutputPath)" /R /Y
+xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Command>
     </PostBuildEvent>
     <Lib>
       <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -227,16 +228,16 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll" "$(OutputPath)" /R /Y</Co
     </Link>
     <PostBuildEvent />
     <PostBuildEvent>
-      <Command>xcopy $(solutiondir)3rdParty\steamworks\redistributable_bin\*dll $(OutputPath) /Y
+      <Command>xcopy "$(solutiondir)3rdParty\steamworks\redistributable_bin\*dll" "$(OutputPath)" /Y
 echo 480 &gt;&gt; $(OutputPath)steam_appid.txt
-xcopy $(solutiondir)3rdParty\SDL2\lib\x86\SDL2.dll $(OutputPath) /R /Y 
-xcopy $(solutiondir)3rdParty\SDL2_image\lib\x86\*dll $(OutputPath) /R /Y
-xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll $(OutputPath) /R /Y
-xcopy $(solutiondir)3rdParty\SDL2\lib\x64\SDL2.dll $(OutputPath) /R /Y
-xcopy $(solutiondir)3rdParty\SDL2_image\lib\x64\*dll $(OutputPath) /R /Y
-xcopy $(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll $(OutputPath) /R /Y
-xcopy $(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll $(OutputPath) /R /Y
-xcopy $(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll $(OutputPath) /R /Y</Command>
+xcopy "$(solutiondir)3rdParty\SDL2\lib\x86\SDL2.dll" "$(OutputPath)" /R /Y 
+xcopy "$(solutiondir)3rdParty\SDL2_image\lib\x86\*dll" "$(OutputPath)" /R /Y
+xcopy "$(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll" "$(OutputPath)" /R /Y
+xcopy "$(solutiondir)3rdParty\SDL2\lib\x64\SDL2.dll" "$(OutputPath)" /R /Y
+xcopy "$(solutiondir)3rdParty\SDL2_image\lib\x64\*dll" "$(OutputPath)" /R /Y
+xcopy "$(solutiondir)3rdParty\SDL2_ttf\lib\x64\*dll" "$(OutputPath)" /R /Y
+xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll" "$(OutputPath)" /R /Y
+xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Command>
     </PostBuildEvent>
     <Lib>
       <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
