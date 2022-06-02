@@ -24,11 +24,10 @@ public:
 
 
 	void CheckKeysPressed() {
-		KeyboardButton btn{};
 		const Uint8* state = SDL_GetKeyboardState(NULL);
 
 		for (auto& button : m_IsPressedCommands) {
-			if (state[int(KeyboardButtonToSDL(btn))]) {
+			if (state[int(KeyboardButtonToSDL(button.first))]) {
 				button.second->Execute();
 			}
 		}

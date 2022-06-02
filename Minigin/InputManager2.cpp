@@ -43,11 +43,11 @@ bool InputManager::ProcessInput()
         /* We are only worried about SDL_KEYDOWN and SDL_KEYUP events */
         switch (event.type) {
         case SDL_KEYDOWN:
-            printf("Key press detected\n");
+            //printf("Key press detected\n");
             break;
 
         case SDL_KEYUP:
-            printf("Key release detected\n");
+            //printf("Key release detected\n");
             break;
 
         case SDL_QUIT:
