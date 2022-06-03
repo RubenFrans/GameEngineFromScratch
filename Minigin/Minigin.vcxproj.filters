@@ -264,11 +264,11 @@
     <ClInclude Include="CollisionComponent.h">
       <Filter>Source Files\Components\CollisionComponent</Filter>
     </ClInclude>
-    <ClInclude Include="PhysicsManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AudioSystemLocator.h">
       <Filter>Source Files\Services\AudioService</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsManager.h">
+      <Filter>Source Files\PhysicsManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -413,11 +413,11 @@
     <ClCompile Include="CollisionComponent.cpp">
       <Filter>Source Files\Components\CollisionComponent</Filter>
     </ClCompile>
-    <ClCompile Include="PhysicsManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AudioSystemLocator.cpp">
       <Filter>Source Files\Services\AudioService</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsManager.cpp">
+      <Filter>Source Files\PhysicsManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

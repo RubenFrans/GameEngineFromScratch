@@ -32,6 +32,7 @@ public:
     void SetOnTriggerCallback(const std::function<void()>& callBack);
 
 private:
+    Rect m_OriginalBoundingBox;
     Rect m_BoundingBox;
     bool m_IsTrigger;
     std::function<void()> m_OnTriggerCallback;

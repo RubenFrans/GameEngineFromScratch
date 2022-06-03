@@ -1,7 +1,10 @@
 #include "MiniginPCH.h"
 #include "PhysicsManager.h"
+#include "Renderer.h"
 
 PhysicsManager::PhysicsManager()
+	: m_CollisionComponents{}
+	, m_PhysicsDebugEnabled{ false }
 {
 
 }
@@ -35,6 +38,11 @@ void PhysicsManager::DetectCollision() const
 
 }
 
+void PhysicsManager::SetEnablePhysicsDebug(bool debugEnabled)
+{
+	m_PhysicsDebugEnabled = debugEnabled;
+}
+
 void PhysicsManager::Update()
 {
 }
@@ -46,6 +54,14 @@ void PhysicsManager::FixedUpdate()
 
 void PhysicsManager::Render() const
 {
+#if defined _DEBUG
+	//if (!m_PhysicsDebugEnabled)
+	//	return;
+
+	for (CollisionComponent* collisionComp : m_CollisionComponents) {
+		BTEngine::Renderer::GetInstance().RenderRect(collisionComp->GetBoudingBox());
+	}
+#endif
 }
 
 void PhysicsManager::Initialize()

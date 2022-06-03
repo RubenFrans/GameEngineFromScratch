@@ -117,3 +117,9 @@ void BTEngine::Renderer::AddImgGuiRenderComponent(ImgGuiRenderComponent* imguiRe
 {
 	m_ImgGuiRenderComponents.push_back(imguiRenderComponent);
 }
+
+void BTEngine::Renderer::RenderRect(const Rect& rect) const {
+	SDL_Rect renderRect{int(rect.x), int(rect.y), int(rect.w), int(rect.h)};
+	SDL_SetRenderDrawColor(GetSDLRenderer(), 255, 0, 0, 255);
+	SDL_RenderDrawRect(GetSDLRenderer(), &renderRect);
+}

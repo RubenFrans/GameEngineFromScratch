@@ -23,7 +23,12 @@ public:
 
     void DetectCollision() const;
 
+    void SetEnablePhysicsDebug(bool debugEnabled);
+
 private:
+
+    bool m_PhysicsDebugEnabled;
+
 	std::vector<CollisionComponent*> m_CollisionComponents;
 };
 
