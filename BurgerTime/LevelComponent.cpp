@@ -62,7 +62,7 @@ void LevelComponent::ParseLevelFile()
 			m_LevelObjects.push_back(ConstructPlatform(position));
 			break;
 		case '-':
-			ConstructTrapDoor();
+			m_LevelObjects.push_back(ConstructTrapDoor(position));
 			break;
 		case '=':
 			m_LevelObjects.push_back(ConstructLadder(position));
@@ -149,9 +149,34 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructLadder(const IVec
 	return ladder;
 }
 
-std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructTrapDoor() {
-	auto obj = std::make_shared<BTEngine::GameObject>();
-	return obj;
+std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructTrapDoor(const IVector2& position) {
+	auto trapDoor = std::make_shared<BTEngine::GameObject>();
+
+	auto transform = trapDoor->AddComponent<TransformComponent>();
+	transform->SetSize(float(m_TileSizeX / 16), float(m_TileSizeY / 16));
+	transform->SetPosition(float(position.x), float(position.y));
+
+	trapDoor->AddComponent<RenderComponent>();
+	auto animationComp = trapDoor->AddComponent<AnimationComponent>();
+
+	auto collilsionComp = trapDoor->AddComponent<CollisionComponent>();
+	collilsionComp->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
+
+	m_pPhysicsManager->AddPhysicsBody(collilsionComp);
+
+	Animation trapdoorAnimation{};
+	trapdoorAnimation.SetSpriteSheet("spritesheet.png");
+	trapdoorAnimation.m_AmountOfColumns = 0;
+	trapdoorAnimation.m_AmountOfRows = 0;
+
+	trapdoorAnimation.m_CellWidth = 16;
+	trapdoorAnimation.m_CellHeigth = 16;
+	trapdoorAnimation.m_AnimationFramesPerSecond = 0;
+	trapdoorAnimation.m_AnchorPoint = IVector2{ 166, 153 };
+
+	animationComp->AddAnimation(0, trapdoorAnimation);
+
+	return trapDoor;
 }
 
 std::vector<std::shared_ptr<BTEngine::GameObject>>& LevelComponent::GetGameObjects() {

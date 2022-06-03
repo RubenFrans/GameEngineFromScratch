@@ -39,7 +39,9 @@ void MoveLeftCommand::Execute()
 
 void MoveUpCommand::Execute()
 {
-	m_pMrPepperComponent->MoveUp();
+	if (m_pMrPepperComponent->m_IsOnLadder) {
+		m_pMrPepperComponent->MoveUp();
+	}
 }
 
 void MoveDownCommand::Execute()

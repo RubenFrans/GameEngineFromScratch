@@ -16,10 +16,13 @@ public:
 	void SetSize(float x, float y);
 	void SetTransform(const BTEngine::Transform& transform);
 	const BTEngine::Transform& GetTransform() const;
+	const BTEngine::Transform& GetWorldTransform() const;
 
 	void Translate(float x, float y);
 
 private:
-	BTEngine::Transform m_Transform;
+	void UpdateWorldTransform();
+	BTEngine::Transform m_LocalTransform;
+	BTEngine::Transform m_WorldTransform;
 };
 

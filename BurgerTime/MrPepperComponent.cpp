@@ -87,10 +87,9 @@ void MrPepperComponent::OnTriggerCallback(BTEngine::GameObject* /*pTriggerObject
 
 	if (action == TriggerAction::Stay) {
 
-		std::cout << "Peter stay" << std::endl;
-	}
-	else if (action == TriggerAction::Enter) {
-		std::cout << "Peter enter" << std::endl;
+		//std::cout << "Peter stay" << std::endl;
+		
+		
 
 		PlatformComponent* pPlatform = pOtherObject->GetComponent<PlatformComponent>();
 
@@ -98,16 +97,26 @@ void MrPepperComponent::OnTriggerCallback(BTEngine::GameObject* /*pTriggerObject
 			m_IsOnLadder = true;
 		}
 
+	}
+	else if (action == TriggerAction::Enter) {
+		//std::cout << "Peter enter" << std::endl;
+
+		//if (m_IsOnLadder) {
+		//	TransformComponent* transformComp = pOtherObject->GetComponent<TransformComponent>();
+
+		//	m_pTransformComponent->SetPosition(m_pTransformComponent->GetTransform().GetPosition().x, transformComp->GetTransform().GetPosition().y);
+
+		//}
+
 
 	} else if (action == TriggerAction::Leave) {
-		std::cout << "Peter leave" << std::endl;
+		//std::cout << "Peter leave" << std::endl;
 
 		PlatformComponent* pPlatform = pOtherObject->GetComponent<PlatformComponent>();
 
 		if (pPlatform) {
 			m_IsOnLadder = false;
 		}
-
 	}
 }
 

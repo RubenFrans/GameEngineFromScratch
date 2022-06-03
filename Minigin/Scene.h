@@ -27,7 +27,7 @@ namespace BTEngine
 
 		std::string m_Name;
 		std::vector < std::shared_ptr<SceneObject>> m_Objects{};
-
+		bool m_HasBeenInitialized;
 		static unsigned int m_IdCounter; 
 
 		//PhysicsManager m_PhysicsManager;

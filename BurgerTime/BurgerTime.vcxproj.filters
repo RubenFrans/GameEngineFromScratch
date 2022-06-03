@@ -34,6 +34,9 @@
     <Filter Include="Source Files\Component\LadderComponent">
       <UniqueIdentifier>{36bd5072-6294-4c3a-a9a9-06b3eff88642}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Component\IngredientComponent">
+      <UniqueIdentifier>{bac8f7b5-6b2a-4bb5-b0b0-919874542be5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BurgerTime.cpp">
@@ -60,18 +63,18 @@
     <ClCompile Include="Commands.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LevelComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PlatformComponent.cpp">
       <Filter>Source Files\Component\PlatformComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="IngridientComponent.cpp">
+      <Filter>Source Files\Component\IngredientComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelComponent.cpp">
+      <Filter>Source Files\Level</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BurgerEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BurgerComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EnemyComponent.h">
@@ -92,11 +95,17 @@
     <ClInclude Include="Sounds.h">
       <Filter>Source Files\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="LevelComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PlatformComponent.h">
       <Filter>Source Files\Component\PlatformComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="BurgerComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IngridientComponent.h">
+      <Filter>Source Files\Component\IngredientComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelComponent.h">
+      <Filter>Source Files\Level</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -7,7 +7,7 @@
 
 int main(int, char*[]) {
 
-	BurgerEngine engine;
+	BurgerEngine engine{};
 	engine.Run();
     return 0;
 }

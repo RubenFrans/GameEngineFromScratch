@@ -28,7 +28,7 @@ cacheGen::CacheData CacheDataGenerator::GenerateClassCacheMetrics(int amountOfRu
 
 			for (int j = 0; j < bufferLength; j += stepSize)
 			{
-				buffer[i].m_Transform->matrix[0] *= 2;
+				buffer[i].m_LocalTransform->matrix[0] *= 2;
 			}
 
 			auto end = std::chrono::high_resolution_clock::now();

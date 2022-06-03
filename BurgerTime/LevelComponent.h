@@ -35,7 +35,7 @@ private:
 
 	std::shared_ptr<BTEngine::GameObject> ConstructPlatform(const IVector2& position);
 	std::shared_ptr<BTEngine::GameObject> ConstructLadder(const IVector2& position);
-	std::shared_ptr<BTEngine::GameObject> ConstructTrapDoor();
+	std::shared_ptr<BTEngine::GameObject> ConstructTrapDoor(const IVector2& position);
 
 	int m_TileSizeX;
 	int m_TileSizeY;

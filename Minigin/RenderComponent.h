@@ -3,6 +3,9 @@
 #include "Texture2D.h"
 #include "SDL_rect.h"
 #include <memory>
+
+class TransformComponent;
+
 class RenderComponent :
     public BaseComponent
 {
@@ -23,5 +26,6 @@ private:
     bool m_FlipHorizontal;
     bool m_FlipVertical;
     SDL_Rect m_SourceRect;
+    TransformComponent* m_pTransformComponent;
 };
 

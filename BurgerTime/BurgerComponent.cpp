@@ -4,18 +4,22 @@
 BurgerComponent::BurgerComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }
 {
+
 }
 
 void BurgerComponent::Update()
 {
+
 }
 
 void BurgerComponent::FixedUpdate()
 {
+
 }
 
 void BurgerComponent::Initialize()
 {
+
 }
 
 void BurgerComponent::DropBurger()

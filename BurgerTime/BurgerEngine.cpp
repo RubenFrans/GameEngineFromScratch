@@ -19,6 +19,7 @@
 #include "LevelComponent.h"
 #include "PhysicsManager.h"
 #include <iostream>
+#include "IngridientComponent.h"
 
 using namespace BTEngine;
 
@@ -86,6 +87,37 @@ void BurgerEngine::LoadGame()
 
 #pragma endregion
 
+#pragma region BurgerTest
+
+	//auto burger = std::make_shared<GameObject>();
+	//burger->AddComponent<TransformComponent>()->Translate(200.0f, 100.f);
+	//burger->AddComponent<IngredientComponent>()->SetPhysicsManager(physics);
+	//auto colo = burger->AddComponent<CollisionComponent>();
+	//colo->SetBoundingBox(Rect{ 0.0f, 0.0f, 100.0f, 50.0f });
+
+	//physics->AddPhysicsBody(colo);
+
+	//scene.Add(burger);
+
+	auto pIngridientPart = std::make_shared<GameObject>();
+	//BTEngine::GameObject* pIngridientPart = new BTEngine::GameObject();
+	auto pTransform = pIngridientPart->AddComponent<TransformComponent>();
+	pTransform->Translate(400.0f, 400.0f);
+	pTransform->SetSize(5.0, 3.0f);
+	
+	auto inComp = pIngridientPart->AddComponent<IngredientComponent>();
+	//inComp->SetPhysicsManager(physics);
+	//inComp->SetInitializationScene(&scene);
+	inComp->InitializeIngredientParts(&scene, physics.get());
+	scene.Add(pIngridientPart);
+
+	//for (const std::shared_ptr<GameObject> obj : inComp->GetParts()) {
+	//	scene.Add(obj);
+	//}
+
+
+#pragma endregion
+
 #pragma region platform
 
 	//auto platform = std::make_shared<GameObject>();
@@ -109,7 +141,6 @@ void BurgerEngine::LoadGame()
 
 
 //	scene.Add(platform);
-
 
 	auto level = std::make_shared<GameObject>();
 	auto levelComp = level->AddComponent<LevelComponent>();

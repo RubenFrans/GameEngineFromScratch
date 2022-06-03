@@ -15,14 +15,14 @@ namespace cacheGen{
 	{
 	public:
 		GameObject3D()
-			: m_Transform{ new Transform{} }, ID{}
+			: m_LocalTransform{ new Transform{} }, ID{}
 		{
 
 		}
 		~GameObject3D() {
-			delete m_Transform;
+			delete m_LocalTransform;
 		}
-		Transform* m_Transform; // with a pointer this should be alot faster because it fits a cache line
+		Transform* m_LocalTransform; // with a pointer this should be alot faster because it fits a cache line
 		int ID;
 	};
 

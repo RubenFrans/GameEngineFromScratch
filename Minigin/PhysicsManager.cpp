@@ -106,7 +106,7 @@ void PhysicsManager::DetectCollision()
 
 	// Each collision that is not present in the new collisions that is present in the previous frame collisions gets triggerd with the leave action
 
-
+	// TODO Refactor to use switching pointers of collisionbuffers to circumvent copy of collisionBuffer
 	m_PrevCollisions = m_Collisions;
 	m_Collisions.clear();
 }

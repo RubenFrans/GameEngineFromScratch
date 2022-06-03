@@ -13,6 +13,11 @@ AnimationComponent::AnimationComponent(BTEngine::GameObject* pOwner)
 
 void AnimationComponent::Update()
 {
+	assert(m_pCurrentAnimation != nullptr);
+	if (!m_pCurrentAnimation) {
+		return;
+	}
+
 	m_pCurrentAnimation->UpdateCurrentFrame();
 	m_pRenderComponent->SetSourceRect(m_pCurrentAnimation->GetCurrentFrameTexture());
 	m_pRenderComponent->FlipHorizontal(m_pCurrentAnimation->m_FlipHorizontal);
