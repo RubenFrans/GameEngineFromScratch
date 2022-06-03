@@ -1,10 +1,14 @@
 #include "MiniginPCH.h"
 #include "PhysicsManager.h"
 #include "Renderer.h"
+#include <algorithm>
+#include "structs.h"
 
 PhysicsManager::PhysicsManager()
 	: m_CollisionComponents{}
 	, m_PhysicsDebugEnabled{ false }
+	, m_Collisions{}
+	, m_PrevCollisions{}
 {
 
 }
@@ -12,7 +16,7 @@ PhysicsManager::PhysicsManager()
 /// <summary>
 /// Replace with quadtree implementation in the future
 /// </summary>
-void PhysicsManager::DetectCollision() const
+void PhysicsManager::DetectCollision()
 {
 	for (size_t i = 0; i < m_CollisionComponents.size(); i++)
 	{
@@ -37,10 +41,74 @@ void PhysicsManager::DetectCollision() const
 				continue;
 			}
 
-			m_CollisionComponents[i]->TriggerOverlap();
-			m_CollisionComponents[j]->TriggerOverlap();
+
+			Collision collision{ int(i), int(j) };
+			TriggerAction action{};
+			m_Collisions.emplace_back(collision);
+			
+			// If collision happend previous frame as well we set the collision action to stay
+			auto it = std::find_if(m_PrevCollisions.begin(), m_PrevCollisions.end(), [&](const Collision& prevCollision) {
+					
+					if(prevCollision == collision){
+						
+						action = TriggerAction::Stay;
+						return true;
+
+					}
+
+					return false;
+				});
+
+			// If the collision did not happend last frame we set the colllision action to Enter because it happend this frame for the first time
+			if (it == m_PrevCollisions.end()) {
+				action = TriggerAction::Enter;
+			}
+
+
+			BTEngine::GameObject* pTriggerObject{ m_CollisionComponents[i]->GetGameObject() };
+			BTEngine::GameObject* pOtherObject{ m_CollisionComponents[j]->GetGameObject() };
+
+			m_CollisionComponents[i]->TriggerOverlap(pTriggerObject, pOtherObject, action);
+			m_CollisionComponents[j]->TriggerOverlap(pOtherObject, pTriggerObject, action);
+
 		}
 	}
+
+
+	// Check all collisions that happend this frame
+	
+
+	std::for_each(m_PrevCollisions.begin(), m_PrevCollisions.end(), [&](const Collision& prevCollision) {
+
+		auto it2 = std::find_if(m_Collisions.begin(), m_Collisions.end(), [&](const Collision& collision) {
+
+				Collision col{prevCollision};
+
+				if (collision == col) {
+					return true;
+				}
+
+				return false;
+
+			});
+
+			if (it2 == m_Collisions.end()) {
+
+				BTEngine::GameObject* pTriggerObject{ m_CollisionComponents[prevCollision.collisionIndex1]->GetGameObject() };
+				BTEngine::GameObject* pOtherObject{ m_CollisionComponents[prevCollision.collisionIndex2]->GetGameObject() };
+
+				m_CollisionComponents[prevCollision.collisionIndex1]->TriggerOverlap(pTriggerObject, pOtherObject, TriggerAction::Leave);
+				m_CollisionComponents[prevCollision.collisionIndex2]->TriggerOverlap(pTriggerObject, pOtherObject, TriggerAction::Leave);
+
+			}
+		});
+
+
+	// Each collision that is not present in the new collisions that is present in the previous frame collisions gets triggerd with the leave action
+
+
+	m_PrevCollisions = m_Collisions;
+	m_Collisions.clear();
 }
 
 void PhysicsManager::SetEnablePhysicsDebug(bool debugEnabled)

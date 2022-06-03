@@ -1,6 +1,7 @@
 #pragma once
 #include "BaseComponent.h"
 #include "Subject.h"
+#include "structs.h"
 
 class TransformComponent;
 class AnimationComponent;
@@ -29,18 +30,20 @@ public:
 	void MoveDown();
 
 	void Die();
+	bool m_IsOnLadder;
 private:
 	
 	void InitializeAnimations();
 	void InitializeCollisionCallbacks();
 
-	void OnTriggerCallback();
+	void OnTriggerCallback(BTEngine::GameObject* pTriggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action);
 	
 	bool m_IsDead;
 	float m_HorizontalSpeed;
 	float m_VerticalSpeed;
 	TransformComponent* m_pTransformComponent;
 	AnimationComponent* m_pAnimationComponent;
+
 
 	MrPepperState m_State;
 

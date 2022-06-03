@@ -21,14 +21,37 @@ public:
 
     void AddPhysicsBody(CollisionComponent* pCollisionComponent);
 
-    void DetectCollision() const;
 
     void SetEnablePhysicsDebug(bool debugEnabled);
 
 private:
 
-    bool m_PhysicsDebugEnabled;
+    void DetectCollision();
 
+
+    struct Collision {
+        int collisionIndex1;
+        int collisionIndex2;
+
+        bool operator==(const Collision& rhs) {
+
+            if(collisionIndex1 == rhs.collisionIndex1 && collisionIndex2 == rhs.collisionIndex2) {
+                return true;
+            }
+            else if (collisionIndex1 == rhs.collisionIndex2 && collisionIndex2 == rhs.collisionIndex1) {
+                return true;
+            }
+            return false;
+        }
+
+    };
+
+    std::vector<Collision> m_Collisions;
+    std::vector<Collision> m_PrevCollisions;
+   
+
+
+    bool m_PhysicsDebugEnabled;
 	std::vector<CollisionComponent*> m_CollisionComponents;
 };
 

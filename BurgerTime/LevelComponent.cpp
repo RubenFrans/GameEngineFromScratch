@@ -81,7 +81,7 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructPlatform(const IV
 
 	auto platform = std::make_shared<BTEngine::GameObject>();
 
-	platform->AddComponent<PlatformComponent>();
+	//platform->AddComponent<PlatformComponent>();
 	auto transform = platform->AddComponent<TransformComponent>();
 	transform->SetSize(float(m_TileSizeX / 16), float(m_TileSizeY / 16));
 	transform->SetPosition(float(position.x), float(position.y));
@@ -92,15 +92,13 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructPlatform(const IV
 	auto collilsionComp = platform->AddComponent<CollisionComponent>();
 	collilsionComp->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
 
-	collilsionComp->SetOnTriggerCallback([]() {
-		
-		std::cout << "Collision on platform" << std::endl;
+	//collilsionComp->SetOnTriggerCallback([]() {
+	//	
+	//	std::cout << "Collision on platform" << std::endl;
 
-		});
+	//	});
 
 	m_pPhysicsManager->AddPhysicsBody(collilsionComp);
-
-
 
 	Animation platformAnimation{};
 	platformAnimation.SetSpriteSheet("spritesheet.png");
@@ -140,6 +138,13 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructLadder(const IVec
 	ladderAnimation.m_AnchorPoint = IVector2{ 182, 152 };
 
 	animationComp->AddAnimation(0, ladderAnimation);
+
+	auto collilsionComp = ladder->AddComponent<CollisionComponent>();
+	collilsionComp->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
+
+	m_pPhysicsManager->AddPhysicsBody(collilsionComp);
+
+	ladder->AddComponent<PlatformComponent>();
 
 	return ladder;
 }

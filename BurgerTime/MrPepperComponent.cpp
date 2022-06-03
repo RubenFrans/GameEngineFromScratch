@@ -5,12 +5,14 @@
 #include "TimeManager.h"
 #include "AnimationComponent.h"
 #include "CollisionComponent.h"
+#include "PlatformComponent.h"
 
 MrPepperComponent::MrPepperComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }, m_IsDead{ false }
 	, m_HorizontalSpeed{ 50.0f }
 	, m_VerticalSpeed{ 50.0f }
 	, m_State{ MrPepperState::down }
+	, m_IsOnLadder{ false }
 {
 }
 
@@ -75,13 +77,38 @@ void MrPepperComponent::InitializeCollisionCallbacks() {
 
 	assert(collComp != nullptr);
 
-	collComp->SetOnTriggerCallback([&]() {
-			OnTriggerCallback();
+	collComp->SetOnTriggerCallback([&](BTEngine::GameObject* pTriggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action) {
+			OnTriggerCallback(pTriggerObject, pOtherObject, action);
 		});
 }
 
-void MrPepperComponent::OnTriggerCallback() {
-	std::cout << "Peter Collision" << std::endl;
+void MrPepperComponent::OnTriggerCallback(BTEngine::GameObject* /*pTriggerObject*/, BTEngine::GameObject* pOtherObject, TriggerAction action) {
+	
+
+	if (action == TriggerAction::Stay) {
+
+		std::cout << "Peter stay" << std::endl;
+	}
+	else if (action == TriggerAction::Enter) {
+		std::cout << "Peter enter" << std::endl;
+
+		PlatformComponent* pPlatform = pOtherObject->GetComponent<PlatformComponent>();
+
+		if (pPlatform) {
+			m_IsOnLadder = true;
+		}
+
+
+	} else if (action == TriggerAction::Leave) {
+		std::cout << "Peter leave" << std::endl;
+
+		PlatformComponent* pPlatform = pOtherObject->GetComponent<PlatformComponent>();
+
+		if (pPlatform) {
+			m_IsOnLadder = false;
+		}
+
+	}
 }
 
 void MrPepperComponent::Update()
@@ -91,7 +118,7 @@ void MrPepperComponent::Update()
 
 void MrPepperComponent::FixedUpdate()
 {
-
+	
 }
 
 void MrPepperComponent::MoveLeft() 

@@ -2,6 +2,7 @@
 #include "BaseComponent.h"
 #include "structs.h"
 #include <functional>
+#include "structs.h"
 
 class TransformComponent;
 
@@ -27,14 +28,14 @@ public:
     const Rect& GetBoudingBox() const;
 
 
-    void TriggerOverlap();
+    void TriggerOverlap(BTEngine::GameObject* triggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action);
 
-    void SetOnTriggerCallback(const std::function<void()>& callBack);
+    void SetOnTriggerCallback(const std::function<void(BTEngine::GameObject* triggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action)>& callBack);
 
 private:
     Rect m_OriginalBoundingBox;
     Rect m_BoundingBox;
     bool m_IsTrigger;
-    std::function<void()> m_OnTriggerCallback;
+    std::function<void(BTEngine::GameObject* triggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action)> m_OnTriggerCallback;
     TransformComponent* m_pTransformComponent;
 };

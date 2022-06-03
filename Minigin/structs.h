@@ -16,3 +16,9 @@ struct Rect {
 	float w;
 	float h;
 };
+
+enum class TriggerAction : int {
+	Enter,
+	Leave,
+	Stay
+};

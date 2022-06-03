@@ -4,6 +4,7 @@
 #include "CollisionComponent.h"
 #include "TransformComponent.h"
 #include "Renderer.h"
+#include "GameObject.h"
 
 CollisionComponent::CollisionComponent(BTEngine::GameObject* m_pOwner)
 	: BaseComponent(m_pOwner)
@@ -45,15 +46,14 @@ void CollisionComponent::SetTrigger(bool isTrigger)
 	m_IsTrigger = isTrigger;
 }
 
-void CollisionComponent::SetOnTriggerCallback(const std::function<void()>& callBack) {
+void CollisionComponent::SetOnTriggerCallback(const std::function<void(BTEngine::GameObject* pTriggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action)>& callBack) {
 
 	m_OnTriggerCallback = callBack;
 }
 
-void CollisionComponent::TriggerOverlap() {
-
+void CollisionComponent::TriggerOverlap(BTEngine::GameObject* pTriggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action) {
 	if (m_OnTriggerCallback) {
-		m_OnTriggerCallback();
+		m_OnTriggerCallback(pTriggerObject, pOtherObject, action);
 	}
 }
 
