@@ -4,6 +4,7 @@
 #include "TransformComponent.h"
 #include "PlatformComponent.h"
 #include <fstream>
+#include <iostream>
 
 LevelComponent::LevelComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }
@@ -42,6 +43,9 @@ void LevelComponent::SetLevelPath(const std::string& levelPath) {
 
 void LevelComponent::ParseLevelFile()
 {
+
+	assert(m_pPhysicsManager != nullptr);
+
 	std::ifstream input{ m_LevelFilePath };
 
 	char objectIdentfier{};
@@ -70,8 +74,6 @@ void LevelComponent::ParseLevelFile()
 			//ConstructPlatform(position);
 			break;
 		}
-		
-
 	}
 }
 
@@ -86,6 +88,19 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructPlatform(const IV
 
 	platform->AddComponent<RenderComponent>();
 	auto animationComp = platform->AddComponent<AnimationComponent>();
+
+	auto collilsionComp = platform->AddComponent<CollisionComponent>();
+	collilsionComp->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
+
+	collilsionComp->SetOnTriggerCallback([]() {
+		
+		std::cout << "Collision on platform" << std::endl;
+
+		});
+
+	m_pPhysicsManager->AddPhysicsBody(collilsionComp);
+
+
 
 	Animation platformAnimation{};
 	platformAnimation.SetSpriteSheet("spritesheet.png");
@@ -136,4 +151,8 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructTrapDoor() {
 
 std::vector<std::shared_ptr<BTEngine::GameObject>>& LevelComponent::GetGameObjects() {
 	return m_LevelObjects;
+}
+
+void LevelComponent::SetPhysicsManager(std::shared_ptr<PhysicsManager> manager) {
+	m_pPhysicsManager = manager;
 }

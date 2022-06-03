@@ -9,33 +9,38 @@ PhysicsManager::PhysicsManager()
 
 }
 
+/// <summary>
+/// Replace with quadtree implementation in the future
+/// </summary>
 void PhysicsManager::DetectCollision() const
 {
 	for (size_t i = 0; i < m_CollisionComponents.size(); i++)
 	{
 
-		if (i + 1 >= m_CollisionComponents.size())
-			return;
-
-		const Rect& r1 = m_CollisionComponents[i]->GetBoudingBox();
-		const Rect& r2 = m_CollisionComponents[i+1]->GetBoudingBox();
-
-		// If one rectangle is on left side of the other
-		if ((r1.x + r1.w) < r2.x || (r2.x + r2.w) < r1.x)
+		for (size_t j = i+1; j < m_CollisionComponents.size(); j++)
 		{
-			continue;
-		}
+			if (i + 1 >= m_CollisionComponents.size())
+				return;
 
-		// If one rectangle is under the other
-		if (r1.y > (r2.y + r2.h) || r2.y > (r1.y + r1.h))
-		{
-			continue;
-		}
+			const Rect& r1 = m_CollisionComponents[i]->GetBoudingBox();
+			const Rect& r2 = m_CollisionComponents[j]->GetBoudingBox();
 
-		m_CollisionComponents[i]->TriggerOverlap();
-		m_CollisionComponents[i+1]->TriggerOverlap();
+			// If one rectangle is on left side of the other
+			if ((r1.x + r1.w) < r2.x || (r2.x + r2.w) < r1.x)
+			{
+				continue;
+			}
+
+			// If one rectangle is under the other
+			if (r1.y > (r2.y + r2.h) || r2.y > (r1.y + r1.h))
+			{
+				continue;
+			}
+
+			m_CollisionComponents[i]->TriggerOverlap();
+			m_CollisionComponents[j]->TriggerOverlap();
+		}
 	}
-
 }
 
 void PhysicsManager::SetEnablePhysicsDebug(bool debugEnabled)

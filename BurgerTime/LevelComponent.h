@@ -5,6 +5,7 @@
 #include <memory>
 #include "GameObject.h"
 #include "structs.h"
+#include "PhysicsManager.h"
 
 class RenderComponent;
 
@@ -24,6 +25,9 @@ public:
 	void SetLevelPath(const std::string& levelPath);
 
 	void ParseLevelFile();
+
+	void SetPhysicsManager(std::shared_ptr<PhysicsManager> phyicsManager);
+
 private:
 
 	std::string m_LevelFilePath;
@@ -40,6 +44,8 @@ private:
 	int m_AmountOfRows;
 
 	std::vector<std::shared_ptr<BTEngine::GameObject>> m_LevelObjects;
+
+	std::shared_ptr<PhysicsManager> m_pPhysicsManager;
 
 	// platform locations
 

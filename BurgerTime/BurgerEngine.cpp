@@ -58,17 +58,17 @@ void BurgerEngine::LoadGame()
 
 	physics->AddPhysicsBody(collision);
 
-	auto testObj = std::make_shared<GameObject>();
-	testObj->AddComponent<TransformComponent>()->SetSize(50 / 16, 50 / 16);
-	auto collision2 = testObj->AddComponent<CollisionComponent>();
-	collision2->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
-	collision2->SetOnTriggerCallback([]() {
-		std::cout << "Collision happened on test object" << std::endl;
-		});
+	//auto testObj = std::make_shared<GameObject>();
+	//testObj->AddComponent<TransformComponent>()->SetSize(50 / 16, 50 / 16);
+	//auto collision2 = testObj->AddComponent<CollisionComponent>();
+	//collision2->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
+	//collision2->SetOnTriggerCallback([]() {
+	//	std::cout << "Collision happened on test object" << std::endl;
+	//	});
 
-	physics->AddPhysicsBody(collision2);
+	//physics->AddPhysicsBody(collision2);
 
-	scene.Add(testObj);
+	//scene.Add(testObj);
 
 
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Right, std::make_shared<MoveRightCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
@@ -113,6 +113,7 @@ void BurgerEngine::LoadGame()
 
 	auto level = std::make_shared<GameObject>();
 	auto levelComp = level->AddComponent<LevelComponent>();
+	levelComp->SetPhysicsManager(physics);
 	levelComp->SetLevelPath("..\\data\\Level1.txt");
 	levelComp->ParseLevelFile();
 

@@ -16,7 +16,7 @@ CollisionComponent::CollisionComponent(BTEngine::GameObject* m_pOwner)
 void CollisionComponent::Initialize()
 {
 	m_pTransformComponent = GetGameObject()->GetComponent<TransformComponent>();
-
+	
 	// After initialization alter bounding box to the scale transform. original bounding box should be set to original asset size.
 	m_BoundingBox.w = m_BoundingBox.w * m_pTransformComponent->GetTransform().GetSize().x;
 	m_BoundingBox.h = m_BoundingBox.h * m_pTransformComponent->GetTransform().GetSize().y;
@@ -52,7 +52,10 @@ void CollisionComponent::SetOnTriggerCallback(const std::function<void()>& callB
 }
 
 void CollisionComponent::TriggerOverlap() {
-	m_OnTriggerCallback();
+
+	if (m_OnTriggerCallback) {
+		m_OnTriggerCallback();
+	}
 }
 
 const Rect& CollisionComponent::GetBoudingBox() const {
