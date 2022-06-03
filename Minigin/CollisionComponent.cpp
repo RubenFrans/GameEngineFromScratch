@@ -32,7 +32,6 @@ void CollisionComponent::FixedUpdate()
 {
 	m_BoundingBox.x = m_pTransformComponent->GetTransform().GetPosition().x;
 	m_BoundingBox.y = m_pTransformComponent->GetTransform().GetPosition().y;
-
 }
 
 void CollisionComponent::SetBoundingBox(const Rect& boundingBox)

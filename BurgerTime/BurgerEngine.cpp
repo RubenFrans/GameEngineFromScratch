@@ -52,9 +52,9 @@ void BurgerEngine::LoadGame()
 	mrPepper->AddComponent<AnimationComponent>();
 	auto collision = mrPepper->AddComponent<CollisionComponent>();
 	collision->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
-	collision->SetOnTriggerCallback([]() {
-		std::cout << "Collision happened on peter" << std::endl;
-		});
+	//collision->SetOnTriggerCallback([]() {
+	//	std::cout << "Collision happened on peter" << std::endl;
+	//	});
 
 	physics->AddPhysicsBody(collision);
 

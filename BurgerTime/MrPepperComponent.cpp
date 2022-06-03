@@ -4,6 +4,7 @@
 #include "TransformComponent.h"
 #include "TimeManager.h"
 #include "AnimationComponent.h"
+#include "CollisionComponent.h"
 
 MrPepperComponent::MrPepperComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }, m_IsDead{ false }
@@ -18,6 +19,7 @@ void MrPepperComponent::Initialize()
 	m_pTransformComponent = GetGameObject()->GetComponent<TransformComponent>();
 	m_pAnimationComponent = GetGameObject()->GetComponent<AnimationComponent>();
 	InitializeAnimations();
+	InitializeCollisionCallbacks();
 }
 
 void MrPepperComponent::InitializeAnimations() {
@@ -67,6 +69,20 @@ void MrPepperComponent::InitializeAnimations() {
 
 }
 
+void MrPepperComponent::InitializeCollisionCallbacks() {
+
+	CollisionComponent* collComp = GetGameObject()->GetComponent<CollisionComponent>();
+
+	assert(collComp != nullptr);
+
+	collComp->SetOnTriggerCallback([&]() {
+			OnTriggerCallback();
+		});
+}
+
+void MrPepperComponent::OnTriggerCallback() {
+	std::cout << "Peter Collision" << std::endl;
+}
 
 void MrPepperComponent::Update()
 {

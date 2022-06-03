@@ -32,6 +32,9 @@ public:
 private:
 	
 	void InitializeAnimations();
+	void InitializeCollisionCallbacks();
+
+	void OnTriggerCallback();
 	
 	bool m_IsDead;
 	float m_HorizontalSpeed;
