@@ -54,7 +54,7 @@ const BTEngine::Transform& TransformComponent::GetTransform() const
 }
 
 const BTEngine::Transform& TransformComponent::GetWorldTransform() const {
-
+	
 	return m_WorldTransform;
 
 }
@@ -63,13 +63,22 @@ void TransformComponent::UpdateWorldTransform() {
 	BTEngine::GameObject* pOwner = GetGameObject();
 	BTEngine::GameObject* pObjectParent = pOwner->GetParent();
 
+
+	// Update world transform of all children
+	for (size_t i = 0; i < pOwner->GetAmountOfChildren(); i++)
+	{
+		TransformComponent* comp = pOwner->GetChildAt(i)->GetComponent<TransformComponent>();
+		comp->UpdateWorldTransform();
+	}
+
 	// If the object has no parent its local transform is also its worldtransform
 	if (pObjectParent == nullptr) {
 		m_WorldTransform = m_LocalTransform;
 		return;
 	}
 
-	BTEngine::Transform parentTransform{ pObjectParent->GetComponent<TransformComponent>()->GetTransform() }; // Getting this should be moved to an onAttachToParent / Child event
+	BTEngine::Transform parentTransform{ pObjectParent->GetComponent<TransformComponent>()->GetWorldTransform() }; // Getting this should be moved to an onAttachToParent / Child event
 
 	m_WorldTransform = m_LocalTransform + parentTransform;
+
 }

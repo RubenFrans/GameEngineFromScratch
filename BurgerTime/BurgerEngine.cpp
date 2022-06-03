@@ -102,9 +102,12 @@ void BurgerEngine::LoadGame()
 	auto pIngridientPart = std::make_shared<GameObject>();
 	//BTEngine::GameObject* pIngridientPart = new BTEngine::GameObject();
 	auto pTransform = pIngridientPart->AddComponent<TransformComponent>();
-	pTransform->Translate(400.0f, 400.0f);
-	pTransform->SetSize(5.0, 3.0f);
+	pTransform->Translate(0.f, .0f);
+	//pTransform->SetSize(1.0, 3.0f);
 	
+	mrPepper->AddChild(pIngridientPart.get());
+	//pIngridientPart->SetParent(mrPepper.get());
+
 	auto inComp = pIngridientPart->AddComponent<IngredientComponent>();
 	//inComp->SetPhysicsManager(physics);
 	//inComp->SetInitializationScene(&scene);

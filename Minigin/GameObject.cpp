@@ -70,12 +70,22 @@ BTEngine::GameObject* BTEngine::GameObject::GetChildAt(int index)
 void BTEngine::GameObject::RemoveChild(int index)
 {
 	m_Children.at(index)->SetParent(nullptr);
+	m_Children.at(index)->OnDetached();
 	m_Children.erase(m_Children.begin() + index);
 }
 
 void BTEngine::GameObject::AddChild(BTEngine::GameObject* gameObject)
 {
 	gameObject->SetParent(this);
+	gameObject->OnAttached();
 	m_Children.push_back(gameObject);
+}
+
+void BTEngine::GameObject::OnAttached() {
+
+}
+
+void BTEngine::GameObject::OnDetached() {
+
 }
 

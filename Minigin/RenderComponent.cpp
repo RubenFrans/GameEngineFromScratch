@@ -13,6 +13,7 @@ RenderComponent::RenderComponent(BTEngine::GameObject* pOwner)
 	, m_SourceRect{}
 	, m_pTransformComponent{ nullptr }
 {
+
 }
 
 void RenderComponent::Initialize()
@@ -22,10 +23,12 @@ void RenderComponent::Initialize()
 
 void RenderComponent::Update()
 {
+
 }
 
 void RenderComponent::FixedUpdate()
 {
+
 }
 
 void RenderComponent::Render() const

@@ -23,12 +23,13 @@ namespace BTEngine
 		void FixedUpdate() override;
 		void Render() const override;
 		void Initialize() override;
+		void OnAttached();
+		void OnDetached();
 
 		template <typename T> T* AddComponent();
 		template <typename T> T* GetComponent() const;
 		template <typename T> void RemoveComponent();
 
-		void SetParent(GameObject* parent);
 		GameObject* GetParent() const;
 
 		size_t GetAmountOfChildren() const;
@@ -37,6 +38,7 @@ namespace BTEngine
 		void AddChild(GameObject* gameObject);
 
 	private:
+		void SetParent(GameObject* parent);
 		GameObject* m_pParent;
 		std::vector<BaseComponent*> m_Components;
 		std::vector<GameObject*> m_Children; // Think to change to set for unique entries (no gameobject should be added twice as child to the same go)
