@@ -23,11 +23,13 @@ void BTEngine::Transform::SetSize(const float x, const float y, const float z) {
 BTEngine::Transform BTEngine::Transform::operator+(const Transform& rhs) {
 
 	Transform result{};
-	glm::vec3 position = GetPosition() + rhs.GetPosition();
-	result.SetPosition(position.x, position.y, position.z);
 
 	glm::vec3 size = GetSize() * rhs.GetSize();
 	result.SetSize(size.x, size.y, size.z);
+
+	glm::vec3 position = GetPosition() + rhs.GetPosition();
+	//result.SetPosition(position.x + (size.x / 2.f), position.y + (size.y / 2.f), position.z + (size.z / 2.f));
+	result.SetPosition(position.x, position.y, position.z);
 
 	return result;
 }

@@ -10,12 +10,12 @@ TransformComponent::TransformComponent(BTEngine::GameObject* pOwner)
 
 void TransformComponent::Update()
 {
-
+	
 }
 
 void TransformComponent::FixedUpdate()
 {
-	
+	UpdateWorldTransform();
 }
 
 void TransformComponent::Initialize()

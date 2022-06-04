@@ -2,6 +2,7 @@
 #include "Transform.h"
 #include "SceneObject.h"
 #include <vector>
+#include <string>
 
 class BaseComponent;
 
@@ -25,6 +26,8 @@ namespace BTEngine
 		void Initialize() override;
 		void OnAttached();
 		void OnDetached();
+		void SetTag(const std::string& tag);
+		const std::string& GetTag() const;
 
 		template <typename T> T* AddComponent();
 		template <typename T> T* GetComponent() const;
@@ -38,6 +41,7 @@ namespace BTEngine
 		void AddChild(GameObject* gameObject);
 
 	private:
+		std::string m_Tag;
 		void SetParent(GameObject* parent);
 		GameObject* m_pParent;
 		std::vector<BaseComponent*> m_Components;

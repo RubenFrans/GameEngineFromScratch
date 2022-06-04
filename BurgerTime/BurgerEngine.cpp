@@ -46,6 +46,7 @@ void BurgerEngine::LoadGame()
 
 #pragma region MrPepper
 	auto mrPepper = std::make_shared<GameObject>();
+	mrPepper->SetTag("Peter");
 	auto pepperComp = mrPepper->AddComponent<MrPepperComponent>();
 
 	mrPepper->AddComponent<TransformComponent>()->SetSize(50 / 16, 50 / 16);
@@ -89,34 +90,15 @@ void BurgerEngine::LoadGame()
 
 #pragma region BurgerTest
 
-	//auto burger = std::make_shared<GameObject>();
-	//burger->AddComponent<TransformComponent>()->Translate(200.0f, 100.f);
-	//burger->AddComponent<IngredientComponent>()->SetPhysicsManager(physics);
-	//auto colo = burger->AddComponent<CollisionComponent>();
-	//colo->SetBoundingBox(Rect{ 0.0f, 0.0f, 100.0f, 50.0f });
-
-	//physics->AddPhysicsBody(colo);
-
-	//scene.Add(burger);
-
-	auto pIngridientPart = std::make_shared<GameObject>();
+	auto pIngridient = std::make_shared<GameObject>();
 	//BTEngine::GameObject* pIngridientPart = new BTEngine::GameObject();
-	auto pTransform = pIngridientPart->AddComponent<TransformComponent>();
-	pTransform->Translate(0.f, .0f);
-	//pTransform->SetSize(1.0, 3.0f);
-	
-	mrPepper->AddChild(pIngridientPart.get());
-	//pIngridientPart->SetParent(mrPepper.get());
+	auto pTransform = pIngridient->AddComponent<TransformComponent>();
+	pTransform->Translate(400.f, 200.0f);
+	//pTransform->SetSize(3.0f, 3.0f);
 
-	auto inComp = pIngridientPart->AddComponent<IngredientComponent>();
-	//inComp->SetPhysicsManager(physics);
-	//inComp->SetInitializationScene(&scene);
+	auto inComp = pIngridient->AddComponent<IngredientComponent>();
 	inComp->InitializeIngredientParts(&scene, physics.get());
-	scene.Add(pIngridientPart);
-
-	//for (const std::shared_ptr<GameObject> obj : inComp->GetParts()) {
-	//	scene.Add(obj);
-	//}
+	scene.Add(pIngridient);
 
 
 #pragma endregion
@@ -154,6 +136,7 @@ void BurgerEngine::LoadGame()
 	for (const std::shared_ptr<GameObject> obj : levelComp->GetGameObjects()) {
 		scene.Add(obj);
 	}
+
 #pragma endregion
 
 #pragma region ExampleCode

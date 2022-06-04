@@ -37,6 +37,9 @@
     <Filter Include="Source Files\Component\IngredientComponent">
       <UniqueIdentifier>{bac8f7b5-6b2a-4bb5-b0b0-919874542be5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Component\IngredientComponent\IngredientPart">
+      <UniqueIdentifier>{80cc7c9e-52e4-4615-bc12-d5ea3d5561c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BurgerTime.cpp">
@@ -72,6 +75,9 @@
     <ClCompile Include="LevelComponent.cpp">
       <Filter>Source Files\Level</Filter>
     </ClCompile>
+    <ClCompile Include="IngredientPartComponent.cpp">
+      <Filter>Source Files\Component\IngredientComponent\IngredientPart</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BurgerEngine.h">
@@ -106,6 +112,12 @@
     </ClInclude>
     <ClInclude Include="LevelComponent.h">
       <Filter>Source Files\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="IngredientPartComponent.h">
+      <Filter>Source Files\Component\IngredientComponent\IngredientPart</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectTags.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

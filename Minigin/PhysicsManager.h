@@ -50,7 +50,7 @@ private:
     std::vector<Collision> m_PrevCollisions;
    
 
-
+    bool m_Detect{ false };
     bool m_PhysicsDebugEnabled;
 	std::vector<CollisionComponent*> m_CollisionComponents;
 };

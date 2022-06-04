@@ -122,7 +122,14 @@ void PhysicsManager::Update()
 
 void PhysicsManager::FixedUpdate()
 {
-	DetectCollision();
+	if (m_Detect) {
+		DetectCollision();
+
+	}
+
+	if (!m_Detect) {
+		m_Detect = true;
+	}
 }
 
 void PhysicsManager::Render() const

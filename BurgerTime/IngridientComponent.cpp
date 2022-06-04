@@ -3,6 +3,7 @@
 #include "AnimationComponent.h"
 #include "RenderComponent.h"
 #include "CollisionComponent.h"
+#include "IngredientPartComponent.h"
 #include "Scene.h"
 
 enum class IngredientType {
@@ -39,7 +40,7 @@ void IngredientComponent::InitializeIngredientParts(BTEngine::Scene* scene, Phys
 	assert(scene != nullptr);
 	assert(physics != nullptr);
 
-	float partOffset = 31.f / m_AmountOfParts;
+	float partOffset = (31.f / m_AmountOfParts) * 2.0f;
 
 	for (size_t i = 0; i < m_AmountOfParts; i++)
 	{
@@ -69,6 +70,8 @@ void IngredientComponent::InitializeIngredientParts(BTEngine::Scene* scene, Phys
 
 		pAnimationComp->AddAnimation(0, ingredientAnimation);
 		//pAnimationComp->SetPlayAnimation(0);
+
+		pIngredientPart->AddComponent<IngredientPartComponent>();
 
 		m_IngredientParts.emplace_back(pIngredientPart);
 

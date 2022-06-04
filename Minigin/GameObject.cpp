@@ -7,7 +7,7 @@
 #include "RenderComponent.h"
 
 BTEngine::GameObject::GameObject() 
-	: SceneObject{}, m_pParent{ nullptr }, m_Components{}, m_Children{}
+	: SceneObject{}, m_pParent{ nullptr }, m_Components{}, m_Children{}, m_Tag{}
 {
 }
 
@@ -87,5 +87,13 @@ void BTEngine::GameObject::OnAttached() {
 
 void BTEngine::GameObject::OnDetached() {
 
+}
+
+void BTEngine::GameObject::SetTag(const std::string& tag) {
+	m_Tag = tag;
+}
+
+const std::string& BTEngine::GameObject::GetTag() const {
+	return m_Tag;
 }
 
