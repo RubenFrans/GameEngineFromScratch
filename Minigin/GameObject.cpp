@@ -22,12 +22,20 @@ void BTEngine::GameObject::Update(){
 	std::for_each(m_Components.begin(), m_Components.end(), [](BaseComponent* comp) {
 		comp->Update();
 		});
+
+	//std::for_each(m_Children.begin(), m_Children.end(), [](BTEngine::GameObject* child) {
+	//		child->Update();
+	//	});
 }
 
 void BTEngine::GameObject::FixedUpdate(){
 	std::for_each(m_Components.begin(), m_Components.end(), [](BaseComponent* comp) {
 		comp->FixedUpdate();
 		});
+
+	//std::for_each(m_Children.begin(), m_Children.end(), [](BTEngine::GameObject* child) {
+	//	child->FixedUpdate();
+	//	});
 }
 
 void BTEngine::GameObject::Render() const
@@ -35,6 +43,10 @@ void BTEngine::GameObject::Render() const
 	std::for_each(m_Components.begin(), m_Components.end(), [](BaseComponent* comp) {
 			comp->Render();
 		});
+
+	//std::for_each(m_Children.begin(), m_Children.end(), [](BTEngine::GameObject* child) {
+	//	child->Render();
+	//	});
 }
 
 void BTEngine::GameObject::Initialize()
@@ -42,6 +54,10 @@ void BTEngine::GameObject::Initialize()
 	std::for_each(m_Components.begin(), m_Components.end(), [](BaseComponent* comp) {
 		comp->Initialize();
 		});
+
+	//std::for_each(m_Children.begin(), m_Children.end(), [](BTEngine::GameObject* child) {
+	//	child->Initialize();
+	//	});
 
 	m_HasBeenInitialized = true;
 }

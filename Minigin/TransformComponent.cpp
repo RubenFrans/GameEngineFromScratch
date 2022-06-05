@@ -1,9 +1,11 @@
 #include "MiniginPCH.h"
 #include "TransformComponent.h"
-//#include "GameObject.h"
+#include "RigidBodyComponent.h"
 
 TransformComponent::TransformComponent(BTEngine::GameObject* pOwner)
-	: BaseComponent{ pOwner }, m_LocalTransform{}
+	: BaseComponent{ pOwner }
+	, m_LocalTransform{}
+	, m_pRigidBodyComponent{ nullptr }
 {
 
 }
@@ -20,12 +22,14 @@ void TransformComponent::FixedUpdate()
 
 void TransformComponent::Initialize()
 {
+	m_pRigidBodyComponent = GetGameObject()->GetComponent<RigidBodyComponent>();
 	UpdateWorldTransform();
 }
 
 void TransformComponent::SetPosition(float x, float y)
 {
 	m_LocalTransform.SetPosition(x, y, 0.0f);
+	UpdateWorldTransform();
 }
 
 void TransformComponent::SetSize(float x, float y) {
@@ -35,6 +39,7 @@ void TransformComponent::SetSize(float x, float y) {
 void TransformComponent::SetTransform(const BTEngine::Transform& transform)
 {
 	m_LocalTransform = transform;
+	UpdateWorldTransform();
 }
 
 void TransformComponent::Translate(float x, float y) {
@@ -42,6 +47,10 @@ void TransformComponent::Translate(float x, float y) {
 	glm::vec3 pos = m_LocalTransform.GetPosition();
 
 	m_LocalTransform.SetPosition(pos.x + x, pos.y + y, pos.z);
+
+	//if (m_pRigidBodyComponent) {
+	//	m_pRigidBodyComponent->SetPosition({ x, y });
+	//}
 
 	// Update world transform
 	UpdateWorldTransform();

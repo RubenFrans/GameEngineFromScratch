@@ -22,7 +22,7 @@ RigidBodyComponent::RigidBodyComponent(BTEngine::GameObject* pOwner)
 void RigidBodyComponent::Initialize() {
 
 	m_pTransformComponent = GetGameObject()->GetComponent<TransformComponent>();
-	m_InitialPos = FVector2{ m_pTransformComponent->GetTransform().GetPosition().x, m_pTransformComponent->GetTransform().GetPosition().y};
+	m_InitialPos = FVector2{ m_pTransformComponent->GetWorldTransform().GetPosition().x, m_pTransformComponent->GetWorldTransform().GetPosition().y};
 	assert(m_pTransformComponent != nullptr);
 	InitializeRigidbody();
 	m_pTransformComponent->SetPosition(m_pRigidBody->GetPosition().x, m_pRigidBody->GetPosition().y);

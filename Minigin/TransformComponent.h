@@ -2,6 +2,8 @@
 #include "BaseComponent.h"
 #include "Transform.h"
 
+class RigidBodyComponent;
+
 class TransformComponent :
     public BaseComponent
 {
@@ -22,6 +24,9 @@ public:
 
 private:
 	void UpdateWorldTransform();
+
+	RigidBodyComponent* m_pRigidBodyComponent;
+
 	BTEngine::Transform m_LocalTransform;
 	BTEngine::Transform m_WorldTransform;
 };

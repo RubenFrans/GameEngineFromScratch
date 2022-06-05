@@ -78,9 +78,8 @@ void BurgerEngine::LoadGame()
 #pragma region BurgerTest
 
 	auto pIngridient = std::make_shared<GameObject>();
-	//BTEngine::GameObject* pIngridientPart = new BTEngine::GameObject();
 	auto pTransform = pIngridient->AddComponent<TransformComponent>();
-	pTransform->Translate(400.f, 200.0f);
+	pTransform->Translate(100.f, 200.0f);
 	//pTransform->SetSize(3.0f, 3.0f);
 
 	auto inComp = pIngridient->AddComponent<IngredientComponent>();

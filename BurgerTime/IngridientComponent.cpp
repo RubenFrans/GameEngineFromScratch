@@ -46,14 +46,10 @@ void IngredientComponent::InitializeIngredientParts(BTEngine::Scene* scene) {
 	{
 		auto pIngredientPart = std::make_shared<BTEngine::GameObject>();
 		auto pTransform = pIngredientPart->AddComponent<TransformComponent>();
-		pTransform->SetPosition(partOffset * i, 0.0f);
-		pTransform->SetSize(16.0f, 16.0f);
+		pTransform->SetPosition((partOffset + 16.0f) * i, 0.0f);
+		pTransform->SetSize(partOffset, 16.0f);
 		pIngredientPart->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
 		GetGameObject()->AddChild(pIngredientPart.get());
-
-		//auto collisionComp = pIngredientPart->AddComponent<CollisionComponent>();
-		//collisionComp->SetBoundingBox(Rect{ .0f, .0f , 31.f / m_AmountOfParts, 7.0f });
-		//physics->AddPhysicsBody(collisionComp);
 
 		AnimationComponent* pAnimationComp = pIngredientPart->AddComponent<AnimationComponent>();
 
@@ -66,16 +62,10 @@ void IngredientComponent::InitializeIngredientParts(BTEngine::Scene* scene) {
 		ingredientAnimation.m_CellHeigth = 7;
 		ingredientAnimation.m_AnimationFramesPerSecond = 0;
 		ingredientAnimation.m_AnchorPoint = IVector2{ 113 + int((partOffset * i)), 50};
-		//ingredientAnimation.m_AnchorPoint = IVector2{ 0, 0 };
 
 		pAnimationComp->AddAnimation(0, ingredientAnimation);
-		//pAnimationComp->SetPlayAnimation(0);
-
-		//pIngredientPart->AddComponent<IngredientPartComponent>();
-
-		//m_IngredientParts.emplace_back(pIngredientPart);
-		pIngredientPart->AddComponent<RigidBodyComponent>();
-		pIngredientPart->AddComponent<BoxCollider>()->SetBoundingBox({0.0f, 0.0f, 16.0f, 16.0f});
+		pIngredientPart->AddComponent<RigidBodyComponent>()->SetRigidBodyType(RigidType::Dynamic);
+		pIngredientPart->AddComponent<BoxCollider>()->SetBoundingBox({0.0f, 0.0f, partOffset, 16.0f});
 
 		m_IngredientParts.emplace_back(pIngredientPart->AddComponent<IngredientPartComponent>());
 

@@ -82,7 +82,7 @@ void MrPepperComponent::InitializeAnimations() {
 
 void MrPepperComponent::InitializeCollisionCallbacks() {
 
-	ColliderComponent* collider = GetGameObject()->GetComponent<CircleCollider>();
+	CircleCollider* collider = GetGameObject()->GetComponent<CircleCollider>();
 
 	assert(collider != nullptr);
 
