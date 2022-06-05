@@ -259,6 +259,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     <ClInclude Include="ColliderComponent.h" />
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="Command.h" />
+    <ClInclude Include="ContactListener.h" />
     <ClInclude Include="ControllerButtons.h" />
     <ClInclude Include="Events.h" />
     <ClInclude Include="Font.h" />
@@ -277,6 +278,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     <ClInclude Include="imstb_truetype.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="InputManager2.h" />
+    <ClInclude Include="InternalStructs.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Locator.h" />
     <ClInclude Include="Minigin.h" />
@@ -321,6 +323,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     <ClCompile Include="ColliderComponent.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="Command.cpp" />
+    <ClCompile Include="ContactListener.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FPSComponent.cpp" />
     <ClCompile Include="GameObject.cpp" />

@@ -21,7 +21,6 @@
 #include <iostream>
 #include "IngridientComponent.h"
 #include "RigidBodyComponent.h"
-#include "ColliderComponent.h"
 #include "BoxCollider.h"
 #include "CircleCollider.h"
 
@@ -67,12 +66,14 @@ void BurgerEngine::LoadGame()
 	//physics->AddPhysicsBody(collision);
 
 	mrPepper->AddComponent<RigidBodyComponent>();
-	mrPepper->AddComponent<CircleCollider>()->SetRadius(25.0f)
+	auto collider = mrPepper->AddComponent<CircleCollider>();
+		collider->SetRadius(25.0f)
 		/*->SetBoundingBox(Rect{0.0f, 0.0f, 25.0f, 25.0f})*/;
 
+	//collider->SetCollisionCallback([](BTEngine::GameObject* pObject, TriggerAction::Enter) {
+	//	std::cout << "Peter Collided with " << pObject << std::endl;
+	//	});
 	
-
-
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Right, std::make_shared<MoveRightCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Left, std::make_shared<MoveLeftCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Up, std::make_shared<MoveUpCommand>(pepperComp), ButtonBehaviour::Pressed, 0);

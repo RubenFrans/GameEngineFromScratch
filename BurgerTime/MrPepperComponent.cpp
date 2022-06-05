@@ -7,6 +7,8 @@
 #include "CollisionComponent.h"
 #include "PlatformComponent.h"
 #include "RigidBodyComponent.h"
+#include "ColliderComponent.h"
+#include "CircleCollider.h"
 
 MrPepperComponent::MrPepperComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }, m_IsDead{ false }
@@ -17,6 +19,7 @@ MrPepperComponent::MrPepperComponent(BTEngine::GameObject* pOwner)
 	, m_pAnimationComponent{ nullptr }
 	, m_pTransformComponent{ nullptr }
 	, m_pRigidBodyComponent{ nullptr }
+	, m_LadderCounter{ 0 }
 {
 }
 
@@ -28,7 +31,7 @@ void MrPepperComponent::Initialize()
 	m_pRigidBodyComponent = GetGameObject()->GetComponent<RigidBodyComponent>();
 
 	InitializeAnimations();
-	//InitializeCollisionCallbacks();
+	InitializeCollisionCallbacks();
 }
 
 void MrPepperComponent::InitializeAnimations() {
@@ -80,13 +83,44 @@ void MrPepperComponent::InitializeAnimations() {
 
 void MrPepperComponent::InitializeCollisionCallbacks() {
 
-	CollisionComponent* collComp = GetGameObject()->GetComponent<CollisionComponent>();
+	//CollisionComponent* collComp = GetGameObject()->GetComponent<CollisionComponent>();
 
-	assert(collComp != nullptr);
+	//assert(collComp != nullptr);
 
-	collComp->SetOnTriggerCallback([&](BTEngine::GameObject* pTriggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action) {
-			OnTriggerCallback(pTriggerObject, pOtherObject, action);
+	//collComp->SetOnTriggerCallback([&](BTEngine::GameObject* pTriggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action) {
+	//		OnTriggerCallback(pTriggerObject, pOtherObject, action);
+	//	});
+
+	ColliderComponent* collider = GetGameObject()->GetComponent<CircleCollider>();
+
+	assert(collider != nullptr);
+
+	collider->SetCollisionCallback([&](BTEngine::GameObject* pOtherObject, TriggerAction action) {
+		
+			if (action == TriggerAction::Enter) {
+
+				if (pOtherObject->GetTag().compare("ladder") == 0) {
+					m_LadderCounter += 1;
+				}
+
+			}
+			else if(action == TriggerAction::Leave) {
+
+				if (pOtherObject->GetTag().compare("ladder") == 0) {
+					
+					m_LadderCounter -= 1;
+				}
+			}
+
+			if (m_LadderCounter > 0) {
+				m_IsOnLadder = true;
+			}
+			else {
+				m_IsOnLadder = false;
+			}
+
 		});
+
 }
 
 void MrPepperComponent::OnTriggerCallback(BTEngine::GameObject* /*pTriggerObject*/, BTEngine::GameObject* pOtherObject, TriggerAction action) {

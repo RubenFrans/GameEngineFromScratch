@@ -1,5 +1,9 @@
 #pragma once
+
+#pragma warning(push, 1)
 #include "glm/vec3.hpp"
+#pragma warning(pop)
+
 
 namespace BTEngine
 {

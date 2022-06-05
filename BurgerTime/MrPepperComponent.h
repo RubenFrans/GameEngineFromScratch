@@ -32,7 +32,6 @@ public:
 	void Die();
 	bool m_IsOnLadder;
 private:
-	
 	void InitializeAnimations();
 	void InitializeCollisionCallbacks();
 
@@ -47,5 +46,6 @@ private:
 
 	MrPepperState m_State;
 
+	int m_LadderCounter;
 };
 

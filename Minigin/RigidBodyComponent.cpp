@@ -8,6 +8,9 @@
 #include "b2_fixture.h"
 #include "b2_polygon_shape.h"
 #include "b2_circle_shape.h"
+#include "b2_settings.h"
+#include "InternalStructs.h"
+#include "ColliderComponent.h"
 
 
 RigidBodyComponent::RigidBodyComponent(BTEngine::GameObject* pOwner)
@@ -87,19 +90,52 @@ void RigidBodyComponent::AddForce(const FVector2& force) {
 
 }
 
-b2Fixture* RigidBodyComponent::AddFixtureToBody(const Rect& boundingBox) {
+//b2Fixture* RigidBodyComponent::AddFixtureToBody(const Rect& boundingBox) {
+//
+//	b2PolygonShape shape;
+//	shape.SetAsBox(boundingBox.w, boundingBox.h);
+//	return m_pRigidBody->CreateFixture(&shape, 1.0f);
+//
+//}
+
+b2Fixture* RigidBodyComponent::AddFixtureToBody(const Rect& boundingBox, ColliderComponent* pColliderComponent) {
 
 	b2PolygonShape shape;
 	shape.SetAsBox(boundingBox.w, boundingBox.h);
-	return m_pRigidBody->CreateFixture(&shape, 1.0f);
+	b2FixtureDef def{};
+	def.shape = &shape; // shape is cloned so it is ok to make it on the stack
+	def.density = 1.0f;
+	def.isSensor = pColliderComponent->IsSensor();
+	def.userData.pointer = reinterpret_cast<uintptr_t>(pColliderComponent);
+
+	return m_pRigidBody->CreateFixture(&def);
 
 }
 
-b2Fixture* RigidBodyComponent::AddFixtureToBody(float radius) {
+//b2Fixture* RigidBodyComponent::AddFixtureToBody(float radius) {
+//
+//	b2CircleShape shape;
+//	shape.m_radius = radius;
+//	b2FixtureDef def{};
+//	def.shape = &shape; // shape is cloned so it is ok to make it on the stack
+//	def.density = 1.0f;
+//	return m_pRigidBody->CreateFixture(&def);
+//
+//}
+
+b2Fixture* RigidBodyComponent::AddFixtureToBody(float radius, ColliderComponent* pColliderComponent) {
 
 	b2CircleShape shape;
 	shape.m_radius = radius;
-	return m_pRigidBody->CreateFixture(&shape, 1.0f);
+	b2FixtureDef def{};
+	def.shape = &shape; // shape is cloned so it is ok to make it on the stack
+	def.density = 1.0f;
+	def.isSensor = pColliderComponent->IsSensor();
+	def.userData.pointer = reinterpret_cast<uintptr_t>(pColliderComponent);
+	
+	b2Fixture* pFixture = m_pRigidBody->CreateFixture(&def);
+
+	return pFixture;
 
 }
 

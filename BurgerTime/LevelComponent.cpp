@@ -153,7 +153,8 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructLadder(const IVec
 
 	//ladder->AddComponent<LadderComponent>();
 	auto transform = ladder->AddComponent<TransformComponent>();
-	transform->SetSize(float(m_TileSizeX / 16), float(m_TileSizeY / 16));
+	//transform->SetSize(float(m_TileSizeX / 16), float(m_TileSizeY / 16));
+	transform->SetSize(50.0f, 50.0f);
 	transform->SetPosition(float(position.x), float(position.y));
 
 	ladder->AddComponent<RenderComponent>();
@@ -171,12 +172,19 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructLadder(const IVec
 
 	animationComp->AddAnimation(0, ladderAnimation);
 
-	auto collilsionComp = ladder->AddComponent<CollisionComponent>();
-	collilsionComp->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
+	//auto collilsionComp = ladder->AddComponent<CollisionComponent>();
+	//collilsionComp->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
 
-	m_pPhysicsManager->AddPhysicsBody(collilsionComp);
+	//m_pPhysicsManager->AddPhysicsBody(collilsionComp);
 
-	ladder->AddComponent<PlatformComponent>();
+	ladder->AddComponent<RigidBodyComponent>()->SetRigidBodyType(RigidType::Static);
+	auto boxCollider = ladder->AddComponent<BoxCollider>();
+	boxCollider->SetBoundingBox({ 0.0f, 0.0f, 25.0f, 25.0f });
+	boxCollider->SetIsSensor(true);
+
+	ladder->SetTag("ladder");
+
+	//ladder->AddComponent<PlatformComponent>();
 
 	return ladder;
 }

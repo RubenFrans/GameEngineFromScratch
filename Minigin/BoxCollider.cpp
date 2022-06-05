@@ -19,7 +19,7 @@ void BoxCollider::Initialize()
 
 	// store fixture
 
-	m_pFixture = m_pRigidBodyComponent->AddFixtureToBody(m_BoundingBox);
+	m_pFixture = m_pRigidBodyComponent->AddFixtureToBody(m_BoundingBox, this);
 
 }
 

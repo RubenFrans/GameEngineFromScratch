@@ -115,6 +115,9 @@
     <Filter Include="Source Files\Components\ColliderComponent\CircleCollider">
       <UniqueIdentifier>{c62336ad-0219-4536-9d4b-3e0f7a8dc4b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\PhysicsManager\ContactListener">
+      <UniqueIdentifier>{8a94c556-89ac-4eca-9af6-4e527ea1817c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniginPCH.h">
@@ -300,6 +303,12 @@
     <ClInclude Include="CircleCollider.h">
       <Filter>Source Files\Components\ColliderComponent\CircleCollider</Filter>
     </ClInclude>
+    <ClInclude Include="ContactListener.h">
+      <Filter>Source Files\PhysicsManager\ContactListener</Filter>
+    </ClInclude>
+    <ClInclude Include="InternalStructs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
@@ -463,6 +472,9 @@
     </ClCompile>
     <ClCompile Include="CircleCollider.cpp">
       <Filter>Source Files\Components\ColliderComponent\CircleCollider</Filter>
+    </ClCompile>
+    <ClCompile Include="ContactListener.cpp">
+      <Filter>Source Files\PhysicsManager\ContactListener</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

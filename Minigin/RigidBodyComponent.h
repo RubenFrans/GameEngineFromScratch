@@ -1,12 +1,15 @@
 #pragma once
 #include "BaseComponent.h"
 #include "structs.h"
+#include <functional>
 //#include "b2_body.h"
 
 class b2Body;
 class b2Fixture;
 class BTEngine::GameObject;
 class TransformComponent;
+struct CollisionInfo;
+class ColliderComponent;
 
 enum class RigidType {
     //Static = b2BodyType::b2_staticBody,
@@ -42,8 +45,12 @@ public:
     void AddForce(const FVector2& velocity);
     void SetPosition(const FVector2& position);
     FVector2 GetPosition() const;
-    b2Fixture* AddFixtureToBody(const Rect& boundingBox);
-    b2Fixture* AddFixtureToBody(float radius);
+
+    //b2Fixture* AddFixtureToBody(const Rect& boundingBox);
+    b2Fixture* AddFixtureToBody(const Rect& boundingBox, ColliderComponent* pCollisionInfo);
+    
+    //b2Fixture* AddFixtureToBody(float radius);
+    b2Fixture* AddFixtureToBody(float radius, ColliderComponent* pCollisionInfo);
 
 private:
 	b2Body* m_pRigidBody;

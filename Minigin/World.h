@@ -2,6 +2,9 @@
 #include "b2_world.h"
 #include "SceneObject.h"
 #include "structs.h"
+
+class ContactListener;
+
 class World
 {
 public:
@@ -27,6 +30,6 @@ private:
 
     b2Vec2 m_Gravity;
     b2World* m_pWorld;
-
+    ContactListener* m_pContactListener;
 };
 

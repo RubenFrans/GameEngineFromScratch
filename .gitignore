@@ -55,10 +55,6 @@
 # Mono auto generated files
 mono_crash.*
 
-# Do include these
-!3rdParty/**/x64/
-!3rdParty/**/x86/
-
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -74,6 +70,8 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+
+
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -440,3 +438,13 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,c++
+
+
+# Do include these
+!3rdParty/
+!3rdParty/**/x64/
+!3rdParty/**/x86/
+!3rdParty/**/x64/[Rr]elease/
+!3rdParty/**/x64/[Dd]ebug/
+!3rdParty/**/x86/[Dd]ebug/
+!3rdParty/**/x86/[Rr]elease/
