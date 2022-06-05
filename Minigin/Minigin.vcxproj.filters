@@ -109,6 +109,12 @@
     <Filter Include="Source Files\Components\ColliderComponent">
       <UniqueIdentifier>{4e548d07-1e36-4a55-83f5-6038fec413d8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Components\ColliderComponent\BoxCollider">
+      <UniqueIdentifier>{086e6767-5ac4-4d38-9713-c243270f6696}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\ColliderComponent\CircleCollider">
+      <UniqueIdentifier>{c62336ad-0219-4536-9d4b-3e0f7a8dc4b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniginPCH.h">
@@ -288,6 +294,12 @@
     <ClInclude Include="ColliderComponent.h">
       <Filter>Source Files\Components\ColliderComponent</Filter>
     </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>Source Files\Components\ColliderComponent\BoxCollider</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollider.h">
+      <Filter>Source Files\Components\ColliderComponent\CircleCollider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
@@ -445,6 +457,12 @@
     </ClCompile>
     <ClCompile Include="ColliderComponent.cpp">
       <Filter>Source Files\Components\ColliderComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollider.cpp">
+      <Filter>Source Files\Components\ColliderComponent\BoxCollider</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollider.cpp">
+      <Filter>Source Files\Components\ColliderComponent\CircleCollider</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -7,7 +7,7 @@
 
 
 World::World()
-	: m_Gravity{ 0.0f, 0.0f }
+	: m_Gravity{ 0.0f, 100.0f }
 {
 	m_pWorld = new b2World(m_Gravity);
 }

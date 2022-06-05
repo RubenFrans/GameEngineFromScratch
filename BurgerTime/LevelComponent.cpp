@@ -7,6 +7,7 @@
 #include "ColliderComponent.h"
 #include <fstream>
 #include <iostream>
+#include "BoxCollider.h"
 
 LevelComponent::LevelComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }
@@ -138,7 +139,7 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructPlatform(const IV
 
 	auto testRigid = testObj->AddComponent<RigidBodyComponent>();
 	testRigid->SetRigidBodyType(RigidType::Static);
-	auto collider = testObj->AddComponent<ColliderComponent>();
+	auto collider = testObj->AddComponent<BoxCollider>();
 	collider->SetBoundingBox(Rect{ 0.0f, 0.0f, 25.0f, 3.0f });
 
 	return testObj;

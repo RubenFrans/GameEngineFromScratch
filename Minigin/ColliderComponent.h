@@ -2,9 +2,17 @@
 #include "BaseComponent.h"
 #include "structs.h"
 
+// No forward declaration for this type because otherwise this header file would not be self sufficient
+#include "RigidBodyComponent.h"
+
+
 class BTEngine::GameObject;
 class b2Fixture;
-class RigidBodyComponent;
+
+enum class ColliderType {
+    BoxCollider,
+    CircleCollider
+};
 
 class ColliderComponent
 	: public BaseComponent
@@ -21,12 +29,12 @@ public:
     void Update() override;
     void FixedUpdate() override;
     void Render() const override;
-    void SetBoundingBox(const Rect& boundingBox);
+
+protected:
+    b2Fixture* m_pFixture;
+    RigidBodyComponent* m_pRigidBodyComponent;
 
 private:
-    b2Fixture* m_pFixture;
-    Rect m_BoundingBox;
-    Rect m_FullLengthBoudingBox;
-    RigidBodyComponent* m_pRigidBodyComponent;
+    ColliderType m_ColliderType;
 };
 

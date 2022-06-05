@@ -7,6 +7,7 @@
 #include "TransformComponent.h"
 #include "b2_fixture.h"
 #include "b2_polygon_shape.h"
+#include "b2_circle_shape.h"
 
 
 RigidBodyComponent::RigidBodyComponent(BTEngine::GameObject* pOwner)
@@ -90,6 +91,14 @@ b2Fixture* RigidBodyComponent::AddFixtureToBody(const Rect& boundingBox) {
 
 	b2PolygonShape shape;
 	shape.SetAsBox(boundingBox.w, boundingBox.h);
+	return m_pRigidBody->CreateFixture(&shape, 1.0f);
+
+}
+
+b2Fixture* RigidBodyComponent::AddFixtureToBody(float radius) {
+
+	b2CircleShape shape;
+	shape.m_radius = radius;
 	return m_pRigidBody->CreateFixture(&shape, 1.0f);
 
 }

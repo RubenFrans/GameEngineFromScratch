@@ -22,6 +22,8 @@
 #include "IngridientComponent.h"
 #include "RigidBodyComponent.h"
 #include "ColliderComponent.h"
+#include "BoxCollider.h"
+#include "CircleCollider.h"
 
 using namespace BTEngine;
 
@@ -51,7 +53,9 @@ void BurgerEngine::LoadGame()
 	mrPepper->SetTag("Peter");
 	auto pepperComp = mrPepper->AddComponent<MrPepperComponent>();
 
-	mrPepper->AddComponent<TransformComponent>()->SetSize(50.0f, 50.0f);
+	auto pepperTransform = mrPepper->AddComponent<TransformComponent>();
+	pepperTransform->SetSize(50.0f, 50.0f);
+	pepperTransform->Translate(0.0f, 100.0f);
 	mrPepper->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
 	mrPepper->AddComponent<AnimationComponent>();
 	//auto collision = mrPepper->AddComponent<CollisionComponent>();
@@ -63,7 +67,8 @@ void BurgerEngine::LoadGame()
 	//physics->AddPhysicsBody(collision);
 
 	mrPepper->AddComponent<RigidBodyComponent>();
-	mrPepper->AddComponent<ColliderComponent>()->SetBoundingBox(Rect{0.0f, 0.0f, 25.0f, 25.0f});
+	mrPepper->AddComponent<CircleCollider>()->SetRadius(25.0f)
+		/*->SetBoundingBox(Rect{0.0f, 0.0f, 25.0f, 25.0f})*/;
 
 	
 

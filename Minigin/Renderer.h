@@ -24,6 +24,7 @@ namespace BTEngine
 		void RenderTexture(const Texture2D& texture, float x, float y, float width, float height, const SDL_Rect& srcRect, bool flipHorizontal, bool flipVertical) const;
 
 		void RenderRect(const Rect& rect) const;
+		void RenderCircle(const FVector2& pos, float radius);
 
 		SDL_Renderer* GetSDLRenderer() const { return m_Renderer; }
 

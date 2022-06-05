@@ -43,6 +43,7 @@ public:
     void SetPosition(const FVector2& position);
     FVector2 GetPosition() const;
     b2Fixture* AddFixtureToBody(const Rect& boundingBox);
+    b2Fixture* AddFixtureToBody(float radius);
 
 private:
 	b2Body* m_pRigidBody;
