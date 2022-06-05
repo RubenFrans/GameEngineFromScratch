@@ -81,35 +81,48 @@ void LevelComponent::ParseLevelFile()
 
 std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructPlatform(const IVector2& position) {
 
-	auto platform = std::make_shared<BTEngine::GameObject>();
+#pragma region oldPlatform
+	//auto platform = std::make_shared<BTEngine::GameObject>();
 
-	//platform->AddComponent<PlatformComponent>();
-	auto transform = platform->AddComponent<TransformComponent>();
-	transform->SetSize(float(m_TileSizeX / 16), float(m_TileSizeY / 16));
-	transform->SetPosition(float(position.x), float(position.y));
+	////platform->AddComponent<PlatformComponent>();
+	//auto transform = platform->AddComponent<TransformComponent>();
+	//transform->SetSize(float(m_TileSizeX / 16), float(m_TileSizeY / 16));
+	//transform->SetPosition(float(position.x), float(position.y));
+	//platform->AddComponent<RenderComponent>();
+	//auto animationComp = platform->AddComponent<AnimationComponent>();
+	////auto collilsionComp = platform->AddComponent<CollisionComponent>();
+	////collilsionComp->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
+	//auto body = platform->AddComponent<RigidBodyComponent>();
+	//body->SetRigidBodyType(RigidType::Static);
+	//
+	//auto collider = platform->AddComponent<ColliderComponent>();
+	//collider->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.0f, 16.0f});
+	////collilsionComp->SetOnTriggerCallback([]() {
+	////	
+	////	std::cout << "Collision on platform" << std::endl;
 
-	platform->AddComponent<RenderComponent>();
-	auto animationComp = platform->AddComponent<AnimationComponent>();
+	////	});
+	////m_pPhysicsManager->AddPhysicsBody(collilsionComp);
+	//Animation platformAnimation{};
+	//platformAnimation.SetSpriteSheet("spritesheet.png");
+	//platformAnimation.m_AmountOfColumns = 0;
+	//platformAnimation.m_AmountOfRows = 0;
+	//platformAnimation.m_CellWidth = 16;
+	//platformAnimation.m_CellHeigth = 16;
+	//platformAnimation.m_AnimationFramesPerSecond = 0;
+	//platformAnimation.m_AnchorPoint = IVector2{ 149, 152 };
+	//animationComp->AddAnimation(0, platformAnimation);
+	//return platform;
+#pragma endregion
 
-	auto collilsionComp = platform->AddComponent<CollisionComponent>();
-	collilsionComp->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
+#pragma region newPlatform
 
-
-	auto body = platform->AddComponent<RigidBodyComponent>();
-	body->SetRigidBodyType(RigidType::Static);
-	
-	auto collider = platform->AddComponent<ColliderComponent>();
-
-	collider->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.0f, 16.0f});
-
-
-	//collilsionComp->SetOnTriggerCallback([]() {
-	//	
-	//	std::cout << "Collision on platform" << std::endl;
-
-	//	});
-
-	m_pPhysicsManager->AddPhysicsBody(collilsionComp);
+	auto testObj = std::make_shared<BTEngine::GameObject>();
+	auto transformComp = testObj->AddComponent<TransformComponent>();
+	transformComp->SetPosition(float(position.x), float(position.y));
+	transformComp->SetSize(50.0f, 6.0f);
+	testObj->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
+	auto animationComp = testObj->AddComponent<AnimationComponent>();
 
 	Animation platformAnimation{};
 	platformAnimation.SetSpriteSheet("spritesheet.png");
@@ -117,13 +130,20 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructPlatform(const IV
 	platformAnimation.m_AmountOfRows = 0;
 
 	platformAnimation.m_CellWidth = 16;
-	platformAnimation.m_CellHeigth = 16;
-	platformAnimation.m_AnimationFramesPerSecond = 0;
-	platformAnimation.m_AnchorPoint = IVector2{ 149, 152 };
+	platformAnimation.m_CellHeigth = 2;
+	platformAnimation.m_AnimationFramesPerSecond = 10;
+	platformAnimation.m_AnchorPoint = IVector2{ 150, 167 };
 
 	animationComp->AddAnimation(0, platformAnimation);
 
-	return platform;
+	auto testRigid = testObj->AddComponent<RigidBodyComponent>();
+	testRigid->SetRigidBodyType(RigidType::Static);
+	auto collider = testObj->AddComponent<ColliderComponent>();
+	collider->SetBoundingBox(Rect{ 0.0f, 0.0f, 25.0f, 3.0f });
+
+	return testObj;
+
+#pragma endregion
 
 }
 

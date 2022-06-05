@@ -46,5 +46,4 @@ void ColliderComponent::SetBoundingBox(const Rect& boundingBox)
 	m_FullLengthBoudingBox = boundingBox;
 	m_FullLengthBoudingBox.w = m_FullLengthBoudingBox.w * 2.0f;
 	m_FullLengthBoudingBox.h = m_FullLengthBoudingBox.h * 2.0f;
-
 }

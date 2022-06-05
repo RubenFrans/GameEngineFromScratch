@@ -65,33 +65,7 @@ void BurgerEngine::LoadGame()
 	mrPepper->AddComponent<RigidBodyComponent>();
 	mrPepper->AddComponent<ColliderComponent>()->SetBoundingBox(Rect{0.0f, 0.0f, 25.0f, 25.0f});
 
-	auto testObj = std::make_shared<GameObject>();
-	auto transformComp = testObj->AddComponent<TransformComponent>();
-	transformComp->SetPosition(400.0f, 100.0f);
-	transformComp->SetSize(50.0f, 6.0f);
-	testObj->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
-	auto animationComp = testObj->AddComponent<AnimationComponent>();
-
-	Animation platformAnimation{};
-	platformAnimation.SetSpriteSheet("spritesheet.png");
-	platformAnimation.m_AmountOfColumns = 0;
-	platformAnimation.m_AmountOfRows = 0;
-
-	platformAnimation.m_CellWidth = 16;
-	platformAnimation.m_CellHeigth = 2;
-	platformAnimation.m_AnimationFramesPerSecond = 10;
-	platformAnimation.m_AnchorPoint = IVector2{ 150, 167 };
-
-	animationComp->AddAnimation(0, platformAnimation);
-
-	auto testRigid = testObj->AddComponent<RigidBodyComponent>();
-	testRigid->SetRigidBodyType(RigidType::Static);
-	auto collider = testObj->AddComponent<ColliderComponent>();
-	collider->SetBoundingBox(Rect{ 0.0f, 0.0f, 25.0f, 1.5f });
-
-
-
-	scene.Add(testObj);
+	
 
 
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Right, std::make_shared<MoveRightCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
@@ -148,15 +122,15 @@ void BurgerEngine::LoadGame()
 
 //	scene.Add(platform);
 
-	//auto level = std::make_shared<GameObject>();
-	//auto levelComp = level->AddComponent<LevelComponent>();
-	//levelComp->SetPhysicsManager(physics);
-	//levelComp->SetLevelPath("..\\data\\Level1.txt");
-	//levelComp->ParseLevelFile();
+	auto level = std::make_shared<GameObject>();
+	auto levelComp = level->AddComponent<LevelComponent>();
+	levelComp->SetPhysicsManager(physics);
+	levelComp->SetLevelPath("..\\data\\Level1.txt");
+	levelComp->ParseLevelFile();
 
-	//for (const std::shared_ptr<GameObject> obj : levelComp->GetGameObjects()) {
-	//	scene.Add(obj);
-	//}
+	for (const std::shared_ptr<GameObject> obj : levelComp->GetGameObjects()) {
+		scene.Add(obj);
+	}
 
 #pragma endregion
 
