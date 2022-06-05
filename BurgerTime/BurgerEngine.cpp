@@ -51,34 +51,43 @@ void BurgerEngine::LoadGame()
 	mrPepper->SetTag("Peter");
 	auto pepperComp = mrPepper->AddComponent<MrPepperComponent>();
 
-	mrPepper->AddComponent<TransformComponent>()->SetSize(50 / 16, 50 / 16);
+	mrPepper->AddComponent<TransformComponent>()->SetSize(50.0f, 50.0f);
 	mrPepper->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
 	mrPepper->AddComponent<AnimationComponent>();
-	auto collision = mrPepper->AddComponent<CollisionComponent>();
-	collision->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
+	//auto collision = mrPepper->AddComponent<CollisionComponent>();
+	//collision->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
 	//collision->SetOnTriggerCallback([]() {
 	//	std::cout << "Collision happened on peter" << std::endl;
 	//	});
 
-	physics->AddPhysicsBody(collision);
-
+	//physics->AddPhysicsBody(collision);
 
 	mrPepper->AddComponent<RigidBodyComponent>();
-	mrPepper->AddComponent<ColliderComponent>()->SetBoundingBox(Rect{10.0f, 10.0f});
+	mrPepper->AddComponent<ColliderComponent>()->SetBoundingBox(Rect{0.0f, 0.0f, 25.0f, 25.0f});
 
+	auto testObj = std::make_shared<GameObject>();
+	auto transformComp = testObj->AddComponent<TransformComponent>();
+	transformComp->SetPosition(0.0f, 100.0f);
+	testObj->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
+	auto animationComp = testObj->AddComponent<AnimationComponent>();
 
+	Animation platformAnimation{};
+	platformAnimation.SetSpriteSheet("spritesheet.png");
+	platformAnimation.m_AmountOfColumns = 0;
+	platformAnimation.m_AmountOfRows = 0;
 
-	//auto testObj = std::make_shared<GameObject>();
-	//testObj->AddComponent<TransformComponent>()->SetSize(50 / 16, 50 / 16);
-	//auto collision2 = testObj->AddComponent<CollisionComponent>();
-	//collision2->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
-	//collision2->SetOnTriggerCallback([]() {
-	//	std::cout << "Collision happened on test object" << std::endl;
-	//	});
+	platformAnimation.m_CellWidth = 16;
+	platformAnimation.m_CellHeigth = 16;
+	platformAnimation.m_AnimationFramesPerSecond = 10;
+	platformAnimation.m_AnchorPoint = IVector2{ 150, 152 };
 
-	//physics->AddPhysicsBody(collision2);
+	animationComp->AddAnimation(0, platformAnimation);
 
-	//scene.Add(testObj);
+	testObj->AddComponent<RigidBodyComponent>()->SetRigidBodyType(RigidType::Static);
+	auto collider = testObj->AddComponent<ColliderComponent>();
+	collider->SetBoundingBox(Rect{ 0.0f, 0.0f, 25.0f, 25.0f });
+
+	scene.Add(testObj);
 
 
 	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Right, std::make_shared<MoveRightCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
@@ -135,15 +144,15 @@ void BurgerEngine::LoadGame()
 
 //	scene.Add(platform);
 
-	auto level = std::make_shared<GameObject>();
-	auto levelComp = level->AddComponent<LevelComponent>();
-	levelComp->SetPhysicsManager(physics);
-	levelComp->SetLevelPath("..\\data\\Level1.txt");
-	levelComp->ParseLevelFile();
+	//auto level = std::make_shared<GameObject>();
+	//auto levelComp = level->AddComponent<LevelComponent>();
+	//levelComp->SetPhysicsManager(physics);
+	//levelComp->SetLevelPath("..\\data\\Level1.txt");
+	//levelComp->ParseLevelFile();
 
-	for (const std::shared_ptr<GameObject> obj : levelComp->GetGameObjects()) {
-		scene.Add(obj);
-	}
+	//for (const std::shared_ptr<GameObject> obj : levelComp->GetGameObjects()) {
+	//	scene.Add(obj);
+	//}
 
 #pragma endregion
 

@@ -5,7 +5,7 @@
 
 class TransformComponent;
 class AnimationComponent;
-
+class RigidBodyComponent;
 
 enum class MrPepperState : int {
 	down = 0,
@@ -43,7 +43,7 @@ private:
 	float m_VerticalSpeed;
 	TransformComponent* m_pTransformComponent;
 	AnimationComponent* m_pAnimationComponent;
-
+	RigidBodyComponent* m_pRigidBodyComponent;
 
 	MrPepperState m_State;
 

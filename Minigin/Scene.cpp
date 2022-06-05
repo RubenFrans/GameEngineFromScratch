@@ -56,6 +56,8 @@ void Scene::Render() const
 	{
 		object->Render();
 	}
+
+	m_pWorld->RenderDebugBodies();
 }
 
 void BTEngine::Scene::Initialize()

@@ -2,9 +2,6 @@
 #include "ColliderComponent.h"
 #include "RigidBodyComponent.h"
 
-#include "b2_fixture.h"
-#include "b2_polygon_shape.h"
-
 ColliderComponent::ColliderComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent(pOwner), m_pFixture{ nullptr }, m_BoundingBox{}
 {
@@ -18,11 +15,10 @@ void ColliderComponent::Initialize()
 	assert(pBody);
 
 	// Create fixture
-	b2PolygonShape shape;
-	shape.SetAsBox(m_BoundingBox.x, m_BoundingBox.y);
+
 	// store fixture
 
-	m_pFixture = pBody->GetBody()->CreateFixture(&shape, 1.0f);
+	m_pFixture = pBody->AddFixtureToBody(m_BoundingBox);
 
 }
 

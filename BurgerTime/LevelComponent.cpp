@@ -3,6 +3,8 @@
 #include "AnimationComponent.h"
 #include "TransformComponent.h"
 #include "PlatformComponent.h"
+#include "RigidBodyComponent.h"
+#include "ColliderComponent.h"
 #include <fstream>
 #include <iostream>
 
@@ -91,6 +93,15 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructPlatform(const IV
 
 	auto collilsionComp = platform->AddComponent<CollisionComponent>();
 	collilsionComp->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
+
+
+	auto body = platform->AddComponent<RigidBodyComponent>();
+	body->SetRigidBodyType(RigidType::Static);
+	
+	auto collider = platform->AddComponent<ColliderComponent>();
+
+	collider->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.0f, 16.0f});
+
 
 	//collilsionComp->SetOnTriggerCallback([]() {
 	//	

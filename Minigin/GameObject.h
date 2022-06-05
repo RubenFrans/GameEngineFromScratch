@@ -39,6 +39,7 @@ namespace BTEngine
 		GameObject* GetChildAt(int index);
 		void RemoveChild(int index);
 		void AddChild(GameObject* gameObject);
+		bool HasBeenInitialized() const;
 
 	private:
 		std::string m_Tag;
@@ -46,6 +47,7 @@ namespace BTEngine
 		GameObject* m_pParent;
 		std::vector<BaseComponent*> m_Components;
 		std::vector<GameObject*> m_Children; // Think to change to set for unique entries (no gameobject should be added twice as child to the same go)
+		bool m_HasBeenInitialized;
 	};
 
 	template<typename T>

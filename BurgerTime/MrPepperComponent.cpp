@@ -6,6 +6,7 @@
 #include "AnimationComponent.h"
 #include "CollisionComponent.h"
 #include "PlatformComponent.h"
+#include "RigidBodyComponent.h"
 
 MrPepperComponent::MrPepperComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent{ pOwner }, m_IsDead{ false }
@@ -13,15 +14,21 @@ MrPepperComponent::MrPepperComponent(BTEngine::GameObject* pOwner)
 	, m_VerticalSpeed{ 50.0f }
 	, m_State{ MrPepperState::down }
 	, m_IsOnLadder{ false }
+	, m_pAnimationComponent{ nullptr }
+	, m_pTransformComponent{ nullptr }
+	, m_pRigidBodyComponent{ nullptr }
 {
 }
 
 void MrPepperComponent::Initialize()
 {
 	m_pTransformComponent = GetGameObject()->GetComponent<TransformComponent>();
+	//m_pTransformComponent->SetSize(50.0f, 50.0f);
 	m_pAnimationComponent = GetGameObject()->GetComponent<AnimationComponent>();
+	m_pRigidBodyComponent = GetGameObject()->GetComponent<RigidBodyComponent>();
+
 	InitializeAnimations();
-	InitializeCollisionCallbacks();
+	//InitializeCollisionCallbacks();
 }
 
 void MrPepperComponent::InitializeAnimations() {
@@ -132,25 +139,29 @@ void MrPepperComponent::FixedUpdate()
 
 void MrPepperComponent::MoveLeft() 
 {
-	m_pTransformComponent->Translate(-m_HorizontalSpeed * TimeManager::GetDeltaTime(), 0.0f);
+	//m_pTransformComponent->Translate(-m_HorizontalSpeed * TimeManager::GetDeltaTime(), 0.0f);
+	m_pRigidBodyComponent->SetVelocity({ -10.0f, 0.0f });
 	m_pAnimationComponent->SetPlayAnimation((int)MrPepperState::left);
 }
 
 void MrPepperComponent::MoveRight()
 {
-	m_pTransformComponent->Translate(m_HorizontalSpeed * TimeManager::GetDeltaTime(), 0.0f);
+	m_pRigidBodyComponent->SetVelocity({ 10.0f, 0.0f });
+	//m_pTransformComponent->Translate(m_HorizontalSpeed * TimeManager::GetDeltaTime(), 0.0f);
 	m_pAnimationComponent->SetPlayAnimation((int)MrPepperState::right);
 }
 
 void MrPepperComponent::MoveUp()
 {
-	m_pTransformComponent->Translate(0.0f, -m_VerticalSpeed * TimeManager::GetDeltaTime());
+	m_pRigidBodyComponent->SetVelocity({ 0.0f, -100.0f });
+	//m_pTransformComponent->Translate(0.0f, -m_VerticalSpeed * TimeManager::GetDeltaTime());
 	m_pAnimationComponent->SetPlayAnimation((int)MrPepperState::up);
 }
 
 void MrPepperComponent::MoveDown()
 {
-	m_pTransformComponent->Translate(0.0f, m_VerticalSpeed * TimeManager::GetDeltaTime());
+	m_pRigidBodyComponent->SetVelocity({ 0.0f, 100.0f });
+	//m_pTransformComponent->Translate(0.0f, m_VerticalSpeed * TimeManager::GetDeltaTime());
 	m_pAnimationComponent->SetPlayAnimation((int)MrPepperState::down);
 }
 

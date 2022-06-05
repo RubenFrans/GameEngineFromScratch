@@ -7,7 +7,7 @@
 #include "RenderComponent.h"
 
 BTEngine::GameObject::GameObject() 
-	: SceneObject{}, m_pParent{ nullptr }, m_Components{}, m_Children{}, m_Tag{}
+	: SceneObject{}, m_pParent{ nullptr }, m_Components{}, m_Children{}, m_Tag{}, m_HasBeenInitialized{ false }
 {
 }
 
@@ -45,6 +45,8 @@ void BTEngine::GameObject::Initialize()
 	std::for_each(m_Components.begin(), m_Components.end(), [](BaseComponent* comp) {
 		comp->Initialize();
 		});
+
+	m_HasBeenInitialized = true;
 }
 
 void BTEngine::GameObject::SetParent(BTEngine::GameObject* parent)
@@ -95,5 +97,9 @@ void BTEngine::GameObject::SetTag(const std::string& tag) {
 
 const std::string& BTEngine::GameObject::GetTag() const {
 	return m_Tag;
+}
+
+bool BTEngine::GameObject::HasBeenInitialized() const {
+	return m_HasBeenInitialized;
 }
 

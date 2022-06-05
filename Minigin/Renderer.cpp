@@ -95,10 +95,10 @@ void BTEngine::Renderer::RenderTexture(const Texture2D& texture, const float x, 
 void BTEngine::Renderer::RenderTexture(const Texture2D& texture, const float x, const float y, const float width, const float height, const SDL_Rect& srcRect, bool flipHorizontal, bool flipVertical) const
 {
 	SDL_Rect dst{};
-	dst.x = static_cast<int>(x);
-	dst.y = static_cast<int>(y);
-	dst.w = static_cast<int>(srcRect.w * width);
-	dst.h = static_cast<int>(srcRect.h * height);
+	dst.x = static_cast<int>(x - width / 2.f);
+	dst.y = static_cast<int>(y - height / 2.f);
+	dst.w = static_cast<int>(/*srcRect.w * */width);
+	dst.h = static_cast<int>(/*srcRect.h * */height);
 
 	SDL_RendererFlip flip{};
 
@@ -119,7 +119,7 @@ void BTEngine::Renderer::AddImgGuiRenderComponent(ImgGuiRenderComponent* imguiRe
 }
 
 void BTEngine::Renderer::RenderRect(const Rect& rect) const {
-	SDL_Rect renderRect{int(rect.x), int(rect.y), int(rect.w), int(rect.h)};
+	SDL_Rect renderRect{int(rect.x - rect.w / 2.f), int(rect.y - rect.h / 2.f), int(rect.w), int(rect.h)};
 	SDL_SetRenderDrawColor(GetSDLRenderer(), 255, 0, 0, 255);
 	SDL_RenderDrawRect(GetSDLRenderer(), &renderRect);
 }
