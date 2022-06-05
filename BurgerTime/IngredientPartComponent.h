@@ -22,7 +22,7 @@ public:
 	virtual void Update() override;
 	virtual void FixedUpdate() override;
 
-	void OnTriggerCallback(BTEngine::GameObject* pTriggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action);
+	void OnTriggerCallback(BTEngine::GameObject* pOtherObject, TriggerAction action);
 	bool IsSteppedOn();
 
 private:
@@ -31,7 +31,7 @@ private:
 
 	bool m_SteppedOver;
 	FVector2 m_SteppedOnPosOffset;
-	std::function<void(BTEngine::GameObject* pTriggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action)> m_TriggerCallback;
+	std::function<void(BTEngine::GameObject* pOtherObject, TriggerAction action)> m_TriggerCallback;
 	TransformComponent* m_pTransformComponent;
 };
 

@@ -2,7 +2,8 @@
 #include "TransformComponent.h"
 #include "AnimationComponent.h"
 #include "RenderComponent.h"
-#include "CollisionComponent.h"
+//#include "CollisionComponent.h"
+#include "BoxCollider.h"
 #include "IngredientPartComponent.h"
 #include "Scene.h"
 
@@ -35,10 +36,9 @@ void IngredientComponent::Initialize()
 	//InitializeIngredientParts();
 }
 
-void IngredientComponent::InitializeIngredientParts(BTEngine::Scene* scene, PhysicsManager* physics) {
+void IngredientComponent::InitializeIngredientParts(BTEngine::Scene* scene) {
 
 	assert(scene != nullptr);
-	assert(physics != nullptr);
 
 	float partOffset = (31.f / m_AmountOfParts) * 2.0f;
 
@@ -46,14 +46,14 @@ void IngredientComponent::InitializeIngredientParts(BTEngine::Scene* scene, Phys
 	{
 		auto pIngredientPart = std::make_shared<BTEngine::GameObject>();
 		auto pTransform = pIngredientPart->AddComponent<TransformComponent>();
-		pTransform->Translate(partOffset * i, 0.0f);
-		pTransform->SetSize(2.0f, 2.0f);
+		pTransform->SetPosition(partOffset * i, 0.0f);
+		pTransform->SetSize(16.0f, 16.0f);
 		pIngredientPart->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
 		GetGameObject()->AddChild(pIngredientPart.get());
 
-		auto collisionComp = pIngredientPart->AddComponent<CollisionComponent>();
-		collisionComp->SetBoundingBox(Rect{ .0f, .0f , 31.f / m_AmountOfParts, 7.0f });
-		physics->AddPhysicsBody(collisionComp);
+		//auto collisionComp = pIngredientPart->AddComponent<CollisionComponent>();
+		//collisionComp->SetBoundingBox(Rect{ .0f, .0f , 31.f / m_AmountOfParts, 7.0f });
+		//physics->AddPhysicsBody(collisionComp);
 
 		AnimationComponent* pAnimationComp = pIngredientPart->AddComponent<AnimationComponent>();
 
@@ -74,6 +74,8 @@ void IngredientComponent::InitializeIngredientParts(BTEngine::Scene* scene, Phys
 		//pIngredientPart->AddComponent<IngredientPartComponent>();
 
 		//m_IngredientParts.emplace_back(pIngredientPart);
+		pIngredientPart->AddComponent<RigidBodyComponent>();
+		pIngredientPart->AddComponent<BoxCollider>()->SetBoundingBox({0.0f, 0.0f, 16.0f, 16.0f});
 
 		m_IngredientParts.emplace_back(pIngredientPart->AddComponent<IngredientPartComponent>());
 

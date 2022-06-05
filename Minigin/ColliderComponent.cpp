@@ -27,13 +27,11 @@ void ColliderComponent::Update()
 
 void ColliderComponent::FixedUpdate()
 {
-	//m_FullLengthBoudingBox.x = m_pRigidBodyComponent->GetPosition().x;
-	//m_FullLengthBoudingBox.y = m_pRigidBodyComponent->GetPosition().y;
+
 }
 
 void ColliderComponent::Render() const {
 
-	//BTEngine::Renderer::GetInstance().RenderRect(m_FullLengthBoudingBox);
 }
 
 void ColliderComponent::SetCollisionCallback(const std::function<void(BTEngine::GameObject* pCollidedObject, TriggerAction action)>& callBack) {
@@ -46,7 +44,6 @@ void ColliderComponent::TriggerOverlap(BTEngine::GameObject* pOtherGameObject, T
 	if (m_OnCollisionCallback) {
 		m_OnCollisionCallback(pOtherGameObject, action);
 	}
-
 }
 
 void ColliderComponent::SetIsSensor(bool isSensor) {

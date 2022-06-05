@@ -32,13 +32,6 @@ void BTEngine::GameObject::FixedUpdate(){
 
 void BTEngine::GameObject::Render() const
 {
-	//RenderComponent* rc = GetComponent<RenderComponent>();
-
-	//if (!rc)
-	//	return;
-
-	//rc->Render();
-
 	std::for_each(m_Components.begin(), m_Components.end(), [](BaseComponent* comp) {
 			comp->Render();
 		});

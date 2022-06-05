@@ -2,7 +2,6 @@
 #include "BaseComponent.h"
 #include "structs.h"
 #include <functional>
-//#include "b2_body.h"
 
 class b2Body;
 class b2Fixture;
@@ -12,9 +11,6 @@ struct CollisionInfo;
 class ColliderComponent;
 
 enum class RigidType {
-    //Static = b2BodyType::b2_staticBody,
-    //Kinematic = b2BodyType::b2_kinematicBody
-    //Dynamic = b2BodyType::b2_dynamicBody,
     Static = 0,
     Kinematic = 1,
     Dynamic = 2
@@ -46,10 +42,7 @@ public:
     void SetPosition(const FVector2& position);
     FVector2 GetPosition() const;
 
-    //b2Fixture* AddFixtureToBody(const Rect& boundingBox);
     b2Fixture* AddFixtureToBody(const Rect& boundingBox, ColliderComponent* pCollisionInfo);
-    
-    //b2Fixture* AddFixtureToBody(float radius);
     b2Fixture* AddFixtureToBody(float radius, ColliderComponent* pCollisionInfo);
 
 private:

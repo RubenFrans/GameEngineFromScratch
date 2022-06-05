@@ -40,6 +40,18 @@
     <Filter Include="Source Files\Component\IngredientComponent\IngredientPart">
       <UniqueIdentifier>{80cc7c9e-52e4-4615-bc12-d5ea3d5561c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Commands">
+      <UniqueIdentifier>{29399823-c8a6-47f2-8bfd-d83af8b634fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Component\EnemyComponent">
+      <UniqueIdentifier>{9c565e1f-8f89-4cfa-a177-3a1c80cc38f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Component\LivesComponent">
+      <UniqueIdentifier>{1e905b06-dfa0-4e7e-89ae-eaa5bb912f28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Component\PointsComponent">
+      <UniqueIdentifier>{6173b176-48ad-4296-9209-79ee986d0696}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BurgerTime.cpp">
@@ -48,22 +60,7 @@
     <ClCompile Include="BurgerEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BurgerComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LivesComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PointsComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MrPepperComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PlatformComponent.cpp">
@@ -78,24 +75,24 @@
     <ClCompile Include="IngredientPartComponent.cpp">
       <Filter>Source Files\Component\IngredientComponent\IngredientPart</Filter>
     </ClCompile>
+    <ClCompile Include="BurgerComponent.cpp">
+      <Filter>Source Files\Component\BurgerComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="MrPepperComponent.cpp">
+      <Filter>Source Files\Component\MrPepperComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyComponent.cpp">
+      <Filter>Source Files\Component\EnemyComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="LivesComponent.cpp">
+      <Filter>Source Files\Component\LivesComponent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BurgerEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LivesComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MrPepperComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PointsComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Sounds.h">
@@ -103,9 +100,6 @@
     </ClInclude>
     <ClInclude Include="PlatformComponent.h">
       <Filter>Source Files\Component\PlatformComponent</Filter>
-    </ClInclude>
-    <ClInclude Include="BurgerComponent.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IngridientComponent.h">
       <Filter>Source Files\Component\IngredientComponent</Filter>
@@ -118,6 +112,24 @@
     </ClInclude>
     <ClInclude Include="GameObjectTags.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BurgerComponent.h">
+      <Filter>Source Files\Component\BurgerComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="MrPepperComponent.h">
+      <Filter>Source Files\Component\MrPepperComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyComponent.h">
+      <Filter>Source Files\Component\EnemyComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands.h">
+      <Filter>Source Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="PointsComponent.h">
+      <Filter>Source Files\Component\PointsComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="LivesComponent.h">
+      <Filter>Source Files\Component\LivesComponent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

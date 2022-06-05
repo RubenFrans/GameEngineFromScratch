@@ -10,17 +10,8 @@ BoxCollider::BoxCollider(BTEngine::GameObject* pOwner)
 
 void BoxCollider::Initialize()
 {
-	// Get the rigidbody component
-	m_pRigidBodyComponent = GetGameObject()->GetComponent<RigidBodyComponent>();
-
-	assert(m_pRigidBodyComponent);
-
-	// Create fixture
-
-	// store fixture
-
+	ColliderComponent::Initialize();
 	m_pFixture = m_pRigidBodyComponent->AddFixtureToBody(m_BoundingBox, this);
-
 }
 
 void BoxCollider::Update()

@@ -21,13 +21,9 @@ public:
 	virtual void Update() override;
 	virtual void FixedUpdate() override;
 
-	//void SetPhysicsManager(std::shared_ptr<PhysicsManager> phyicsManager);
-	//void SetInitializationScene(BTEngine::Scene* scene);
-
-
 	//std::vector<std::shared_ptr<BTEngine::GameObject>>& GetParts() { return m_IngredientParts; }
 	std::vector<IngredientPartComponent*>& GetParts() { return m_IngredientParts; }
-	void InitializeIngredientParts(BTEngine::Scene* scene, PhysicsManager* physics);
+	void InitializeIngredientParts(BTEngine::Scene* scene);
 
 private:
 	

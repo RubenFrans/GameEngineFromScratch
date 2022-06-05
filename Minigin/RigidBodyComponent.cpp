@@ -30,18 +30,11 @@ void RigidBodyComponent::Initialize() {
 
 void RigidBodyComponent::Update() {
 
-	//std::cout << m_pRigidBody->GetPosition().x << " " << m_pRigidBody->GetPosition().y << std::endl;
-
-
 }
 
 void RigidBodyComponent::FixedUpdate()
 {
 	m_pTransformComponent->SetPosition(m_pRigidBody->GetPosition().x, m_pRigidBody->GetPosition().y);
-	//m_pTransformComponent->Translate(m_pRigidBody->GetLinearVelocity().x, m_pRigidBody->GetLinearVelocity().y);
-
-
-
 }
 
 void RigidBodyComponent::SetInitialPosition(const FVector2& initialPos) {
@@ -90,14 +83,6 @@ void RigidBodyComponent::AddForce(const FVector2& force) {
 
 }
 
-//b2Fixture* RigidBodyComponent::AddFixtureToBody(const Rect& boundingBox) {
-//
-//	b2PolygonShape shape;
-//	shape.SetAsBox(boundingBox.w, boundingBox.h);
-//	return m_pRigidBody->CreateFixture(&shape, 1.0f);
-//
-//}
-
 b2Fixture* RigidBodyComponent::AddFixtureToBody(const Rect& boundingBox, ColliderComponent* pColliderComponent) {
 
 	b2PolygonShape shape;
@@ -111,17 +96,6 @@ b2Fixture* RigidBodyComponent::AddFixtureToBody(const Rect& boundingBox, Collide
 	return m_pRigidBody->CreateFixture(&def);
 
 }
-
-//b2Fixture* RigidBodyComponent::AddFixtureToBody(float radius) {
-//
-//	b2CircleShape shape;
-//	shape.m_radius = radius;
-//	b2FixtureDef def{};
-//	def.shape = &shape; // shape is cloned so it is ok to make it on the stack
-//	def.density = 1.0f;
-//	return m_pRigidBody->CreateFixture(&def);
-//
-//}
 
 b2Fixture* RigidBodyComponent::AddFixtureToBody(float radius, ColliderComponent* pColliderComponent) {
 

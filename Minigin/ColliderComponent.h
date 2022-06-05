@@ -10,12 +10,6 @@
 class BTEngine::GameObject;
 class b2Fixture;
 
-//enum class ColliderType {
-//    BoxCollider,
-//    CircleCollider
-//};
-
-
 class ColliderComponent
 	: public BaseComponent
 {
@@ -41,7 +35,6 @@ protected:
     b2Fixture* m_pFixture;
     RigidBodyComponent* m_pRigidBodyComponent;
     std::function<void(BTEngine::GameObject* pCollidedGameObject, TriggerAction action)> m_OnCollisionCallback;
-
     bool m_IsSensor;
 
 private:

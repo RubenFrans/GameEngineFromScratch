@@ -1,8 +1,9 @@
 #include "IngredientPartComponent.h"
-#include "CollisionComponent.h"
 #include "MrPepperComponent.h"
 #include <string>
 #include "TransformComponent.h"
+#include "BoxCollider.h"
+#include "GameObject.h"
 
 IngredientPartComponent::IngredientPartComponent(BTEngine::GameObject* pOwner)
 	: BaseComponent(pOwner)
@@ -22,19 +23,19 @@ void IngredientPartComponent::Initialize()
 
 void IngredientPartComponent::InitializeCollisions() {
 
-	CollisionComponent* collisionComponent = GetGameObject()->GetComponent<CollisionComponent>();
+	BoxCollider* colliderComponent = GetGameObject()->GetComponent<BoxCollider>();
 
-	assert(collisionComponent != nullptr);
+	assert(colliderComponent != nullptr);
 
-	collisionComponent->SetOnTriggerCallback([&](BTEngine::GameObject* pTriggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action) {
+	colliderComponent->SetCollisionCallback([&](BTEngine::GameObject* pOtherObject, TriggerAction action) {
 		
-			OnTriggerCallback(pTriggerObject, pOtherObject, action);
+			OnTriggerCallback(pOtherObject, action);
 
 		});
 	
 }
 
-void IngredientPartComponent::OnTriggerCallback(BTEngine::GameObject* /*pTriggerObject*/, BTEngine::GameObject* pOtherObject, TriggerAction action) {
+void IngredientPartComponent::OnTriggerCallback(BTEngine::GameObject* pOtherObject, TriggerAction action) {
 
 	// Only execute when not yet stepped over
 	if (m_SteppedOver)

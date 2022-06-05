@@ -94,14 +94,8 @@
     <Filter Include="Source Files\Components\CollisionComponent">
       <UniqueIdentifier>{6bf89b6a-9d67-4e0c-b3d5-57937b34c4f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\PhysicsManager">
-      <UniqueIdentifier>{81b5d930-bd91-4a74-a9ea-5eb904c586d9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Services\AudioService">
       <UniqueIdentifier>{ce57548d-932a-4f1f-89b9-52d024085378}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\PhysicsManager\World">
-      <UniqueIdentifier>{2252ed31-07e9-450f-a089-c914a2386867}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Components\RigidBodyComponent">
       <UniqueIdentifier>{45eeb0d5-bb2d-4e58-bf0c-3491ff6e4271}</UniqueIdentifier>
@@ -115,14 +109,26 @@
     <Filter Include="Source Files\Components\ColliderComponent\CircleCollider">
       <UniqueIdentifier>{c62336ad-0219-4536-9d4b-3e0f7a8dc4b5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\PhysicsManager\ContactListener">
-      <UniqueIdentifier>{8a94c556-89ac-4eca-9af6-4e527ea1817c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\GameObject">
       <UniqueIdentifier>{8da64938-0e39-458e-afc3-f2b73120e4a9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Rendering">
       <UniqueIdentifier>{510b4382-9b5d-444d-b0a6-62173a088ea3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{81b5d930-bd91-4a74-a9ea-5eb904c586d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics\World">
+      <UniqueIdentifier>{2252ed31-07e9-450f-a089-c914a2386867}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics\ContactListener">
+      <UniqueIdentifier>{8a94c556-89ac-4eca-9af6-4e527ea1817c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structs">
+      <UniqueIdentifier>{f1210379-0721-49a2-b893-426956456dc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ResourceManager">
+      <UniqueIdentifier>{3ff52323-ccd5-45ca-bf9a-86ea5d6d25c9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -130,9 +136,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Singleton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Texture2D.h">
@@ -170,9 +173,6 @@
     </ClInclude>
     <ClInclude Include="TimeManager.h">
       <Filter>Source Files\Time</Filter>
-    </ClInclude>
-    <ClInclude Include="RGBColor.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="ImGuiPlotComponent.h">
       <Filter>Source Files\Components\ImgGuiRenderComponent\ImgGUIPlotComponent</Filter>
@@ -252,9 +252,6 @@
     <ClInclude Include="AudioSystem.h">
       <Filter>Source Files\AudioSystem</Filter>
     </ClInclude>
-    <ClInclude Include="Locator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AudioClipImpl.h">
       <Filter>Source Files\AudioSystem</Filter>
     </ClInclude>
@@ -263,9 +260,6 @@
     </ClInclude>
     <ClInclude Include="WindowsAudioSystemImpl.h">
       <Filter>Source Files\AudioSystem\WindowsAudioSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="structs.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Keyboard.h">
       <Filter>Source Files\Input\Keyboard</Filter>
@@ -280,10 +274,10 @@
       <Filter>Source Files\Services\AudioService</Filter>
     </ClInclude>
     <ClInclude Include="PhysicsManager.h">
-      <Filter>Source Files\PhysicsManager</Filter>
+      <Filter>Source Files\Physics</Filter>
     </ClInclude>
     <ClInclude Include="World.h">
-      <Filter>Source Files\PhysicsManager\World</Filter>
+      <Filter>Source Files\Physics\World</Filter>
     </ClInclude>
     <ClInclude Include="RigidBodyComponent.h">
       <Filter>Source Files\Components\RigidBodyComponent</Filter>
@@ -298,10 +292,7 @@
       <Filter>Source Files\Components\ColliderComponent\CircleCollider</Filter>
     </ClInclude>
     <ClInclude Include="ContactListener.h">
-      <Filter>Source Files\PhysicsManager\ContactListener</Filter>
-    </ClInclude>
-    <ClInclude Include="InternalStructs.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\Physics\ContactListener</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Source Files\GameObject</Filter>
@@ -315,15 +306,21 @@
     <ClInclude Include="Renderer.h">
       <Filter>Source Files\Rendering</Filter>
     </ClInclude>
+    <ClInclude Include="structs.h">
+      <Filter>Source Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="InternalStructs.h">
+      <Filter>Source Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Source Files\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="RGBColor.h">
+      <Filter>Source Files\Components\TextComponent</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ResourceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Font.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
@@ -422,9 +419,6 @@
     <ClCompile Include="AudioClip.cpp">
       <Filter>Source Files\AudioSystem</Filter>
     </ClCompile>
-    <ClCompile Include="Locator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AudioClipImpl.cpp">
       <Filter>Source Files\AudioSystem</Filter>
     </ClCompile>
@@ -447,10 +441,10 @@
       <Filter>Source Files\Services\AudioService</Filter>
     </ClCompile>
     <ClCompile Include="PhysicsManager.cpp">
-      <Filter>Source Files\PhysicsManager</Filter>
+      <Filter>Source Files\Physics</Filter>
     </ClCompile>
     <ClCompile Include="World.cpp">
-      <Filter>Source Files\PhysicsManager\World</Filter>
+      <Filter>Source Files\Physics\World</Filter>
     </ClCompile>
     <ClCompile Include="RigidBodyComponent.cpp">
       <Filter>Source Files\Components\RigidBodyComponent</Filter>
@@ -465,7 +459,7 @@
       <Filter>Source Files\Components\ColliderComponent\CircleCollider</Filter>
     </ClCompile>
     <ClCompile Include="ContactListener.cpp">
-      <Filter>Source Files\PhysicsManager\ContactListener</Filter>
+      <Filter>Source Files\Physics\ContactListener</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\GameObject</Filter>
@@ -481,6 +475,12 @@
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
       <Filter>Source Files\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Source Files\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>Source Files\Components\TextComponent</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

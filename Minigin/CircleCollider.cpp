@@ -12,13 +12,8 @@ CircleCollider::CircleCollider(BTEngine::GameObject* pOwner)
 void CircleCollider::Initialize()
 {
 	ColliderComponent::Initialize();
+	// RigidBody initialized by base class
 	m_pFixture = m_pRigidBodyComponent->AddFixtureToBody(m_Radius, this);
-	//if (m_OnCollisionCallback) {
-	//}
-	//else {
-
-	//	m_pFixture = m_pRigidBodyComponent->AddFixtureToBody(m_Radius);
-	//}
 }
 
 void CircleCollider::Update()
