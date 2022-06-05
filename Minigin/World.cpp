@@ -29,21 +29,21 @@ void World::Update()
 
 void World::RenderDebugBodies() {
 
-	b2Body* currentBody = m_pWorld->GetBodyList();
+	//b2Body* currentBody = m_pWorld->GetBodyList();
 
-	while(currentBody != nullptr){
+	//while(currentBody != nullptr){
 
-		b2Fixture* currentFixture = currentBody->GetFixtureList();
+	//	b2Fixture* currentFixture = currentBody->GetFixtureList();
 
-		while (currentFixture != nullptr) {
+	//	while (currentFixture != nullptr) {
 
-			//b2Shape* shape = currentFixture->GetShape();
-			
-			BTEngine::Renderer::GetInstance().RenderRect({ currentBody->GetPosition().x, currentBody->GetPosition().y, 50.0f, 50.0f });
-			currentFixture = currentFixture->GetNext();
-		}
-		currentBody = currentBody->GetNext();
-	}
+	//		//b2Shape* shape = currentFixture->GetShape();
+	//		
+	//		BTEngine::Renderer::GetInstance().RenderRect({ currentBody->GetPosition().x, currentBody->GetPosition().y, 50.0f, 50.0f });
+	//		currentFixture = currentFixture->GetNext();
+	//	}
+	//	currentBody = currentBody->GetNext();
+	//}
 }
 
 void World::FixedUpdate()

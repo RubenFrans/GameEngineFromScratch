@@ -140,13 +140,13 @@ void MrPepperComponent::FixedUpdate()
 void MrPepperComponent::MoveLeft() 
 {
 	//m_pTransformComponent->Translate(-m_HorizontalSpeed * TimeManager::GetDeltaTime(), 0.0f);
-	m_pRigidBodyComponent->SetVelocity({ -10.0f, 0.0f });
+	m_pRigidBodyComponent->SetVelocity({ -100.0f, 0.0f });
 	m_pAnimationComponent->SetPlayAnimation((int)MrPepperState::left);
 }
 
 void MrPepperComponent::MoveRight()
 {
-	m_pRigidBodyComponent->SetVelocity({ 10.0f, 0.0f });
+	m_pRigidBodyComponent->SetVelocity({ 100.0f, 0.0f });
 	//m_pTransformComponent->Translate(m_HorizontalSpeed * TimeManager::GetDeltaTime(), 0.0f);
 	m_pAnimationComponent->SetPlayAnimation((int)MrPepperState::right);
 }

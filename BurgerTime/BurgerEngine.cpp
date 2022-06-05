@@ -67,7 +67,8 @@ void BurgerEngine::LoadGame()
 
 	auto testObj = std::make_shared<GameObject>();
 	auto transformComp = testObj->AddComponent<TransformComponent>();
-	transformComp->SetPosition(0.0f, 100.0f);
+	transformComp->SetPosition(400.0f, 100.0f);
+	transformComp->SetSize(50.0f, 6.0f);
 	testObj->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
 	auto animationComp = testObj->AddComponent<AnimationComponent>();
 
@@ -77,15 +78,18 @@ void BurgerEngine::LoadGame()
 	platformAnimation.m_AmountOfRows = 0;
 
 	platformAnimation.m_CellWidth = 16;
-	platformAnimation.m_CellHeigth = 16;
+	platformAnimation.m_CellHeigth = 2;
 	platformAnimation.m_AnimationFramesPerSecond = 10;
-	platformAnimation.m_AnchorPoint = IVector2{ 150, 152 };
+	platformAnimation.m_AnchorPoint = IVector2{ 150, 167 };
 
 	animationComp->AddAnimation(0, platformAnimation);
 
-	testObj->AddComponent<RigidBodyComponent>()->SetRigidBodyType(RigidType::Static);
+	auto testRigid = testObj->AddComponent<RigidBodyComponent>();
+	testRigid->SetRigidBodyType(RigidType::Static);
 	auto collider = testObj->AddComponent<ColliderComponent>();
-	collider->SetBoundingBox(Rect{ 0.0f, 0.0f, 25.0f, 25.0f });
+	collider->SetBoundingBox(Rect{ 0.0f, 0.0f, 25.0f, 1.5f });
+
+
 
 	scene.Add(testObj);
 

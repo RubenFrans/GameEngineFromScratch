@@ -93,3 +93,15 @@ b2Fixture* RigidBodyComponent::AddFixtureToBody(const Rect& boundingBox) {
 	return m_pRigidBody->CreateFixture(&shape, 1.0f);
 
 }
+
+void RigidBodyComponent::SetPosition(const FVector2& position) {
+
+	m_pTransformComponent->SetPosition(position.x, position.y);
+	m_pRigidBody->SetTransform({ position.x, position.y }, 0.0f);
+
+}
+
+FVector2 RigidBodyComponent::GetPosition() const {
+	FVector2 position{ m_pRigidBody->GetPosition().x, m_pRigidBody->GetPosition().y };
+	return position;
+}

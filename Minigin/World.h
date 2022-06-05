@@ -19,6 +19,12 @@ public:
     b2Body* CreateBody(const FVector2& initialPos);
 
 private:
+
+    struct WorldBody {
+        b2Body* pBody;
+        Rect boundingBox;
+    };
+
     b2Vec2 m_Gravity;
     b2World* m_pWorld;
 

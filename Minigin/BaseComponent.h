@@ -12,6 +12,7 @@ public:
 	virtual void Initialize() = 0;
 	virtual void Update() = 0;
 	virtual void FixedUpdate() = 0;
+	virtual void Render() const {};
 	BTEngine::GameObject* GetGameObject() const;
 private:
 	BTEngine::GameObject* m_pOwner;

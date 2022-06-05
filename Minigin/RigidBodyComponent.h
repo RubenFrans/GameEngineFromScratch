@@ -40,6 +40,8 @@ public:
     void SetRigidBodyType(RigidType type);
     void SetVelocity(const FVector2& velocity);
     void AddForce(const FVector2& velocity);
+    void SetPosition(const FVector2& position);
+    FVector2 GetPosition() const;
     b2Fixture* AddFixtureToBody(const Rect& boundingBox);
 
 private:
