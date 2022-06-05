@@ -1,6 +1,7 @@
 #include "MiniginPCH.h"
 #include "Scene.h"
 #include "GameObject.h"
+#include "World.h"
 
 using namespace BTEngine;
 
@@ -53,5 +54,9 @@ void BTEngine::Scene::Initialize()
 	}
 
 	m_HasBeenInitialized = true;
+}
+
+World* Scene::GetWorld() const {
+	return m_pWorld;
 }
 

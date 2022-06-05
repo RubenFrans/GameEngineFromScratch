@@ -98,7 +98,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\Box2D\include;$(SolutionDir)\3rdParty\SDL2_mixer\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>MiniginPCH.h</PrecompiledHeaderFile>
       <TreatWarningAsError>true</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -122,8 +122,8 @@ xcopy "$(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll" "$(OutputPath)" /R /Y
 xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll" "$(OutputPath)" /R /Y</Command>
     </PostBuildEvent>
     <Lib>
-      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\lib\x86;$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rdParty\Box2D\$(PlatformShortName)\$(Configuration);$(SolutionDir)\3rdParty\SDL2_mixer\lib\x86;$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -134,7 +134,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll" "$(OutputPath)" /R /Y</Co
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\Box2D\include;$(SolutionDir)\3rdParty\SDL2_mixer\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>MiniginPCH.h</PrecompiledHeaderFile>
       <TreatWarningAsError>true</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -159,8 +159,8 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll" "$(OutputPath)" /R /Y
 xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Command>
     </PostBuildEvent>
     <Lib>
-      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\lib\x64;$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rdParty\Box2D\$(PlatformShortName)\$(Configuration);$(SolutionDir)\3rdParty\SDL2_mixer\lib\x64;$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -173,7 +173,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\Box2D\include;$(SolutionDir)\3rdParty\SDL2_mixer\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>MiniginPCH.h</PrecompiledHeaderFile>
       <TreatWarningAsError>true</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -199,8 +199,8 @@ xcopy "$(solutiondir)3rdParty\SDL2_ttf\lib\x86\*dll" "$(OutputPath)" /R /Y
 xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll" "$(OutputPath)" /R /Y</Command>
     </PostBuildEvent>
     <Lib>
-      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\lib\x86;$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rdParty\Box2D\$(PlatformShortName)\$(Configuration);$(SolutionDir)\3rdParty\SDL2_mixer\lib\x86;$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -213,7 +213,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll" "$(OutputPath)" /R /Y</Co
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\Box2D\include;$(SolutionDir)\3rdParty\SDL2_mixer\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\steamworks\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>MiniginPCH.h</PrecompiledHeaderFile>
       <TreatWarningAsError>true</TreatWarningAsError>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -240,8 +240,8 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x86\*dll" "$(OutputPath)" /R /Y
 xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Command>
     </PostBuildEvent>
     <Lib>
-      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)\3rdParty\SDL2_mixer\lib\x64;$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>xinput.lib;opengl32.lib;steam_api64.lib;steam_api.lib;SDL2_mixer.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rdParty\Box2D\$(PlatformShortName)\$(Configuration);$(SolutionDir)\3rdParty\SDL2_mixer\lib\x64;$(SolutionDir)\3rdParty\steamworks\redistributable_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>

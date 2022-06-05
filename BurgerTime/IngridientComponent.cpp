@@ -71,9 +71,11 @@ void IngredientComponent::InitializeIngredientParts(BTEngine::Scene* scene, Phys
 		pAnimationComp->AddAnimation(0, ingredientAnimation);
 		//pAnimationComp->SetPlayAnimation(0);
 
-		pIngredientPart->AddComponent<IngredientPartComponent>();
+		//pIngredientPart->AddComponent<IngredientPartComponent>();
 
-		m_IngredientParts.emplace_back(pIngredientPart);
+		//m_IngredientParts.emplace_back(pIngredientPart);
+
+		m_IngredientParts.emplace_back(pIngredientPart->AddComponent<IngredientPartComponent>());
 
 		scene->Add(pIngredientPart);
 	}
@@ -81,7 +83,18 @@ void IngredientComponent::InitializeIngredientParts(BTEngine::Scene* scene, Phys
 
 void IngredientComponent::Update()
 {
+	auto it = std::find_if(m_IngredientParts.begin(), m_IngredientParts.end(), [](IngredientPartComponent* ingredientPart) {
 
+		return !ingredientPart->IsSteppedOn();
+
+		});
+
+	// If we can't find a part that is not stepped on the ingredient is fully pressed
+	if (it == m_IngredientParts.end()) {
+
+		GetGameObject()->GetComponent<TransformComponent>()->Translate(0.0f, 20.0f * TimeManager::GetDeltaTime());
+
+	}
 }
 
 void IngredientComponent::FixedUpdate()

@@ -1,6 +1,9 @@
 #pragma once
 namespace BTEngine
 {
+
+	class Scene;
+
 	class SceneObject
 	{
 	public:
@@ -15,5 +18,17 @@ namespace BTEngine
 		SceneObject(SceneObject&& other) = delete;
 		SceneObject& operator=(const SceneObject& other) = delete;
 		SceneObject& operator=(SceneObject&& other) = delete;
+
+		void SetScene(Scene* scene) {
+			m_pScene = scene;
+		}
+
+		Scene* GetScene() const {
+			return m_pScene;
+		};
+
+	private:
+		Scene* m_pScene;
+
 	};
 }

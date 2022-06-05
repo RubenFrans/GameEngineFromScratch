@@ -2,6 +2,9 @@
 #include "SceneManager.h"
 #include "PhysicsManager.h"
 
+
+class World;
+
 namespace BTEngine
 {
 	class SceneObject;
@@ -22,6 +25,8 @@ namespace BTEngine
 		Scene& operator=(const Scene& other) = delete;
 		Scene& operator=(Scene&& other) = delete;
 
+		World* GetWorld() const;
+
 	private: 
 		explicit Scene(const std::string& name);
 
@@ -31,7 +36,7 @@ namespace BTEngine
 		static unsigned int m_IdCounter; 
 
 		//PhysicsManager m_PhysicsManager;
-
+		World* m_pWorld;
 	};
 
 }

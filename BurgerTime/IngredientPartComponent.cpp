@@ -61,3 +61,8 @@ void IngredientPartComponent::FixedUpdate()
 {
 
 }
+
+bool IngredientPartComponent::IsSteppedOn() {
+
+	return m_SteppedOver;
+}

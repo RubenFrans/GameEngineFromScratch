@@ -67,7 +67,7 @@ void TransformComponent::UpdateWorldTransform() {
 	// Update world transform of all children
 	for (size_t i = 0; i < pOwner->GetAmountOfChildren(); i++)
 	{
-		TransformComponent* comp = pOwner->GetChildAt(i)->GetComponent<TransformComponent>();
+		TransformComponent* comp = pOwner->GetChildAt(int(i))->GetComponent<TransformComponent>();
 		comp->UpdateWorldTransform();
 	}
 

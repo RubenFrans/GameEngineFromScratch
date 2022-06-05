@@ -23,6 +23,7 @@ public:
 	virtual void FixedUpdate() override;
 
 	void OnTriggerCallback(BTEngine::GameObject* pTriggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action);
+	bool IsSteppedOn();
 
 private:
 
