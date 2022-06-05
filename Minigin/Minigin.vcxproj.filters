@@ -100,6 +100,15 @@
     <Filter Include="Source Files\Services\AudioService">
       <UniqueIdentifier>{ce57548d-932a-4f1f-89b9-52d024085378}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\PhysicsManager\World">
+      <UniqueIdentifier>{2252ed31-07e9-450f-a089-c914a2386867}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\RigidBodyComponent">
+      <UniqueIdentifier>{45eeb0d5-bb2d-4e58-bf0c-3491ff6e4271}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\ColliderComponent">
+      <UniqueIdentifier>{4e548d07-1e36-4a55-83f5-6038fec413d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniginPCH.h">
@@ -270,6 +279,15 @@
     <ClInclude Include="PhysicsManager.h">
       <Filter>Source Files\PhysicsManager</Filter>
     </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Source Files\PhysicsManager\World</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBodyComponent.h">
+      <Filter>Source Files\Components\RigidBodyComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="ColliderComponent.h">
+      <Filter>Source Files\Components\ColliderComponent</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
@@ -418,6 +436,15 @@
     </ClCompile>
     <ClCompile Include="PhysicsManager.cpp">
       <Filter>Source Files\PhysicsManager</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files\PhysicsManager\World</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBodyComponent.cpp">
+      <Filter>Source Files\Components\RigidBodyComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="ColliderComponent.cpp">
+      <Filter>Source Files\Components\ColliderComponent</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

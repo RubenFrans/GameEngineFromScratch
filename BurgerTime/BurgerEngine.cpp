@@ -20,6 +20,8 @@
 #include "PhysicsManager.h"
 #include <iostream>
 #include "IngridientComponent.h"
+#include "RigidBodyComponent.h"
+#include "ColliderComponent.h"
 
 using namespace BTEngine;
 
@@ -59,6 +61,12 @@ void BurgerEngine::LoadGame()
 	//	});
 
 	physics->AddPhysicsBody(collision);
+
+
+	mrPepper->AddComponent<RigidBodyComponent>();
+	mrPepper->AddComponent<ColliderComponent>()->SetBoundingBox(Rect{10.0f, 10.0f});
+
+
 
 	//auto testObj = std::make_shared<GameObject>();
 	//testObj->AddComponent<TransformComponent>()->SetSize(50 / 16, 50 / 16);

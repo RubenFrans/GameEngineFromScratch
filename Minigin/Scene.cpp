@@ -7,14 +7,22 @@ using namespace BTEngine;
 
 unsigned int Scene::m_IdCounter = 0;
 
-Scene::Scene(const std::string& name) : m_Name(name), m_HasBeenInitialized{ false } {}
+Scene::Scene(const std::string& name) 
+	: m_Name(name), m_HasBeenInitialized{ false } 
+{
+	m_pWorld = new World();
+}
 
-Scene::~Scene() = default;
+Scene::~Scene() 
+{
+	delete m_pWorld;
+}
 
 void Scene::Add(const std::shared_ptr<SceneObject>& object)
 {
 
 	m_Objects.push_back(object);
+	object->SetScene(this);
 
 	// If the scene already is initialized (thus the object is being added at runtime during the game after initialization) initialize the object manually here.
 	if (m_HasBeenInitialized) {
@@ -25,6 +33,8 @@ void Scene::Add(const std::shared_ptr<SceneObject>& object)
 
 void Scene::Update()
 {
+	m_pWorld->Update();
+
 	for(auto& object : m_Objects)
 	{
 		object->Update();
@@ -33,6 +43,8 @@ void Scene::Update()
 
 void Scene::FixedUpdate() {
 	
+	m_pWorld->FixedUpdate();
+
 	for (auto& object : m_Objects) {
 		object->FixedUpdate();
 	}

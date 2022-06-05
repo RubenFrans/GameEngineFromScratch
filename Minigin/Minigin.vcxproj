@@ -254,6 +254,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     <ClInclude Include="AudioSystemLocator.h" />
     <ClInclude Include="BaseComponent.h" />
     <ClInclude Include="CacheDataGenerator.h" />
+    <ClInclude Include="ColliderComponent.h" />
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="ControllerButtons.h" />
@@ -283,6 +284,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     <ClInclude Include="PhysicsManager.h" />
     <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="RGBColor.h" />
+    <ClInclude Include="RigidBodyComponent.h" />
     <ClInclude Include="SceneObject.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="ResourceManager.h" />
@@ -299,6 +301,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="WindowsAudioSystem.h" />
     <ClInclude Include="WindowsAudioSystemImpl.h" />
+    <ClInclude Include="World.h" />
     <ClInclude Include="XboxController.h" />
     <ClInclude Include="XboxControllerImpl.h" />
   </ItemGroup>
@@ -311,6 +314,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     <ClCompile Include="AudioSystemLocator.cpp" />
     <ClCompile Include="BaseComponent.cpp" />
     <ClCompile Include="CacheDataGenerator.cpp" />
+    <ClCompile Include="ColliderComponent.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Font.cpp" />
@@ -389,6 +393,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="RigidBodyComponent.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Subject.cpp" />
@@ -400,6 +405,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="WindowsAudioSystem.cpp" />
     <ClCompile Include="WindowsAudioSystemImpl.cpp" />
+    <ClCompile Include="World.cpp" />
     <ClCompile Include="XboxController.cpp" />
     <ClCompile Include="XboxControllerImpl.cpp" />
   </ItemGroup>

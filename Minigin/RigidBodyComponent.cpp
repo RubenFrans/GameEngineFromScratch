@@ -4,6 +4,7 @@
 #include "World.h"
 #include "Scene.h"
 #include "b2_body.h"
+#include "TransformComponent.h"
 
 
 RigidBodyComponent::RigidBodyComponent(BTEngine::GameObject* pOwner)
@@ -13,6 +14,20 @@ RigidBodyComponent::RigidBodyComponent(BTEngine::GameObject* pOwner)
 }
 
 void RigidBodyComponent::Initialize() {
+
+	m_pTransformComponent = GetGameObject()->GetComponent<TransformComponent>();
+	assert(m_pTransformComponent != nullptr);
+	InitializeRigidbody();
+}
+
+void RigidBodyComponent::Update() {
+
+	m_pTransformComponent->Translate(m_pRigidBody->GetLinearVelocity().x, m_pRigidBody->GetLinearVelocity().y);
+	std::cout << m_pRigidBody->GetPosition().x << " " << m_pRigidBody->GetPosition().y << std::endl;
+}
+
+void RigidBodyComponent::FixedUpdate()
+{
 
 }
 
@@ -29,6 +44,11 @@ RigidBodyComponent::~RigidBodyComponent()
 void RigidBodyComponent::InitializeRigidbody() 
 {
 	//// Get World to initializeRigidBody
-	//World* currentSceneWorld = GetGameObject()->GetScene()->GetWorld();
-	//currentSceneWorld->CreateBody(m_InitialPos);
+	World* currentSceneWorld = GetGameObject()->GetScene()->GetWorld();
+	m_pRigidBody = currentSceneWorld->CreateBody(m_InitialPos);
+	m_pRigidBody->SetGravityScale(1.0f);
+}
+
+b2Body* RigidBodyComponent::GetBody() const {
+	return m_pRigidBody;
 }
