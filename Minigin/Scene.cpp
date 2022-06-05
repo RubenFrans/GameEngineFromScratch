@@ -20,7 +20,6 @@ Scene::~Scene()
 
 void Scene::Add(const std::shared_ptr<SceneObject>& object)
 {
-
 	m_Objects.push_back(object);
 	object->SetScene(this);
 
@@ -56,8 +55,6 @@ void Scene::Render() const
 	{
 		object->Render();
 	}
-
-	m_pWorld->RenderDebugBodies();
 }
 
 void BTEngine::Scene::Initialize()

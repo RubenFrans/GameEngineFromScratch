@@ -149,11 +149,9 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructPlatform(const IV
 }
 
 std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructLadder(const IVector2& position) {
+	
 	auto ladder = std::make_shared<BTEngine::GameObject>();
-
-	//ladder->AddComponent<LadderComponent>();
 	auto transform = ladder->AddComponent<TransformComponent>();
-	//transform->SetSize(float(m_TileSizeX / 16), float(m_TileSizeY / 16));
 	transform->SetSize(50.0f, 50.0f);
 	transform->SetPosition(float(position.x), float(position.y));
 
@@ -172,19 +170,12 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructLadder(const IVec
 
 	animationComp->AddAnimation(0, ladderAnimation);
 
-	//auto collilsionComp = ladder->AddComponent<CollisionComponent>();
-	//collilsionComp->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
-
-	//m_pPhysicsManager->AddPhysicsBody(collilsionComp);
-
 	ladder->AddComponent<RigidBodyComponent>()->SetRigidBodyType(RigidType::Static);
 	auto boxCollider = ladder->AddComponent<BoxCollider>();
 	boxCollider->SetBoundingBox({ 0.0f, 0.0f, 25.0f, 25.0f });
 	boxCollider->SetIsSensor(true);
 
 	ladder->SetTag("ladder");
-
-	//ladder->AddComponent<PlatformComponent>();
 
 	return ladder;
 }

@@ -18,7 +18,6 @@ public:
     void Update();
     void Initialize();
     void FixedUpdate();
-    void RenderDebugBodies();
     b2Body* CreateBody(const FVector2& initialPos);
 
 private:

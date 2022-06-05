@@ -35,7 +35,7 @@ private:
 	void InitializeAnimations();
 	void InitializeCollisionCallbacks();
 
-	void OnTriggerCallback(BTEngine::GameObject* pTriggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action);
+	void OnTriggerCallback(BTEngine::GameObject* pOtherObject, TriggerAction action);
 	
 	bool m_IsDead;
 	float m_HorizontalSpeed;

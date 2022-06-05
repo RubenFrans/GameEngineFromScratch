@@ -11,7 +11,7 @@
 #include "CircleCollider.h"
 void ContactListener::BeginContact(b2Contact* contact)
 {
-	std::cout << "Registered contact BEGIN" << std::endl;
+	// std::cout << "Registered contact BEGIN" << std::endl;
 	ColliderComponent* collisionCallbackA = reinterpret_cast<ColliderComponent*>(contact->GetFixtureA()->GetUserData().pointer);
 	ColliderComponent* collisionCallbackB = reinterpret_cast<ColliderComponent*>(contact->GetFixtureB()->GetUserData().pointer);
 
@@ -27,7 +27,7 @@ void ContactListener::BeginContact(b2Contact* contact)
 
 void ContactListener::EndContact(b2Contact* contact)
 {
-	std::cout << "Registered contact END" << std::endl;
+	// std::cout << "Registered contact END" << std::endl;
 
 	ColliderComponent* collisionCallbackA = reinterpret_cast<ColliderComponent*>(contact->GetFixtureA()->GetUserData().pointer);
 	ColliderComponent* collisionCallbackB = reinterpret_cast<ColliderComponent*>(contact->GetFixtureB()->GetUserData().pointer);

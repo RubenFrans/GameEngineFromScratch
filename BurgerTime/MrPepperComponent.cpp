@@ -78,87 +78,44 @@ void MrPepperComponent::InitializeAnimations() {
 		->AddAnimation(1, runUpAnimation)
 		->AddAnimation(2, runLeftAnimation)
 		->AddAnimation(3, runRightAnimation);
-
 }
 
 void MrPepperComponent::InitializeCollisionCallbacks() {
-
-	//CollisionComponent* collComp = GetGameObject()->GetComponent<CollisionComponent>();
-
-	//assert(collComp != nullptr);
-
-	//collComp->SetOnTriggerCallback([&](BTEngine::GameObject* pTriggerObject, BTEngine::GameObject* pOtherObject, TriggerAction action) {
-	//		OnTriggerCallback(pTriggerObject, pOtherObject, action);
-	//	});
 
 	ColliderComponent* collider = GetGameObject()->GetComponent<CircleCollider>();
 
 	assert(collider != nullptr);
 
 	collider->SetCollisionCallback([&](BTEngine::GameObject* pOtherObject, TriggerAction action) {
-		
-			if (action == TriggerAction::Enter) {
-
-				if (pOtherObject->GetTag().compare("ladder") == 0) {
-					m_LadderCounter += 1;
-				}
-
-			}
-			else if(action == TriggerAction::Leave) {
-
-				if (pOtherObject->GetTag().compare("ladder") == 0) {
-					
-					m_LadderCounter -= 1;
-				}
-			}
-
-			if (m_LadderCounter > 0) {
-				m_IsOnLadder = true;
-			}
-			else {
-				m_IsOnLadder = false;
-			}
-
+			
+			OnTriggerCallback(pOtherObject, action);
+	
 		});
-
 }
 
-void MrPepperComponent::OnTriggerCallback(BTEngine::GameObject* /*pTriggerObject*/, BTEngine::GameObject* pOtherObject, TriggerAction action) {
-	
 
-	if (action == TriggerAction::Stay) {
+void MrPepperComponent::OnTriggerCallback(BTEngine::GameObject* pOtherObject, TriggerAction action) {
+	if (action == TriggerAction::Enter) {
 
-		//std::cout << "Peter stay" << std::endl;
-		
-		
-
-		PlatformComponent* pPlatform = pOtherObject->GetComponent<PlatformComponent>();
-
-		if (pPlatform) {
-			m_IsOnLadder = true;
-		}
-
-	}
-	else if (action == TriggerAction::Enter) {
-		//std::cout << "Peter enter" << std::endl;
-
-		//if (m_IsOnLadder) {
-		//	TransformComponent* transformComp = pOtherObject->GetComponent<TransformComponent>();
-
-		//	m_pTransformComponent->SetPosition(m_pTransformComponent->GetTransform().GetPosition().x, transformComp->GetTransform().GetPosition().y);
-
-		//}
-
-
-	} else if (action == TriggerAction::Leave) {
-		//std::cout << "Peter leave" << std::endl;
-
-		PlatformComponent* pPlatform = pOtherObject->GetComponent<PlatformComponent>();
-
-		if (pPlatform) {
-			m_IsOnLadder = false;
+		if (pOtherObject->GetTag().compare("ladder") == 0) {
+			m_LadderCounter += 1;
 		}
 	}
+	else if (action == TriggerAction::Leave) {
+
+		if (pOtherObject->GetTag().compare("ladder") == 0) {
+
+			m_LadderCounter -= 1;
+		}
+	}
+
+	if (m_LadderCounter > 0) {
+		m_IsOnLadder = true;
+	}
+	else {
+		m_IsOnLadder = false;
+	}
+
 }
 
 void MrPepperComponent::Update()

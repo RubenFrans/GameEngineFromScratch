@@ -2,6 +2,10 @@
 #include "InputManager.h"
 #include "imgui_impl_sdl.h"
 
+/// <summary>
+/// THIS CLASS IS DEPRECATED PLEASE REFERE TO INPUTMANAGER2
+/// </summary>
+/// <returns></returns>
 bool BTEngine::InputManager::CheckPressed()
 {
 	ZeroMemory(&m_CurrentState, sizeof(XINPUT_STATE));
