@@ -32,6 +32,12 @@ void TransformComponent::SetPosition(float x, float y)
 	UpdateWorldTransform();
 }
 
+void TransformComponent::SetWorldPosition(float x, float y) {
+
+	m_WorldTransform.SetPosition(x, y, 0.0f);
+
+}
+
 void TransformComponent::SetSize(float x, float y) {
 	m_LocalTransform.SetSize(x, y, 0.0f);
 }

@@ -1,6 +1,8 @@
 #include "MiniginPCH.h"
 #include "Command.h"
 #include <iostream>
+#include "DebugSettings.h"
+
 //#include <steam_api.h>
 
 /*
@@ -68,3 +70,8 @@
 //	SteamUserStats()->SetAchievement("ACH_WIN_ONE_GAME");
 //	SteamUserStats()->StoreStats();
 //}
+
+void ToggleDebugCommand::Execute()
+{
+	DebugSettings::ToggleDebugRendering();
+}

@@ -9,6 +9,7 @@ ColliderComponent::ColliderComponent(BTEngine::GameObject* pOwner)
 	, m_pFixture{ nullptr }
 	, m_pRigidBodyComponent{ nullptr }
 	, m_IsSensor{ false }
+	, m_ShowPhysicsDebug{ false }
 {
 	
 }

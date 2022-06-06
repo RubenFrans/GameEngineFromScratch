@@ -24,6 +24,7 @@
 #include "AudioSystemLocator.h"
 #include "WindowsAudioSystem.h"
 #include "AudioSystem.h"
+#include "Command.h"
 
 using namespace std;
 
@@ -64,8 +65,8 @@ void BTEngine::Minigin::Initialize()
 		"Programming 4 assignment",
 		SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED,
+		1000,
 		800,
-		600,
 		SDL_WINDOW_OPENGL
 	);
 	if (m_Window == nullptr) 
@@ -100,6 +101,9 @@ void BTEngine::Minigin::LoadGame()
 	m_pAudioSystem = new WindowsAudioSystem();
 	m_pAudioSystem->Initialize();
 	AudioSystemLocator::Provide(m_pAudioSystem);
+
+	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::F1, std::make_shared<ToggleDebugCommand>(), ButtonBehaviour::DownThisFrame);
+
 }
 
 void BTEngine::Minigin::Cleanup()

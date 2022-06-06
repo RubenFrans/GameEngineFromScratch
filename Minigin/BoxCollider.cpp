@@ -2,6 +2,7 @@
 #include "BoxCollider.h"
 #include "Renderer.h"
 #include "b2_fixture.h"
+#include "DebugSettings.h"
 
 BoxCollider::BoxCollider(BTEngine::GameObject* pOwner)
 	: ColliderComponent(pOwner), m_BoundingBox{}
@@ -27,7 +28,8 @@ void BoxCollider::FixedUpdate()
 
 void BoxCollider::Render() const {
 
-	BTEngine::Renderer::GetInstance().RenderRect(m_FullLengthBoudingBox);
+	if(DebugSettings::DebugDrawingEnabled())
+		BTEngine::Renderer::GetInstance().RenderRect(m_FullLengthBoudingBox);
 }
 
 // Bounding box interpreted as half width and halfheight

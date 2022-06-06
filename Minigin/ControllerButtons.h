@@ -26,5 +26,6 @@ enum class KeyboardButton {
 	LeftArrow,
 	RightArrow,
 	Space,
-	Enter
+	Enter,
+	F1
 };

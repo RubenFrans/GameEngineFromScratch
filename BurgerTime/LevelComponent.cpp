@@ -16,6 +16,8 @@ LevelComponent::LevelComponent(BTEngine::GameObject* pOwner)
 	, m_AmountOfRows{ 12 }
 	, m_TileSizeX{ 800 / 16 }
 	, m_TileSizeY{ 600 / 16 }
+	, m_HorizontalOffset{ 100 }
+	, m_VerticalOffset{ 100 }
 {
 	//ParseLevelFile();
 }
@@ -57,7 +59,7 @@ void LevelComponent::ParseLevelFile()
 	while (input.good())
 	{
 		input.read(&objectIdentfier, sizeof(char));
-		IVector2 position{ currentColumn * m_TileSizeX, currentRow * m_TileSizeY };
+		IVector2 position{ currentColumn * m_TileSizeX + m_HorizontalOffset, currentRow * m_TileSizeY + m_VerticalOffset};
 		currentColumn++;
 		switch (objectIdentfier)
 		{
@@ -184,16 +186,12 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructTrapDoor(const IV
 	auto trapDoor = std::make_shared<BTEngine::GameObject>();
 
 	auto transform = trapDoor->AddComponent<TransformComponent>();
-	transform->SetSize(float(m_TileSizeX / 16), float(m_TileSizeY / 16));
 	transform->SetPosition(float(position.x), float(position.y));
+	transform->SetSize(50.0f, 6.0f);
 
 	trapDoor->AddComponent<RenderComponent>();
 	auto animationComp = trapDoor->AddComponent<AnimationComponent>();
 
-	auto collilsionComp = trapDoor->AddComponent<CollisionComponent>();
-	collilsionComp->SetBoundingBox(Rect{ 0.0f, 0.0f, 16.f, 16.f });
-
-	m_pPhysicsManager->AddPhysicsBody(collilsionComp);
 
 	Animation trapdoorAnimation{};
 	trapdoorAnimation.SetSpriteSheet("spritesheet.png");
@@ -201,11 +199,18 @@ std::shared_ptr<BTEngine::GameObject> LevelComponent::ConstructTrapDoor(const IV
 	trapdoorAnimation.m_AmountOfRows = 0;
 
 	trapdoorAnimation.m_CellWidth = 16;
-	trapdoorAnimation.m_CellHeigth = 16;
+	trapdoorAnimation.m_CellHeigth = 2;
 	trapdoorAnimation.m_AnimationFramesPerSecond = 0;
-	trapdoorAnimation.m_AnchorPoint = IVector2{ 166, 153 };
+	trapdoorAnimation.m_AnchorPoint = IVector2{ 166, 167 };
 
 	animationComp->AddAnimation(0, trapdoorAnimation);
+
+	trapDoor->SetTag("ladder");
+
+	trapDoor->AddComponent<RigidBodyComponent>()->SetRigidBodyType(RigidType::Static);
+	auto collider = trapDoor->AddComponent<BoxCollider>();
+	collider->SetBoundingBox({ 0.0f, 0.0f, 25.0f, 3.0f });
+	collider->SetIsSensor(true);
 
 	return trapDoor;
 }

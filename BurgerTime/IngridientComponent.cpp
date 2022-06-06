@@ -25,10 +25,7 @@ IngredientComponent::IngredientComponent(BTEngine::GameObject* pOwner)
 
 IngredientComponent::~IngredientComponent()
 {
-	//for (size_t i = 0; i < m_IngredientParts.size(); i++)
-	//{
-	//	delete m_IngredientParts.at(i);
-	//}
+
 }
 
 void IngredientComponent::Initialize()
@@ -40,14 +37,14 @@ void IngredientComponent::InitializeIngredientParts(BTEngine::Scene* scene) {
 
 	assert(scene != nullptr);
 
-	float partOffset = (31.f / m_AmountOfParts) * 2.0f;
+	float partOffset = (31.f / m_AmountOfParts) /** 2.0f*/;
 
 	for (size_t i = 0; i < m_AmountOfParts; i++)
 	{
 		auto pIngredientPart = std::make_shared<BTEngine::GameObject>();
 		auto pTransform = pIngredientPart->AddComponent<TransformComponent>();
 		pTransform->SetPosition((partOffset + 16.0f) * i, 0.0f);
-		pTransform->SetSize(partOffset, 16.0f);
+		pTransform->SetSize(20.0f, 20.0f);
 		pIngredientPart->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
 		GetGameObject()->AddChild(pIngredientPart.get());
 
@@ -64,8 +61,10 @@ void IngredientComponent::InitializeIngredientParts(BTEngine::Scene* scene) {
 		ingredientAnimation.m_AnchorPoint = IVector2{ 113 + int((partOffset * i)), 50};
 
 		pAnimationComp->AddAnimation(0, ingredientAnimation);
-		pIngredientPart->AddComponent<RigidBodyComponent>()->SetRigidBodyType(RigidType::Dynamic);
-		pIngredientPart->AddComponent<BoxCollider>()->SetBoundingBox({0.0f, 0.0f, partOffset, 16.0f});
+		pIngredientPart->AddComponent<RigidBodyComponent>()->SetRigidBodyType(RigidType::Kinematic);
+		auto collider = pIngredientPart->AddComponent<BoxCollider>();
+		collider->SetBoundingBox({0.0f, 0.0f, partOffset, 16.0f});
+		collider->SetIsSensor(true);
 
 		m_IngredientParts.emplace_back(pIngredientPart->AddComponent<IngredientPartComponent>());
 
@@ -84,7 +83,7 @@ void IngredientComponent::Update()
 	// If we can't find a part that is not stepped on the ingredient is fully pressed
 	if (it == m_IngredientParts.end()) {
 
-		GetGameObject()->GetComponent<TransformComponent>()->Translate(0.0f, 20.0f * TimeManager::GetDeltaTime());
+		GetGameObject()->GetComponent<RigidBodyComponent>()->SetVelocity({ 0.0f, 150.0f } /** TimeManager::GetDeltaTime()*/);
 
 	}
 }
@@ -93,11 +92,3 @@ void IngredientComponent::FixedUpdate()
 {
 
 }
-
-//void IngredientComponent::SetPhysicsManager(std::shared_ptr<PhysicsManager> manager) {
-//	m_pPhyiscs = manager;
-//}
-//
-//void IngredientComponent::SetInitializationScene(BTEngine::Scene* scene) {
-//	m_pScene = scene;
-//}

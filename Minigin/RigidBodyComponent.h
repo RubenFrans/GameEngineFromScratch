@@ -37,6 +37,7 @@ public:
     b2Body* GetBody() const;
 
     void SetRigidBodyType(RigidType type);
+    void SetGravityEnabled(bool enabled);
     void SetVelocity(const FVector2& velocity);
     void AddForce(const FVector2& velocity);
     void SetPosition(const FVector2& position);

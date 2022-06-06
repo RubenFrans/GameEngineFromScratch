@@ -15,6 +15,7 @@ public:
 	virtual void Initialize() override;
 
 	void SetPosition(float x, float y);
+	void SetWorldPosition(float x, float y);
 	void SetSize(float x, float y);
 	void SetTransform(const BTEngine::Transform& transform);
 	const BTEngine::Transform& GetTransform() const;

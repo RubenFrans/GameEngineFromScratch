@@ -111,9 +111,11 @@ void MrPepperComponent::OnTriggerCallback(BTEngine::GameObject* pOtherObject, Tr
 
 	if (m_LadderCounter > 0) {
 		m_IsOnLadder = true;
+		m_pRigidBodyComponent->SetGravityEnabled(false);
 	}
 	else {
 		m_IsOnLadder = false;
+		m_pRigidBodyComponent->SetGravityEnabled(true);
 	}
 
 }

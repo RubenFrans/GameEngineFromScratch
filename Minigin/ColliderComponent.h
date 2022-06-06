@@ -36,7 +36,7 @@ protected:
     RigidBodyComponent* m_pRigidBodyComponent;
     std::function<void(BTEngine::GameObject* pCollidedGameObject, TriggerAction action)> m_OnCollisionCallback;
     bool m_IsSensor;
-
+    bool m_ShowPhysicsDebug;
 private:
 
 

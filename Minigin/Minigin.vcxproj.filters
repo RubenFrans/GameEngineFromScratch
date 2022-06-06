@@ -130,6 +130,9 @@
     <Filter Include="Source Files\ResourceManager">
       <UniqueIdentifier>{3ff52323-ccd5-45ca-bf9a-86ea5d6d25c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Debug">
+      <UniqueIdentifier>{aef0e4dc-02a9-412d-bf54-3f6a8c39445d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniginPCH.h">
@@ -318,6 +321,9 @@
     <ClInclude Include="RGBColor.h">
       <Filter>Source Files\Components\TextComponent</Filter>
     </ClInclude>
+    <ClInclude Include="DebugSettings.h">
+      <Filter>Source Files\Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniginPCH.cpp">
@@ -481,6 +487,9 @@
     </ClCompile>
     <ClCompile Include="Font.cpp">
       <Filter>Source Files\Components\TextComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugSettings.cpp">
+      <Filter>Source Files\Debug</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

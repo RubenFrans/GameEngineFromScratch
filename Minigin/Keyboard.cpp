@@ -28,7 +28,8 @@ public:
 		LeftArrow = SDL_SCANCODE_LEFT,
 		RightArrow = SDL_SCANCODE_RIGHT,
 		Space = SDL_SCANCODE_SPACE,
-		Enter = SDL_SCANCODE_RETURN
+		Enter = SDL_SCANCODE_RETURN,
+		F1 = SDL_SCANCODE_F1
 	};
 
 	void CheckKeysPressed() {
@@ -91,6 +92,9 @@ public:
 		case BTEngine::Keyboard::KeyboardImpl::KeyboardSDLMapping::Enter:
 			return KeyboardButton::Enter;
 			break;
+		case BTEngine::Keyboard::KeyboardImpl::KeyboardSDLMapping::F1:
+			return KeyboardButton::F1;
+			break;
 		default:
 			return KeyboardButton::UpArrow;
 			break;
@@ -117,6 +121,9 @@ public:
 			break;
 		case KeyboardButton::Enter:
 			return BTEngine::Keyboard::KeyboardImpl::KeyboardSDLMapping::Enter;
+			break;
+		case KeyboardButton::F1:
+			return BTEngine::Keyboard::KeyboardImpl::KeyboardSDLMapping::F1;
 			break;
 		default:
 			return BTEngine::Keyboard::KeyboardImpl::KeyboardSDLMapping::RightArrow;

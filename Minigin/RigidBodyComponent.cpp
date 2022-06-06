@@ -25,7 +25,7 @@ void RigidBodyComponent::Initialize() {
 	m_InitialPos = FVector2{ m_pTransformComponent->GetWorldTransform().GetPosition().x, m_pTransformComponent->GetWorldTransform().GetPosition().y};
 	assert(m_pTransformComponent != nullptr);
 	InitializeRigidbody();
-	m_pTransformComponent->SetPosition(m_pRigidBody->GetPosition().x, m_pRigidBody->GetPosition().y);
+	m_pTransformComponent->SetWorldPosition(m_pRigidBody->GetPosition().x, m_pRigidBody->GetPosition().y);
 }
 
 void RigidBodyComponent::Update() {
@@ -34,7 +34,7 @@ void RigidBodyComponent::Update() {
 
 void RigidBodyComponent::FixedUpdate()
 {
-	m_pTransformComponent->SetPosition(m_pRigidBody->GetPosition().x, m_pRigidBody->GetPosition().y);
+	m_pTransformComponent->SetWorldPosition(m_pRigidBody->GetPosition().x, m_pRigidBody->GetPosition().y);
 }
 
 void RigidBodyComponent::SetInitialPosition(const FVector2& initialPos) {
@@ -55,6 +55,7 @@ void RigidBodyComponent::InitializeRigidbody()
 	m_pRigidBody->SetType(static_cast<b2BodyType>(m_CurrentRigidType));
 	m_pRigidBody->SetGravityScale(1.0f);
 	m_pRigidBody->SetFixedRotation(true);
+	m_pRigidBody->SetLinearDamping(10.0f);
 }
 
 void RigidBodyComponent::SetRigidBodyType(RigidType type) {
@@ -80,7 +81,6 @@ void RigidBodyComponent::SetVelocity(const FVector2& velocity) {
 void RigidBodyComponent::AddForce(const FVector2& force) {
 
 	m_pRigidBody->ApplyLinearImpulseToCenter({ force.x, force.y }, true);
-
 }
 
 b2Fixture* RigidBodyComponent::AddFixtureToBody(const Rect& boundingBox, ColliderComponent* pColliderComponent) {
@@ -106,7 +106,7 @@ b2Fixture* RigidBodyComponent::AddFixtureToBody(float radius, ColliderComponent*
 	def.density = 1.0f;
 	def.isSensor = pColliderComponent->IsSensor();
 	def.userData.pointer = reinterpret_cast<uintptr_t>(pColliderComponent);
-	
+
 	b2Fixture* pFixture = m_pRigidBody->CreateFixture(&def);
 
 	return pFixture;
@@ -114,13 +114,22 @@ b2Fixture* RigidBodyComponent::AddFixtureToBody(float radius, ColliderComponent*
 }
 
 void RigidBodyComponent::SetPosition(const FVector2& position) {
-
 	m_pTransformComponent->SetPosition(position.x, position.y);
 	m_pRigidBody->SetTransform({ position.x, position.y }, 0.0f);
-
 }
 
 FVector2 RigidBodyComponent::GetPosition() const {
 	FVector2 position{ m_pRigidBody->GetPosition().x, m_pRigidBody->GetPosition().y };
 	return position;
+}
+
+void RigidBodyComponent::SetGravityEnabled(bool enabled) {
+	
+	if (enabled) {
+		m_pRigidBody->SetGravityScale(1.0f);
+	}
+	else {
+		m_pRigidBody->SetGravityScale(0.0f);
+	}
+
 }

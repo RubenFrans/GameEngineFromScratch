@@ -26,3 +26,14 @@ public:
 private:
 };
 
+class ToggleDebugCommand
+	: public Command
+{
+public:
+	ToggleDebugCommand() = default;
+	virtual ~ToggleDebugCommand() = default;
+	virtual void Execute() override;
+private:
+
+};
+

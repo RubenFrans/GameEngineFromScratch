@@ -261,6 +261,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     <ClInclude Include="Command.h" />
     <ClInclude Include="ContactListener.h" />
     <ClInclude Include="ControllerButtons.h" />
+    <ClInclude Include="DebugSettings.h" />
     <ClInclude Include="Events.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="FPSComponent.h" />
@@ -323,6 +324,7 @@ xcopy "$(solutiondir)3rdParty\SDL2_mixer\lib\x64\*dll" "$(OutputPath)" /R /Y</Co
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="ContactListener.cpp" />
+    <ClCompile Include="DebugSettings.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FPSComponent.cpp" />
     <ClCompile Include="GameObject.cpp" />

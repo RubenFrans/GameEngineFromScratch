@@ -51,7 +51,7 @@ void BurgerEngine::LoadGame()
 
 	auto pepperTransform = mrPepper->AddComponent<TransformComponent>();
 	pepperTransform->SetSize(50.0f, 50.0f);
-	pepperTransform->Translate(0.0f, 100.0f);
+	pepperTransform->Translate(150.0f, 100.0f);
 	mrPepper->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
 	mrPepper->AddComponent<AnimationComponent>();
 
@@ -60,11 +60,11 @@ void BurgerEngine::LoadGame()
 	auto collider = mrPepper->AddComponent<CircleCollider>();
 		collider->SetRadius(25.0f);
 	
-	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Right, std::make_shared<MoveRightCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
-	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Left, std::make_shared<MoveLeftCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
-	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Up, std::make_shared<MoveUpCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
-	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Down, std::make_shared<MoveDownCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
-	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonA, std::make_shared<PlaySoundCommand>(), ButtonBehaviour::DownThisFrame);
+	//InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Right, std::make_shared<MoveRightCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
+	//InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Left, std::make_shared<MoveLeftCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
+	//InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Up, std::make_shared<MoveUpCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
+	//InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Down, std::make_shared<MoveDownCommand>(pepperComp), ButtonBehaviour::Pressed, 0);
+	//InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonA, std::make_shared<PlaySoundCommand>(), ButtonBehaviour::DownThisFrame);
 
 	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::RightArrow, std::make_shared<MoveRightCommand>(pepperComp), ButtonBehaviour::Pressed);
 	InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::LeftArrow, std::make_shared<MoveLeftCommand>(pepperComp), ButtonBehaviour::Pressed);
@@ -75,14 +75,49 @@ void BurgerEngine::LoadGame()
 
 #pragma endregion
 
+
+#pragma region MsSalt
+
+	auto msSalt = std::make_shared<GameObject>();
+	msSalt->SetTag("Peter");
+	auto saltComp = msSalt->AddComponent<MrPepperComponent>();
+
+	auto saltTransform = msSalt->AddComponent<TransformComponent>();
+	saltTransform->SetSize(50.0f, 50.0f);
+	saltTransform->Translate(500.0f, 100.0f);
+	msSalt->AddComponent<RenderComponent>()->SetTexture("spritesheet.png");
+	msSalt->AddComponent<AnimationComponent>();
+
+
+	msSalt->AddComponent<RigidBodyComponent>();
+	auto saltCollider = msSalt->AddComponent<CircleCollider>();
+	saltCollider->SetRadius(25.0f);
+
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Right, std::make_shared<MoveRightCommand>(saltComp), ButtonBehaviour::Pressed, 0);
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Left, std::make_shared<MoveLeftCommand>(saltComp), ButtonBehaviour::Pressed, 0);
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Up, std::make_shared<MoveUpCommand>(saltComp), ButtonBehaviour::Pressed, 0);
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::DPad_Down, std::make_shared<MoveDownCommand>(saltComp), ButtonBehaviour::Pressed, 0);
+	InputManager::GetInstance().AddButtonMapping(ControllerButton::ButtonA, std::make_shared<PlaySoundCommand>(), ButtonBehaviour::DownThisFrame);
+
+	//InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::RightArrow, std::make_shared<MoveRightCommand>(saltComp), ButtonBehaviour::Pressed);
+	//InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::LeftArrow, std::make_shared<MoveLeftCommand>(saltComp), ButtonBehaviour::Pressed);
+	//InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::UpArrow, std::make_shared<MoveUpCommand>(saltComp), ButtonBehaviour::Pressed);
+	//InputManager::GetInstance().AddKeyboardMapping(KeyboardButton::DownArrow, std::make_shared<MoveDownCommand>(saltComp), ButtonBehaviour::Pressed);
+
+	scene.Add(msSalt);
+
+#pragma endregion
+
 #pragma region BurgerTest
 
 	auto pIngridient = std::make_shared<GameObject>();
 	auto pTransform = pIngridient->AddComponent<TransformComponent>();
-	pTransform->Translate(100.f, 200.0f);
+	pTransform->Translate(550.f, 100.0f);
 	//pTransform->SetSize(3.0f, 3.0f);
 
 	auto inComp = pIngridient->AddComponent<IngredientComponent>();
+	pIngridient->AddComponent<RigidBodyComponent>();
+
 	inComp->InitializeIngredientParts(&scene);
 	scene.Add(pIngridient);
 

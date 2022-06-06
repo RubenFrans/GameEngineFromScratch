@@ -47,11 +47,8 @@ private:
 
 	std::shared_ptr<PhysicsManager> m_pPhysicsManager;
 
-	// platform locations
-
-	// ladder trigger locations
-
-	// burger ingredient locations
+	int m_HorizontalOffset;
+	int m_VerticalOffset;
 
 };
 
