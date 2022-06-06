@@ -52,10 +52,10 @@ public:
             XINPUT_STATE cState = GetControllerState();
 
             if (cState.Gamepad.wButtons & int((*it).first)) {
-                std::cout << "Controller " << m_ControllerId << ": ";
+                //std::cout << "Controller " << m_ControllerId << ": ";
                 it->second->Execute();
 
-                std::cout << " is pressed" << std::endl;
+                //std::cout << " is pressed" << std::endl;
             }
         }
     }
@@ -67,9 +67,9 @@ public:
             auto cState = GetButtonsPressedThisFrame();
 
             if (cState & int((*it).first)) {
-                std::cout << "Controller " << m_ControllerId << ": ";
+                //std::cout << "Controller " << m_ControllerId << ": ";
                 it->second->Execute();
-                std::cout << " has gone down this frame" << std::endl;
+                //std::cout << " has gone down this frame" << std::endl;
             }
         }
     }
@@ -81,10 +81,10 @@ public:
             auto cState = GetButtonsReleasedThisFrame();
 
             if (cState & int((*it).first)) {
-                std::cout << "Controller " << m_ControllerId << ": ";
+               // std::cout << "Controller " << m_ControllerId << ": ";
                 it->second->Execute();
 
-                std::cout << " has gone up this frame" << std::endl;
+                //std::cout << " has gone up this frame" << std::endl;
             }
         }
     }
